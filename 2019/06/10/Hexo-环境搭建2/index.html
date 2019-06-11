@@ -7,18 +7,18 @@
   
   <title>Hexo 环境搭建(2) | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="9.创建”分类”页面*新建”分类”页面 1$ hexo new page categories  执行完该操作，会在source文件下生成categories文件夹，并且该文件夹下会有一个index.md文件。 *给分类页面添加类型打开index.md，添加type属性。 1$ gedit index.md  12345---title: 文章分类date: 2019-6-10 19:29:40t">
+  <meta name="description" content="9.创建”分类”页面 新建”分类”页面1$ hexo new page categories    执行完该操作，会在source文件下生成categories文件夹，并且该文件夹下会产生一个index.md文件。  给分类页面添加类型打开上述index.md，添加type属性。1234567$ gedit index.md---title: 文章分类date: 2019-6-10 19:29:4">
 <meta name="keywords" content="node.js">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Hexo 环境搭建(2)">
 <meta property="og:url" content="chenhongbing.github.io/2019/06/10/Hexo-环境搭建2/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="9.创建”分类”页面*新建”分类”页面 1$ hexo new page categories  执行完该操作，会在source文件下生成categories文件夹，并且该文件夹下会有一个index.md文件。 *给分类页面添加类型打开index.md，添加type属性。 1$ gedit index.md  12345---title: 文章分类date: 2019-6-10 19:29:40t">
+<meta property="og:description" content="9.创建”分类”页面 新建”分类”页面1$ hexo new page categories    执行完该操作，会在source文件下生成categories文件夹，并且该文件夹下会产生一个index.md文件。  给分类页面添加类型打开上述index.md，添加type属性。1234567$ gedit index.md---title: 文章分类date: 2019-6-10 19:29:4">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-06-11T01:43:53.649Z">
+<meta property="og:updated_time" content="2019-06-11T08:19:53.873Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Hexo 环境搭建(2)">
-<meta name="twitter:description" content="9.创建”分类”页面*新建”分类”页面 1$ hexo new page categories  执行完该操作，会在source文件下生成categories文件夹，并且该文件夹下会有一个index.md文件。 *给分类页面添加类型打开index.md，添加type属性。 1$ gedit index.md  12345---title: 文章分类date: 2019-6-10 19:29:40t">
+<meta name="twitter:description" content="9.创建”分类”页面 新建”分类”页面1$ hexo new page categories    执行完该操作，会在source文件下生成categories文件夹，并且该文件夹下会产生一个index.md文件。  给分类页面添加类型打开上述index.md，添加type属性。1234567$ gedit index.md---title: 文章分类date: 2019-6-10 19:29:4">
   
     <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -95,49 +95,81 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="9-创建”分类”页面"><a href="#9-创建”分类”页面" class="headerlink" title="9.创建”分类”页面"></a>9.创建”分类”页面</h3><p>*新建”分类”页面</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new page categories</span><br></pre></td></tr></table></figure>
+        <h3 id="9-创建”分类”页面"><a href="#9-创建”分类”页面" class="headerlink" title="9.创建”分类”页面"></a>9.创建”分类”页面</h3><ul>
+<li>新建”分类”页面<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new page categories</span><br></pre></td></tr></table></figure>
 
-<p>执行完该操作，会在source文件下生成categories文件夹，并且该文件夹下会有一个index.md文件。</p>
-<p>*给分类页面添加类型<br>打开index.md，添加type属性。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ gedit index.md</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>执行完该操作，会在source文件下生成categories文件夹，并且该文件夹下会产生一个index.md文件。</p>
+<ul>
+<li>给分类页面添加类型<br>打开上述index.md，添加type属性。<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">$ gedit index.md</span><br><span class="line"></span><br><span class="line">---</span><br><span class="line">title: 文章分类</span><br><span class="line">date: 2019-6-10 19:29:40</span><br><span class="line"><span class="built_in">type</span>: <span class="string">"categories"</span></span><br><span class="line">---</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<ul>
+<li>给模板添加分类属性<br>打开scarffolds文件夹下的post.md文件，在头部添加categories:。<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">$ gedit post.md</span><br><span class="line"></span><br><span class="line">title: &#123;&#123; title &#125;&#125;</span><br><span class="line">date: &#123;&#123; date &#125;&#125;</span><br><span class="line">categories:</span><br><span class="line">tags:</span><br></pre></td></tr></table></figure>
 
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">---</span><br><span class="line">title: 文章分类</span><br><span class="line">date: 2019-6-10 19:29:40</span><br><span class="line"><span class="built_in">type</span>: <span class="string">"categories"</span></span><br><span class="line">---</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>执行完该操作，创建的所有新文章都会自带categories属性，我们只需填写分类信息，就可在自建的Hexo网站上自动形成分类。</p>
+<ul>
+<li>给文章添加分类<br>以本文为例（以后每次只需要做该操作）<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">---</span><br><span class="line">title: Hexo 环境搭建(2)</span><br><span class="line">date: 2019-06-10 16:29:17</span><br><span class="line">categories: Hexo 环境搭建</span><br><span class="line">tags: [node.js]</span><br><span class="line">---</span><br></pre></td></tr></table></figure>
 
-<p>*给模板添加分类属性<br>打开scarffolds文件夹下的post.md文件，在头部添加categories:，如下图所示。这样我们创建的所有新的文章都会自带这个属性，我们只需要往里填分类，就可以自动在网站上形成分类了。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">title: &#123;&#123; title &#125;&#125;</span><br><span class="line">date: &#123;&#123; date &#125;&#125;</span><br><span class="line">categories:</span><br><span class="line">tags:</span><br></pre></td></tr></table></figure>
-
-<p>*给文章添加分类<br>以本文为例</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">---</span><br><span class="line">title: Hexo 环境搭建(2)</span><br><span class="line">date: 2019-06-10 16:29:17</span><br><span class="line">categories: Hexo 环境搭建</span><br><span class="line">tags: [node.js]</span><br><span class="line">---</span><br></pre></td></tr></table></figure>
-
+</li>
+</ul>
 <h3 id="10-创建”标签”页面"><a href="#10-创建”标签”页面" class="headerlink" title="10.创建”标签”页面"></a>10.创建”标签”页面</h3><p>与创建”分类”页面类似</p>
-<p>*新建”标签”页面</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new page tags</span><br></pre></td></tr></table></figure>
+<ul>
+<li>新建”标签”页面<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new page tags</span><br></pre></td></tr></table></figure>
 
-<p>此时会在source文件夹下生成tags文件夹，并且该文件夹下会包含index.md文件。</p>
-<p>*给标签页面添加类型<br>在上述index.md文件的头部添加type属性。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">title: tags</span><br><span class="line">date: 2019-06-10 19:44:00</span><br><span class="line"><span class="built_in">type</span>: <span class="string">"tags"</span></span><br></pre></td></tr></table></figure>
-
-<p>*给文章添加标签<br>有两种写法，第一种是类似数组的写法，把标签放在中括号[]里，用英文逗号隔开，如下</p>
+</li>
+</ul>
+<p>执行完该操作，会在source文件夹下生成tags文件夹，并且该文件夹下会产生一个index.md文件。</p>
+<ul>
+<li><p>给标签页面添加类型<br>打开上述index.md，添加type属性。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">$ gedit index.md</span><br><span class="line"></span><br><span class="line">---</span><br><span class="line">title: tags</span><br><span class="line">date: 2019-06-10 19:44:00</span><br><span class="line"><span class="built_in">type</span>: <span class="string">"tags"</span></span><br><span class="line">---</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>给文章添加标签<br>以本文为例（以后每次只需要做该操作）<br>有两种写法，第一种写法是类似数组，把标签放在中括号[]里，用英文逗号隔开，如下</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">---</span><br><span class="line">title: Hexo 环境搭建(2)</span><br><span class="line">date: 2019-06-10 16:29:17</span><br><span class="line">categories: Hexo 环境搭建</span><br><span class="line">tags: [node.js]</span><br><span class="line">---</span><br></pre></td></tr></table></figure>
 
 <p>第二种写法用-短划线列出来</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">---</span><br><span class="line">title: Hexo 环境搭建(2)</span><br><span class="line">date: 2019-06-10 16:29:17</span><br><span class="line">categories: Hexo 环境搭建</span><br><span class="line">tags:</span><br><span class="line">- node.js</span><br><span class="line">---</span><br></pre></td></tr></table></figure>
 
-<h3 id="11-更换主题"><a href="#11-更换主题" class="headerlink" title="11.更换主题"></a>11.更换主题</h3><p>参考：<a href="https://www.tuicool.com/articles/zeIZJzv" target="_blank" rel="noopener">https://www.tuicool.com/articles/zeIZJzv</a><br>网上推荐Next主题比较多，以Next主题为例:</p>
-<p>*安装</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">cd</span> ~/blog/theme</span><br><span class="line">$ git <span class="built_in">clone</span> https://github.com/theme-next/hexo-theme-next</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="11-更换主题"><a href="#11-更换主题" class="headerlink" title="11.更换主题"></a>11.更换主题</h3><p>hexo官方主题本身很美观，但是其功能较简单，现采用其优化升级后的主题landscape。</p>
+<ul>
+<li>安装<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">cd</span> ~/blog/theme</span><br><span class="line">$ git <span class="built_in">clone</span> https://github.com/xiangming/landscape-plus.git themes/landscape-plus</span><br></pre></td></tr></table></figure>
 
-<p>将hexo-theme-next文件夹名称改为next</p>
-<p>*设置主题</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">cd</span> ~/blog</span><br><span class="line">$ gedit _config.yml</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>将landscape-plus-master文件夹名称改为landscape-plus</p>
+<ul>
+<li><p>启用主题，修改theme</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">cd</span> ~/blog</span><br><span class="line">$ gedit _config.yml</span><br><span class="line"></span><br><span class="line">theme: landscape-plus</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>主题默认配置文件landscape-plus_config.yml</p>
+<blockquote>
+<h1 id="Header"><a href="#Header" class="headerlink" title="Header"></a>Header</h1><p>menu:<br>  Home: /<br>  Archives: /archives<br>rss: /atom.xml</p>
+<h1 id="Content"><a href="#Content" class="headerlink" title="Content"></a>Content</h1><p>excerpt_link: Read More<br>fancybox: true<br>mathjax: false</p>
+<h1 id="Sidebar"><a href="#Sidebar" class="headerlink" title="Sidebar"></a>Sidebar</h1><p>sidebar: right<br>widgets:</p>
+<ul>
+<li>category</li>
+<li>tag</li>
+<li>tagcloud</li>
+<li>archive</li>
+<li>recent_posts</li>
+<li>links</li>
+</ul>
+<h1 id="Miscellaneous"><a href="#Miscellaneous" class="headerlink" title="Miscellaneous"></a>Miscellaneous</h1><p>google_analytics:<br>favicon: /favicon.png<br>twitter:<br>google_plus<br>fb_admins:<br>fb_app_id:</p>
+<h1 id="Comment-system"><a href="#Comment-system" class="headerlink" title="Comment system"></a>Comment system</h1><p>duoshuo_shortname: your_shortname<br>disqus_shortname: your_shortname</p>
+<h1 id="Baidu-Share"><a href="#Baidu-Share" class="headerlink" title="Baidu Share"></a>Baidu Share</h1><p>baidushare: true</p>
+</blockquote>
+</li>
+</ul>
+<ul>
+<li>配置主题<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> ~/blog/themes/next</span><br><span class="line">gedit _config.yml</span><br></pre></td></tr></table></figure>
 
-<p>修改</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">theme: next</span><br></pre></td></tr></table></figure>
-
-<p>配置主题</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> ~/blog/themes/next</span><br><span class="line">gedit _config.yml</span><br></pre></td></tr></table></figure>
-
+</li>
+</ul>
 <p>菜单栏menu<br>原生菜单栏有主页、关于、标签、分类等数个选项，但是在配置文件中是注释掉的状态，这里自行修改注释即可</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">menu:</span><br><span class="line">  home: / || home</span><br><span class="line">  <span class="comment">#about: /about/ || user</span></span><br><span class="line">  tags: /tags/ ||tags</span><br><span class="line">  categories: /categories/ || th</span><br><span class="line">  archives: /archives/ || archive</span><br><span class="line">  <span class="comment">#schedule: /schedule/ || calendar</span></span><br><span class="line">  <span class="comment">#sitemap: /sitemap.xml || sitemap</span></span><br><span class="line">  <span class="comment">#commonweal: /404/ || heartbeat</span></span><br></pre></td></tr></table></figure>
 
@@ -158,7 +190,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="chenhongbing.github.io/2019/06/10/Hexo-环境搭建2/" data-id="cjwr62hsw00043pjhe26av01y" class="article-share-link">Share</a>
+      <a data-url="chenhongbing.github.io/2019/06/10/Hexo-环境搭建2/" data-id="cjwrkrbj70002dxjhgfyvnk2j" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/node-js/">node.js</a></li></ul>
@@ -259,6 +291,8 @@
   </div>
 
   
+    
+  
 </aside>
         
       </div>
@@ -290,6 +324,22 @@
 
 <script src="/js/script.js"></script>
 
+
+
+<!--  百度统计
+<script type="text/javascript">
+var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3F140dd3dc3eb949d6e77762baa6202ce9' type='text/javascript'%3E%3C/script%3E"));
+</script>
+--> <script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?8249878f4836242732b5440d03f198f6";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
 
 
   </div>
