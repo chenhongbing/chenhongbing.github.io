@@ -7,18 +7,18 @@
   
   <title>Hexo 环境搭建(1) | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="本文为Hexo的在linux下的入门教程。 1.安装Git1$ sudo apt-get install git  2.安装node.js与npm12$ sudo apt-get install nodejs$ sudo apt-get install npm  查看是否安装成功 12$ node -v$ npm -v  3.安装hexo新建一个文件夹hexo 12$ mkdir hexo$ cd">
+  <meta name="description" content="本文为Hexo的在linux下的入门教程。  1.安装Git 1$ sudo apt-get install git  2.安装node.js与npm 12$ sudo apt-get install nodejs$ sudo apt-get install npm 查看是否安装成功 12$ node -v$ npm -v  3.安装hexo 新建一个文件夹hexo 12$ mkdir hexo$">
 <meta name="keywords" content="node.js">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Hexo 环境搭建(1)">
 <meta property="og:url" content="chenhongbing.github.io/2019/06/11/Hexo-环境搭建1/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="本文为Hexo的在linux下的入门教程。 1.安装Git1$ sudo apt-get install git  2.安装node.js与npm12$ sudo apt-get install nodejs$ sudo apt-get install npm  查看是否安装成功 12$ node -v$ npm -v  3.安装hexo新建一个文件夹hexo 12$ mkdir hexo$ cd">
+<meta property="og:description" content="本文为Hexo的在linux下的入门教程。  1.安装Git 1$ sudo apt-get install git  2.安装node.js与npm 12$ sudo apt-get install nodejs$ sudo apt-get install npm 查看是否安装成功 12$ node -v$ npm -v  3.安装hexo 新建一个文件夹hexo 12$ mkdir hexo$">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:updated_time" content="2019-06-11T02:01:57.539Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Hexo 环境搭建(1)">
-<meta name="twitter:description" content="本文为Hexo的在linux下的入门教程。 1.安装Git1$ sudo apt-get install git  2.安装node.js与npm12$ sudo apt-get install nodejs$ sudo apt-get install npm  查看是否安装成功 12$ node -v$ npm -v  3.安装hexo新建一个文件夹hexo 12$ mkdir hexo$ cd">
+<meta name="twitter:description" content="本文为Hexo的在linux下的入门教程。  1.安装Git 1$ sudo apt-get install git  2.安装node.js与npm 12$ sudo apt-get install nodejs$ sudo apt-get install npm 查看是否安装成功 12$ node -v$ npm -v  3.安装hexo 新建一个文件夹hexo 12$ mkdir hexo$">
   
     <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -29,6 +29,7 @@
     <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
   
   <link rel="stylesheet" href="/css/style.css">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css" rel="stylesheet" type="text/css">
 </head>
 </html>
 <body>
@@ -96,71 +97,70 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p>本文为Hexo的在linux下的入门教程。</p>
-<h3 id="1-安装Git"><a href="#1-安装Git" class="headerlink" title="1.安装Git"></a>1.安装Git</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo apt-get install git</span><br></pre></td></tr></table></figure>
-
-<h3 id="2-安装node-js与npm"><a href="#2-安装node-js与npm" class="headerlink" title="2.安装node.js与npm"></a>2.安装node.js与npm</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ sudo apt-get install nodejs</span><br><span class="line">$ sudo apt-get install npm</span><br></pre></td></tr></table></figure>
-
+<h3 id="1安装git"><a class="markdownIt-Anchor" href="#1安装git"></a> 1.安装Git</h3>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo apt-get install git</span><br></pre></td></tr></table></figure>
+<h3 id="2安装nodejs与npm"><a class="markdownIt-Anchor" href="#2安装nodejs与npm"></a> 2.安装node.js与npm</h3>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ sudo apt-get install nodejs</span><br><span class="line">$ sudo apt-get install npm</span><br></pre></td></tr></table></figure>
 <p>查看是否安装成功</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ node -v</span><br><span class="line">$ npm -v</span><br></pre></td></tr></table></figure>
-
-<h3 id="3-安装hexo"><a href="#3-安装hexo" class="headerlink" title="3.安装hexo"></a>3.安装hexo</h3><p>新建一个文件夹hexo</p>
+<h3 id="3安装hexo"><a class="markdownIt-Anchor" href="#3安装hexo"></a> 3.安装hexo</h3>
+<p>新建一个文件夹hexo</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ mkdir hexo</span><br><span class="line">$ <span class="built_in">cd</span> ~/hexo</span><br></pre></td></tr></table></figure>
-
 <p>安装hexo</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm install -g hexo-cli</span><br></pre></td></tr></table></figure>
-
-<p>查看 </p>
+<p>查看</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo -v</span><br></pre></td></tr></table></figure>
-
 <p>初始化</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo init</span><br></pre></td></tr></table></figure>
-
 <p>安装</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm install</span><br></pre></td></tr></table></figure>
-
-<p>此时会生成一些文件夹，含以下文件<br>node_modules: 依赖包<br>public: 存放生成页面<br>scaffolds: 生成文章的一些模板<br>themes: 主题<br>_config.yml: 博客的配置文件</p>
+<p>此时会生成一些文件夹，含以下文件<br>
+node_modules: 依赖包<br>
+public: 存放生成页面<br>
+scaffolds: 生成文章的一些模板<br>
+themes: 主题<br>
+_config.yml: 博客的配置文件</p>
 <p>生成</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
 <p>安装服务器</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo npm install hexo-server</span><br></pre></td></tr></table></figure>
-
 <p>启动本地调试服务器</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<h3 id="4-Github"><a href="#4-Github" class="headerlink" title="4.Github"></a>4.Github</h3><p>打开Github官网，注册账号<br>在Github账号下，新建一个仓库，仓库名为：用户名.github.io，选择喜欢的theme及master branch。</p>
-<h3 id="5-生成SSH添加到Github"><a href="#5-生成SSH添加到Github" class="headerlink" title="5.生成SSH添加到Github"></a>5.生成SSH添加到Github</h3><p>配置</p>
+<h3 id="4github"><a class="markdownIt-Anchor" href="#4github"></a> 4.Github</h3>
+<p>打开Github官网，注册账号<br>
+在Github账号下，新建一个仓库，仓库名为：<a href="http://xn--eqr924avxo.github.io" target="_blank" rel="noopener">用户名.github.io</a>，选择喜欢的theme及master branch。</p>
+<h3 id="5生成ssh添加到github"><a class="markdownIt-Anchor" href="#5生成ssh添加到github"></a> 5.生成SSH添加到Github</h3>
+<p>配置</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ git config --global user.name <span class="string">"your name"</span></span><br><span class="line">$ git config --global user.email <span class="string">"your email"</span></span><br></pre></td></tr></table></figure>
-
 <p>查看</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ git config user.name</span><br><span class="line">$ git config user.email</span><br></pre></td></tr></table></figure>
-
 <p>创建SSH，一路回车</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ ssh-keygen -t rsa -C <span class="string">"youremail"</span></span><br></pre></td></tr></table></figure>
-
-<p>生成.ssh文件夹，该文件下包含两个文件，分别为id_rsa和id_rsa.pub，id_isa为私钥，id_rsa.pub为公钥，复制id_rsa.pub的内容。<br>完成这样的配置：Github 账户下setting -&gt; SSH KEYS -&gt; New SSH KEY -&gt;复制id_rsa.pub内容。</p>
+<p>生成.ssh文件夹，该文件下包含两个文件，分别为id_rsa和id_rsa.pub，id_isa为私钥，id_rsa.pub为公钥，复制id_rsa.pub的内容。<br>
+完成这样的配置：Github 账户下setting -&gt; SSH KEYS -&gt; New SSH KEY -&gt;复制id_rsa.pub内容。</p>
 <p>查看是否配置成功</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh -T git@github.com</span><br></pre></td></tr></table></figure>
-
-<h3 id="6-将hexo部署到Github"><a href="#6-将hexo部署到Github" class="headerlink" title="6.将hexo部署到Github"></a>6.将hexo部署到Github</h3><p>打开文件_config.yml，修改如下配置:</p>
+<h3 id="6将hexo部署到github"><a class="markdownIt-Anchor" href="#6将hexo部署到github"></a> 6.将hexo部署到Github</h3>
+<p>打开文件_config.yml，修改如下配置:</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">deploy: </span><br><span class="line">  <span class="built_in">type</span>: git</span><br><span class="line">  repo: 用户名.github.io地址</span><br><span class="line">  branch: master</span><br></pre></td></tr></table></figure>
-
 <p>先安装如下命令，这样才能将你写好的文章部署到github服务器上，并让别人浏览到。</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm install hexo-deployer-git --save</span><br></pre></td></tr></table></figure>
-
 <p>部署</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ hexo clean</span><br><span class="line">$ hexo generate</span><br><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>hexo generate为生成静态文章，hexo　deploy为部署文章<br>访问: <a href="http://yourname.github.io" target="_blank" rel="noopener">http://yourname.github.io</a></p>
-<h3 id="7-新建文章"><a href="#7-新建文章" class="headerlink" title="7.新建文章"></a>7.新建文章</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"title"</span></span><br></pre></td></tr></table></figure>
-
-<p>此时在source_posts文件夹中便会多出一个文档title.md.<br>如果要删除，直接在此文件夹下删除对应的文件即可。</p>
-<h3 id="8-绑定域名"><a href="#8-绑定域名" class="headerlink" title="8.绑定域名"></a>8.绑定域名</h3><p>目前，个人网站网址为：用户名.github.io。<br>需要在相应网站购买域名，然后进行相应操作。</p>
+<p>hexo generate为生成静态文章，hexo　deploy为部署文章<br>
+访问: <a href="http://yourname.github.io" target="_blank" rel="noopener">http://yourname.github.io</a></p>
+<h3 id="7新建文章"><a class="markdownIt-Anchor" href="#7新建文章"></a> 7.新建文章</h3>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"title"</span></span><br></pre></td></tr></table></figure>
+<p>此时在source_posts文件夹中便会多出一个文档title.md.<br>
+如果要删除，直接在此文件夹下删除对应的文件即可。</p>
+<h3 id="8绑定域名"><a class="markdownIt-Anchor" href="#8绑定域名"></a> 8.绑定域名</h3>
+<p>目前，个人网站网址为：<a href="http://xn--eqr924avxo.github.io" target="_blank" rel="noopener">用户名.github.io</a>。<br>
+需要在相应网站购买域名，然后进行相应操作。</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="chenhongbing.github.io/2019/06/11/Hexo-环境搭建1/" data-id="cjwrl4o310000jhjheft2lpov" class="article-share-link">Share</a>
+      <a data-url="chenhongbing.github.io/2019/06/11/Hexo-环境搭建1/" data-id="cjwt7ao7v0002r2jhidor2awh" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/node-js/">node.js</a></li></ul>
@@ -170,6 +170,15 @@
   
     
 <nav id="article-nav">
+  
+    <a href="/2019/06/12/深度学习面试总结之特征工程/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          特征工程
+        
+      </div>
+    </a>
   
   
     <a href="/2019/06/10/Hexo-环境搭建2/" id="article-nav-older" class="article-nav-link-wrap">
@@ -182,6 +191,7 @@
   
 </article>
 
+
 </section>
         
           <aside id="sidebar">
@@ -190,7 +200,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Categories</h3>
     <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Hexo-环境搭建/">Hexo 环境搭建</a></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Hexo-环境搭建/">Hexo 环境搭建</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/深度学习面试总结/">深度学习面试总结</a></li></ul>
     </div>
   </div>
 
@@ -200,7 +210,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tags</h3>
     <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/node-js/">node.js</a></li></ul>
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/deep-learing/">deep learing</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/node-js/">node.js</a></li></ul>
     </div>
   </div>
 
@@ -210,7 +220,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/node-js/" style="font-size: 10px;">node.js</a>
+      <a href="/tags/deep-learing/" style="font-size: 10px;">deep learing</a> <a href="/tags/node-js/" style="font-size: 20px;">node.js</a>
     </div>
   </div>
 
@@ -230,6 +240,10 @@
     <h3 class="widget-title">Recent Posts</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2019/06/12/深度学习面试总结之特征工程/">特征工程</a>
+          </li>
         
           <li>
             <a href="/2019/06/11/Hexo-环境搭建1/">Hexo 环境搭建(1)</a>

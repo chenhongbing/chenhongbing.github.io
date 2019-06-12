@@ -7,18 +7,18 @@
   
   <title>Hexo 环境搭建(2) | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="9.创建”分类”页面 新建”分类”页面1$ hexo new page categories    执行完该操作，会在source文件下生成categories文件夹，并且该文件夹下会产生一个index.md文件。  给分类页面添加类型打开上述index.md，添加type属性。1234567$ gedit index.md---title: 文章分类date: 2019-6-10 19:29:4">
+  <meta name="description" content="9.创建&amp;quot;分类&amp;quot;页面  新建&amp;quot;分类&amp;quot;页面  1$ hexo new page categories 执行完该操作，会在source文件下生成categories文件夹，并且该文件夹下会产生一个index.md文件。  给分类页面添加类型 打开上述index.md，添加type属性。  1234567$ gedit index.md---title: 文章分">
 <meta name="keywords" content="node.js">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Hexo 环境搭建(2)">
 <meta property="og:url" content="chenhongbing.github.io/2019/06/10/Hexo-环境搭建2/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="9.创建”分类”页面 新建”分类”页面1$ hexo new page categories    执行完该操作，会在source文件下生成categories文件夹，并且该文件夹下会产生一个index.md文件。  给分类页面添加类型打开上述index.md，添加type属性。1234567$ gedit index.md---title: 文章分类date: 2019-6-10 19:29:4">
+<meta property="og:description" content="9.创建&amp;quot;分类&amp;quot;页面  新建&amp;quot;分类&amp;quot;页面  1$ hexo new page categories 执行完该操作，会在source文件下生成categories文件夹，并且该文件夹下会产生一个index.md文件。  给分类页面添加类型 打开上述index.md，添加type属性。  1234567$ gedit index.md---title: 文章分">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-06-11T08:19:53.873Z">
+<meta property="og:updated_time" content="2019-06-12T12:18:35.672Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Hexo 环境搭建(2)">
-<meta name="twitter:description" content="9.创建”分类”页面 新建”分类”页面1$ hexo new page categories    执行完该操作，会在source文件下生成categories文件夹，并且该文件夹下会产生一个index.md文件。  给分类页面添加类型打开上述index.md，添加type属性。1234567$ gedit index.md---title: 文章分类date: 2019-6-10 19:29:4">
+<meta name="twitter:description" content="9.创建&amp;quot;分类&amp;quot;页面  新建&amp;quot;分类&amp;quot;页面  1$ hexo new page categories 执行完该操作，会在source文件下生成categories文件夹，并且该文件夹下会产生一个index.md文件。  给分类页面添加类型 打开上述index.md，添加type属性。  1234567$ gedit index.md---title: 文章分">
   
     <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -29,6 +29,7 @@
     <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
   
   <link rel="stylesheet" href="/css/style.css">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css" rel="stylesheet" type="text/css">
 </head>
 </html>
 <body>
@@ -95,62 +96,118 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="9-创建”分类”页面"><a href="#9-创建”分类”页面" class="headerlink" title="9.创建”分类”页面"></a>9.创建”分类”页面</h3><ul>
-<li>新建”分类”页面<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new page categories</span><br></pre></td></tr></table></figure>
-
-</li>
+        <h3 id="9创建分类页面"><a class="markdownIt-Anchor" href="#9创建分类页面"></a> 9.创建&quot;分类&quot;页面</h3>
+<ul>
+<li>新建&quot;分类&quot;页面</li>
 </ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new page categories</span><br></pre></td></tr></table></figure>
 <p>执行完该操作，会在source文件下生成categories文件夹，并且该文件夹下会产生一个index.md文件。</p>
 <ul>
-<li>给分类页面添加类型<br>打开上述index.md，添加type属性。<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">$ gedit index.md</span><br><span class="line"></span><br><span class="line">---</span><br><span class="line">title: 文章分类</span><br><span class="line">date: 2019-6-10 19:29:40</span><br><span class="line"><span class="built_in">type</span>: <span class="string">"categories"</span></span><br><span class="line">---</span><br></pre></td></tr></table></figure>
-</li>
+<li>给分类页面添加类型<br>
+<a href="http://xn--index-4h1h762hrtfzm9i.md" target="_blank" rel="noopener">打开上述index.md</a>，添加type属性。</li>
 </ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">$ gedit index.md</span><br><span class="line"></span><br><span class="line">---</span><br><span class="line">title: 文章分类</span><br><span class="line">date: 2019-6-10 19:29:40</span><br><span class="line"><span class="built_in">type</span>: <span class="string">"categories"</span></span><br><span class="line">---</span><br></pre></td></tr></table></figure>
 <ul>
-<li>给模板添加分类属性<br>打开scarffolds文件夹下的post.md文件，在头部添加categories:。<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">$ gedit post.md</span><br><span class="line"></span><br><span class="line">title: &#123;&#123; title &#125;&#125;</span><br><span class="line">date: &#123;&#123; date &#125;&#125;</span><br><span class="line">categories:</span><br><span class="line">tags:</span><br></pre></td></tr></table></figure>
-
-</li>
+<li>给模板添加分类属性<br>
+打开scarffolds文件夹下的post.md文件，在头部添加categories:。</li>
 </ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">$ gedit post.md</span><br><span class="line"></span><br><span class="line">title: &#123;&#123; title &#125;&#125;</span><br><span class="line">date: &#123;&#123; date &#125;&#125;</span><br><span class="line">categories:</span><br><span class="line">tags:</span><br></pre></td></tr></table></figure>
 <p>执行完该操作，创建的所有新文章都会自带categories属性，我们只需填写分类信息，就可在自建的Hexo网站上自动形成分类。</p>
 <ul>
-<li>给文章添加分类<br>以本文为例（以后每次只需要做该操作）<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">---</span><br><span class="line">title: Hexo 环境搭建(2)</span><br><span class="line">date: 2019-06-10 16:29:17</span><br><span class="line">categories: Hexo 环境搭建</span><br><span class="line">tags: [node.js]</span><br><span class="line">---</span><br></pre></td></tr></table></figure>
-
-</li>
+<li>给文章添加分类<br>
+以本文为例（以后每次只需要做该操作）</li>
 </ul>
-<h3 id="10-创建”标签”页面"><a href="#10-创建”标签”页面" class="headerlink" title="10.创建”标签”页面"></a>10.创建”标签”页面</h3><p>与创建”分类”页面类似</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">---</span><br><span class="line">title: Hexo 环境搭建(2)</span><br><span class="line">date: 2019-06-10 16:29:17</span><br><span class="line">categories: Hexo 环境搭建</span><br><span class="line">tags: [node.js]</span><br><span class="line">---</span><br></pre></td></tr></table></figure>
+<h3 id="10创建标签页面"><a class="markdownIt-Anchor" href="#10创建标签页面"></a> 10.创建&quot;标签&quot;页面</h3>
+<p>与创建&quot;分类&quot;页面类似</p>
 <ul>
-<li>新建”标签”页面<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new page tags</span><br></pre></td></tr></table></figure>
-
-</li>
+<li>新建&quot;标签&quot;页面</li>
 </ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new page tags</span><br></pre></td></tr></table></figure>
 <p>执行完该操作，会在source文件夹下生成tags文件夹，并且该文件夹下会产生一个index.md文件。</p>
 <ul>
-<li><p>给标签页面添加类型<br>打开上述index.md，添加type属性。</p>
+<li>给标签页面添加类型<br>
+打开上述index.md文件，添加type属性。</li>
+</ul>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">$ gedit index.md</span><br><span class="line"></span><br><span class="line">---</span><br><span class="line">title: tags</span><br><span class="line">date: 2019-06-10 19:44:00</span><br><span class="line"><span class="built_in">type</span>: <span class="string">"tags"</span></span><br><span class="line">---</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>给文章添加标签<br>以本文为例（以后每次只需要做该操作）<br>有两种写法，第一种写法是类似数组，把标签放在中括号[]里，用英文逗号隔开，如下</p>
+<ul>
+<li>给文章添加标签<br>
+以本文为例（以后每次只需要做该操作）<br>
+有两种写法，第一种写法是类似数组，把标签放在中括号[]里，用英文逗号隔开，如下</li>
+</ul>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">---</span><br><span class="line">title: Hexo 环境搭建(2)</span><br><span class="line">date: 2019-06-10 16:29:17</span><br><span class="line">categories: Hexo 环境搭建</span><br><span class="line">tags: [node.js]</span><br><span class="line">---</span><br></pre></td></tr></table></figure>
-
 <p>第二种写法用-短划线列出来</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">---</span><br><span class="line">title: Hexo 环境搭建(2)</span><br><span class="line">date: 2019-06-10 16:29:17</span><br><span class="line">categories: Hexo 环境搭建</span><br><span class="line">tags:</span><br><span class="line">- node.js</span><br><span class="line">---</span><br></pre></td></tr></table></figure>
-
-</li>
-</ul>
-<h3 id="11-更换主题"><a href="#11-更换主题" class="headerlink" title="11.更换主题"></a>11.更换主题</h3><p>hexo官方主题本身很美观，但是其功能较简单，现采用其优化升级后的主题landscape。</p>
+<h3 id="11增加数学公式"><a class="markdownIt-Anchor" href="#11增加数学公式"></a> 11.增加数学公式</h3>
+<p>本Hexo选择Katex公式编辑器。</p>
 <ul>
-<li>安装<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">cd</span> ~/blog/theme</span><br><span class="line">$ git <span class="built_in">clone</span> https://github.com/xiangming/landscape-plus.git themes/landscape-plus</span><br></pre></td></tr></table></figure>
-
+<li>安装渲染插件<br>
+卸载掉hexo-renderer-marked，替换为hexo-renderer-markdown-it-plus。</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ npm un hexo-renderer-marked --save</span><br><span class="line">$ npm i hexo-renderer-markdown-it-plus --save</span><br></pre></td></tr></table></figure>
+<ul>
+<li>
+<p>修改文章模板<br>
+修改/scaffolds/post.md文件，在—前增加一行math:true。</p>
+</li>
+<li>
+<p>修改主题布局模板<br>
+　有两种选择，第一为阅读全文后启用支持:<br>
+　编辑&lt;hexo dir&gt;/themes/landscape/layout/_partial/article.ejs。</p>
 </li>
 </ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> &lt;hexo dir&gt;/themes/landscape/layout/_partial/article.ejs</span><br><span class="line">gedit article.ejs</span><br></pre></td></tr></table></figure>
+<p>&lt;/article&gt;前加入以下代码：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">  &lt;% <span class="keyword">if</span> (!index &amp;&amp; post.math)&#123; %&gt;</span><br><span class="line">  &lt;script&gt;</span><br><span class="line">    var assetsString = <span class="string">'&lt;link href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css" rel="stylesheet" type="text/css"&gt;'</span></span><br><span class="line">    var pHead = document.getElementsByTagName(<span class="string">'head'</span>)[0];</span><br><span class="line">    pHead.innerHTML = pHead.innerHTML + assetsString;</span><br><span class="line">  &lt;/script&gt;</span><br><span class="line">&lt;% &#125; %&gt;</span><br></pre></td></tr></table></figure>
+<p>直接全部启用支持<br>
+　   编辑&lt;hexo dir&gt;/themes/landscape/layout/_partial/head.ejs</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">cd</span> &lt;hexo dir&gt;/themes/landscape/layout/_partial/head.ejs</span><br><span class="line">  gedit article.ejs</span><br></pre></td></tr></table></figure>
+<p>&lt;/head&gt;前加入以下代码:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">  &lt;link href=<span class="string">"https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css"</span> rel=<span class="string">"stylesheet"</span> <span class="built_in">type</span>=<span class="string">"text/css"</span>&gt;</span><br><span class="line">&lt;/head&gt;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>编辑站点配置文件</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">$ gedit &lt;hexo dir&gt;/_config.yml</span><br><span class="line">  </span><br><span class="line">  markdown_it_plus:</span><br><span class="line">    highlight: <span class="literal">true</span></span><br><span class="line">    html: <span class="literal">true</span></span><br><span class="line">    xhtmlOut: <span class="literal">true</span></span><br><span class="line">    breaks: <span class="literal">true</span></span><br><span class="line">    langPrefix:</span><br><span class="line">    linkify: <span class="literal">true</span></span><br><span class="line">    typographer:</span><br><span class="line">    quotes:<span class="string">""</span><span class="string">''</span></span><br><span class="line">    pre_class: highlight</span><br></pre></td></tr></table></figure>
+<ul>
+<li>用法</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$<span class="variable">$sin</span>^2\theta+cos^2\theta=1$$</span><br></pre></td></tr></table></figure>
+<p>显示效果如下:</p>
+<p class="katex-block"><span class="katex-display"><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>s</mi><mi>i</mi><msup><mi>n</mi><mn>2</mn></msup><mi>θ</mi><mo>+</mo><mi>c</mi><mi>o</mi><msup><mi>s</mi><mn>2</mn></msup><mi>θ</mi><mo>=</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">sin^2\theta+cos^2\theta=1
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.9474379999999999em;vertical-align:-0.08333em;"></span><span class="mord mathdefault">s</span><span class="mord mathdefault">i</span><span class="mord"><span class="mord mathdefault">n</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8641079999999999em;"><span style="top:-3.113em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span></span></span></span></span><span class="mord mathdefault" style="margin-right:0.02778em;">θ</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.8641079999999999em;vertical-align:0em;"></span><span class="mord mathdefault">c</span><span class="mord mathdefault">o</span><span class="mord"><span class="mord mathdefault">s</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8641079999999999em;"><span style="top:-3.113em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span></span></span></span></span><span class="mord mathdefault" style="margin-right:0.02778em;">θ</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span></span></span></span></span></p>
+<p>Katex的<a href="https://stuch.cn/article/303" target="_blank" rel="noopener">语法</a>；不过，有时候语法太麻烦，也可借助于KATEX<a href="http://www.hostmath.com/" target="_blank" rel="noopener">在线数学公式编辑器</a>，快速找到其代码。<br>
+　  例如以下公式，</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">\(X_&#123;norm&#125;=\frac&#123;X-X_&#123;min&#125;&#125;&#123;X_&#123;max&#125;-X_&#123;min&#125;&#125; \)</span><br></pre></td></tr></table></figure>
+<p>可显示为，</p>
+<p class="katex-block"><span class="katex-display"><span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>X</mi><mrow><mi>n</mi><mi>o</mi><mi>r</mi><mi>m</mi></mrow></msub><mo>=</mo><mfrac><mrow><mi>X</mi><mo>−</mo><msub><mi>X</mi><mrow><mi>m</mi><mi>i</mi><mi>n</mi></mrow></msub></mrow><mrow><msub><mi>X</mi><mrow><mi>m</mi><mi>a</mi><mi>x</mi></mrow></msub><mo>−</mo><msub><mi>X</mi><mrow><mi>m</mi><mi>i</mi><mi>n</mi></mrow></msub></mrow></mfrac></mrow><annotation encoding="application/x-tex">X_{norm}=\frac{X-X_{min}}{X_{max}-X_{min}}
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.83333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.07847em;">X</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.151392em;"><span style="top:-2.5500000000000003em;margin-left:-0.07847em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">n</span><span class="mord mathdefault mtight">o</span><span class="mord mathdefault mtight" style="margin-right:0.02778em;">r</span><span class="mord mathdefault mtight">m</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:2.19633em;vertical-align:-0.8360000000000001em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.36033em;"><span style="top:-2.3139999999999996em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord"><span class="mord mathdefault" style="margin-right:0.07847em;">X</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.151392em;"><span style="top:-2.5500000000000003em;margin-left:-0.07847em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">m</span><span class="mord mathdefault mtight">a</span><span class="mord mathdefault mtight">x</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.07847em;">X</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31166399999999994em;"><span style="top:-2.5500000000000003em;margin-left:-0.07847em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">m</span><span class="mord mathdefault mtight">i</span><span class="mord mathdefault mtight">n</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.677em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.07847em;">X</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.07847em;">X</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31166399999999994em;"><span style="top:-2.5500000000000003em;margin-left:-0.07847em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">m</span><span class="mord mathdefault mtight">i</span><span class="mord mathdefault mtight">n</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.8360000000000001em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span></span></span></span></span></p>
+<h3 id="11更换主题"><a class="markdownIt-Anchor" href="#11更换主题"></a> 11.更换主题</h3>
+<p>hexo官方主题本身很美观，但是其功能较简单，现采用其优化升级后的主题landscape。</p>
+<ul>
+<li>安装</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">cd</span> ~/blog/theme</span><br><span class="line">$ git <span class="built_in">clone</span> https://github.com/xiangming/landscape-plus.git themes/landscape-plus</span><br></pre></td></tr></table></figure>
 <p>将landscape-plus-master文件夹名称改为landscape-plus</p>
 <ul>
-<li><p>启用主题，修改theme</p>
+<li>启用主题，修改theme</li>
+</ul>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">cd</span> ~/blog</span><br><span class="line">$ gedit _config.yml</span><br><span class="line"></span><br><span class="line">theme: landscape-plus</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>主题默认配置文件landscape-plus_config.yml</p>
+<ul>
+<li>主题默认配置文件landscape-plus_config.yml</li>
+</ul>
 <blockquote>
-<h1 id="Header"><a href="#Header" class="headerlink" title="Header"></a>Header</h1><p>menu:<br>  Home: /<br>  Archives: /archives<br>rss: /atom.xml</p>
-<h1 id="Content"><a href="#Content" class="headerlink" title="Content"></a>Content</h1><p>excerpt_link: Read More<br>fancybox: true<br>mathjax: false</p>
-<h1 id="Sidebar"><a href="#Sidebar" class="headerlink" title="Sidebar"></a>Sidebar</h1><p>sidebar: right<br>widgets:</p>
+<h1 id="header"><a class="markdownIt-Anchor" href="#header"></a> Header</h1>
+<p>menu:<br>
+Home: /<br>
+Archives: /archives<br>
+rss: /atom.xml</p>
+<h1 id="content"><a class="markdownIt-Anchor" href="#content"></a> Content</h1>
+<p>excerpt_link: Read More<br>
+fancybox: true<br>
+mathjax: false</p>
+<h1 id="sidebar"><a class="markdownIt-Anchor" href="#sidebar"></a> Sidebar</h1>
+<p>sidebar: right<br>
+widgets:</p>
 <ul>
 <li>category</li>
 <li>tag</li>
@@ -159,38 +216,57 @@
 <li>recent_posts</li>
 <li>links</li>
 </ul>
-<h1 id="Miscellaneous"><a href="#Miscellaneous" class="headerlink" title="Miscellaneous"></a>Miscellaneous</h1><p>google_analytics:<br>favicon: /favicon.png<br>twitter:<br>google_plus<br>fb_admins:<br>fb_app_id:</p>
-<h1 id="Comment-system"><a href="#Comment-system" class="headerlink" title="Comment system"></a>Comment system</h1><p>duoshuo_shortname: your_shortname<br>disqus_shortname: your_shortname</p>
-<h1 id="Baidu-Share"><a href="#Baidu-Share" class="headerlink" title="Baidu Share"></a>Baidu Share</h1><p>baidushare: true</p>
+<h1 id="miscellaneous"><a class="markdownIt-Anchor" href="#miscellaneous"></a> Miscellaneous</h1>
+<p>google_analytics:<br>
+favicon: /favicon.png<br>
+twitter:<br>
+google_plus<br>
+fb_admins:<br>
+fb_app_id:</p>
+<h1 id="comment-system"><a class="markdownIt-Anchor" href="#comment-system"></a> Comment system</h1>
+<p>duoshuo_shortname: your_shortname<br>
+disqus_shortname: your_shortname</p>
+<h1 id="baidu-share"><a class="markdownIt-Anchor" href="#baidu-share"></a> Baidu Share</h1>
+<p>baidushare: true</p>
 </blockquote>
-</li>
-</ul>
 <ul>
-<li>配置主题<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> ~/blog/themes/next</span><br><span class="line">gedit _config.yml</span><br></pre></td></tr></table></figure>
-
-</li>
+<li>配置主题</li>
 </ul>
-<p>菜单栏menu<br>原生菜单栏有主页、关于、标签、分类等数个选项，但是在配置文件中是注释掉的状态，这里自行修改注释即可</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> ~/blog/themes/next</span><br><span class="line">gedit _config.yml</span><br></pre></td></tr></table></figure>
+<p>菜单栏menu<br>
+原生菜单栏有主页、关于、标签、分类等数个选项，但是在配置文件中是注释掉的状态，这里自行修改注释即可</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">menu:</span><br><span class="line">  home: / || home</span><br><span class="line">  <span class="comment">#about: /about/ || user</span></span><br><span class="line">  tags: /tags/ ||tags</span><br><span class="line">  categories: /categories/ || th</span><br><span class="line">  archives: /archives/ || archive</span><br><span class="line">  <span class="comment">#schedule: /schedule/ || calendar</span></span><br><span class="line">  <span class="comment">#sitemap: /sitemap.xml || sitemap</span></span><br><span class="line">  <span class="comment">#commonweal: /404/ || heartbeat</span></span><br></pre></td></tr></table></figure>
-
-<p>注意:如果事先没有通过 hexo new page <pagename> 来创建页面的话，即使在配置文件中取消注释，页面也没法显示<br>　　   我们也可以添加自己想要添加的页面，不用局限在配置文件里提供的选择里<br>     ||后面是fontAwesome里的文件对应的名称<br>     menu_icons记得选enable: true（默认应该是true）</pagename></p>
-<p>主题风格schemes<br>主题提供了４个(Muse、Mist、Pisces、Gemini)，把想要选择的取消注释，其他三个保持注释掉的状态即可。</p>
-<p>底部建站时间和图标修改<br>修改主题的配置文件:</p>
+<p>注意:如果事先没有通过 hexo new page <pagename> 来创建页面的话，即使在配置文件中取消注释，页面也没法显示<br>
+　　   我们也可以添加自己想要添加的页面，不用局限在配置文件里提供的选择里<br>
+||后面是fontAwesome里的文件对应的名称<br>
+menu_icons记得选enable: true（默认应该是true）</pagename></p>
+<p>主题风格schemes<br>
+主题提供了４个(Muse、Mist、Pisces、Gemini)，把想要选择的取消注释，其他三个保持注释掉的状态即可。</p>
+<p>底部建站时间和图标修改<br>
+修改主题的配置文件:</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">footer:</span><br><span class="line">  since: 2019</span><br><span class="line">  icon: snowflake-o</span><br><span class="line">  copyright:</span><br><span class="line">  powered: <span class="literal">false</span></span><br><span class="line"></span><br><span class="line">  theme:</span><br><span class="line">  <span class="built_in">enable</span>: <span class="literal">false</span></span><br></pre></td></tr></table></figure>
-
-<p>用户的图标从小人user改成雪花snowflake-o<br>copyright留空，显示成页面author即我的名字<br>powered: false把hexo的授权图片取消了<br>theme: enable:false 把主题的内容也取消了</p>
-<p>个人社交信息social<br>在social里可以自定义自己想要在个人信息部分展现的账号，同时给他们加上图标。</p>
+<p>用户的图标从小人user改成雪花snowflake-o<br>
+copyright留空，显示成页面author即我的名字<br>
+powered: false把hexo的授权图片取消了<br>
+theme: enable:false 把主题的内容也取消了</p>
+<p>个人社交信息social<br>
+在social里可以自定义自己想要在个人信息部分展现的账号，同时给他们加上图标。</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">social:</span><br><span class="line">  Github: https://github.com/chenhongbing || github</span><br><span class="line">  E-Mail:</span><br></pre></td></tr></table></figure>
-
-<p>网站动画效果<br>为了网站响应速度我们可以把网站的动画关掉</p>
+<p>网站动画效果<br>
+为了网站响应速度我们可以把网站的动画关掉</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">motion:</span><br><span class="line">  <span class="built_in">enable</span>: <span class="literal">false</span></span><br></pre></td></tr></table></figure>
-
 <p>评论系统</p>
-<h3 id="14-评论系统"><a href="#14-评论系统" class="headerlink" title="14.评论系统"></a>14.评论系统</h3><h3 id="16-添加数学公式显示"><a href="#16-添加数学公式显示" class="headerlink" title="16.添加数学公式显示"></a>16.添加数学公式显示</h3><h3 id="18-添加置顶功能"><a href="#18-添加置顶功能" class="headerlink" title="18.添加置顶功能"></a>18.添加置顶功能</h3><h3 id="19-添加qq音乐BGM"><a href="#19-添加qq音乐BGM" class="headerlink" title="19.添加qq音乐BGM"></a>19.添加qq音乐BGM</h3><h3 id="20-添加访客人数统计和字数统计"><a href="#20-添加访客人数统计和字数统计" class="headerlink" title="20.添加访客人数统计和字数统计"></a>20.添加访客人数统计和字数统计</h3><h3 id="21-注意事项"><a href="#21-注意事项" class="headerlink" title="21.注意事项"></a>21.注意事项</h3>
+<h3 id="14评论系统"><a class="markdownIt-Anchor" href="#14评论系统"></a> 14.评论系统</h3>
+<h3 id="16添加数学公式显示"><a class="markdownIt-Anchor" href="#16添加数学公式显示"></a> 16.添加数学公式显示</h3>
+<h3 id="18添加置顶功能"><a class="markdownIt-Anchor" href="#18添加置顶功能"></a> 18.添加置顶功能</h3>
+<h3 id="19添加qq音乐bgm"><a class="markdownIt-Anchor" href="#19添加qq音乐bgm"></a> 19.添加qq音乐BGM</h3>
+<h3 id="20添加访客人数统计和字数统计"><a class="markdownIt-Anchor" href="#20添加访客人数统计和字数统计"></a> 20.添加访客人数统计和字数统计</h3>
+<h3 id="21注意事项"><a class="markdownIt-Anchor" href="#21注意事项"></a> 21.注意事项</h3>
+
       
     </div>
     <footer class="article-footer">
-      <a data-url="chenhongbing.github.io/2019/06/10/Hexo-环境搭建2/" data-id="cjwrl4o3e0006jhjh8spsf533" class="article-share-link">Share</a>
+      <a data-url="chenhongbing.github.io/2019/06/10/Hexo-环境搭建2/" data-id="cjwt7ao7z0004r2jhiv8yxyt1" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/node-js/">node.js</a></li></ul>
@@ -221,6 +297,7 @@
   
 </article>
 
+
 </section>
         
           <aside id="sidebar">
@@ -229,7 +306,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Categories</h3>
     <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Hexo-环境搭建/">Hexo 环境搭建</a></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Hexo-环境搭建/">Hexo 环境搭建</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/深度学习面试总结/">深度学习面试总结</a></li></ul>
     </div>
   </div>
 
@@ -239,7 +316,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tags</h3>
     <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/node-js/">node.js</a></li></ul>
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/deep-learing/">deep learing</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/node-js/">node.js</a></li></ul>
     </div>
   </div>
 
@@ -249,7 +326,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/node-js/" style="font-size: 10px;">node.js</a>
+      <a href="/tags/deep-learing/" style="font-size: 10px;">deep learing</a> <a href="/tags/node-js/" style="font-size: 20px;">node.js</a>
     </div>
   </div>
 
@@ -269,6 +346,10 @@
     <h3 class="widget-title">Recent Posts</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2019/06/12/深度学习面试总结之特征工程/">特征工程</a>
+          </li>
         
           <li>
             <a href="/2019/06/11/Hexo-环境搭建1/">Hexo 环境搭建(1)</a>
