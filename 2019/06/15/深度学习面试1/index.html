@@ -7,14 +7,17 @@
   
   <title>深度学习面试 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="article">
+  <meta name="description" content="1.LR与SVM区别,SVM核函数的本质是什么?  2.梯度消失、梯度爆炸的原因是什么?如何缓解?为什么不能根治?  3.梯度消失与损失函数有关吗?  4.BP原理、推导、计算并解释  5.卷积和pooling  6.sigmoid和relu的优劣  7.dropout为什么能防止过拟合  8.BN有什么好处?  9.Adam优化算法  10.衡量两个向量之间的距离有那些方法?  11.衡量两个">
+<meta property="og:type" content="article">
 <meta property="og:title" content="深度学习面试">
-<meta property="og:url" content="chenhongbing.github.io/2019/06/15/深度学习面试/index.html">
+<meta property="og:url" content="chenhongbing.github.io/2019/06/15/深度学习面试1/index.html">
 <meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="1.LR与SVM区别,SVM核函数的本质是什么?  2.梯度消失、梯度爆炸的原因是什么?如何缓解?为什么不能根治?  3.梯度消失与损失函数有关吗?  4.BP原理、推导、计算并解释  5.卷积和pooling  6.sigmoid和relu的优劣  7.dropout为什么能防止过拟合  8.BN有什么好处?  9.Adam优化算法  10.衡量两个向量之间的距离有那些方法?  11.衡量两个">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-06-15T09:02:11.800Z">
+<meta property="og:updated_time" content="2019-06-15T09:39:45.604Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="深度学习面试">
+<meta name="twitter:description" content="1.LR与SVM区别,SVM核函数的本质是什么?  2.梯度消失、梯度爆炸的原因是什么?如何缓解?为什么不能根治?  3.梯度消失与损失函数有关吗?  4.BP原理、推导、计算并解释  5.卷积和pooling  6.sigmoid和relu的优劣  7.dropout为什么能防止过拟合  8.BN有什么好处?  9.Adam优化算法  10.衡量两个向量之间的距离有那些方法?  11.衡量两个">
   
     <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -66,9 +69,9 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main"><article id="post-深度学习面试" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main"><article id="post-深度学习面试1" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2019/06/15/深度学习面试/" class="article-date">
+    <a href="/2019/06/15/深度学习面试1/" class="article-date">
   <time datetime="2019-06-15T09:01:33.000Z" itemprop="datePublished">2019-06-15</time>
 </a>
     
@@ -92,11 +95,31 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        
+        <h3 id="1lr与svm区别svm核函数的本质是什么"><a class="markdownIt-Anchor" href="#1lr与svm区别svm核函数的本质是什么"></a> 1.LR与SVM区别,SVM核函数的本质是什么?</h3>
+<h3 id="2梯度消失-梯度爆炸的原因是什么如何缓解为什么不能根治"><a class="markdownIt-Anchor" href="#2梯度消失-梯度爆炸的原因是什么如何缓解为什么不能根治"></a> 2.梯度消失、梯度爆炸的原因是什么?如何缓解?为什么不能根治?</h3>
+<h3 id="3梯度消失与损失函数有关吗"><a class="markdownIt-Anchor" href="#3梯度消失与损失函数有关吗"></a> 3.梯度消失与损失函数有关吗?</h3>
+<h3 id="4bp原理-推导-计算并解释"><a class="markdownIt-Anchor" href="#4bp原理-推导-计算并解释"></a> 4.BP原理、推导、计算并解释</h3>
+<h3 id="5卷积和pooling"><a class="markdownIt-Anchor" href="#5卷积和pooling"></a> 5.卷积和pooling</h3>
+<h3 id="6sigmoid和relu的优劣"><a class="markdownIt-Anchor" href="#6sigmoid和relu的优劣"></a> 6.sigmoid和relu的优劣</h3>
+<h3 id="7dropout为什么能防止过拟合"><a class="markdownIt-Anchor" href="#7dropout为什么能防止过拟合"></a> 7.dropout为什么能防止过拟合</h3>
+<h3 id="8bn有什么好处"><a class="markdownIt-Anchor" href="#8bn有什么好处"></a> 8.BN有什么好处?</h3>
+<h3 id="9adam优化算法"><a class="markdownIt-Anchor" href="#9adam优化算法"></a> 9.Adam优化算法</h3>
+<h3 id="10衡量两个向量之间的距离有那些方法"><a class="markdownIt-Anchor" href="#10衡量两个向量之间的距离有那些方法"></a> 10.衡量两个向量之间的距离有那些方法?</h3>
+<h3 id="11衡量两个字符串距离的方法"><a class="markdownIt-Anchor" href="#11衡量两个字符串距离的方法"></a> 11.衡量两个字符串距离的方法</h3>
+<p>###　12.决策树原理、前后剪枝、评价指标</p>
+<h3 id="13随机森林与决策树关系-防止过拟合的原理随机性的体现"><a class="markdownIt-Anchor" href="#13随机森林与决策树关系-防止过拟合的原理随机性的体现"></a> 13.随机森林与决策树关系、防止过拟合的原理，随机性的体现</h3>
+<h3 id="14gbdt与随机森林的差别分别用在什么地方"><a class="markdownIt-Anchor" href="#14gbdt与随机森林的差别分别用在什么地方"></a> 14.GBDT与随机森林的差别,分别用在什么地方</h3>
+<h3 id="15xgboost和gbdt的关系xgboost怎么防止过拟合"><a class="markdownIt-Anchor" href="#15xgboost和gbdt的关系xgboost怎么防止过拟合"></a> 15.Xgboost和GBDT的关系，Xgboost怎么防止过拟合</h3>
+<h3 id="16gbrt"><a class="markdownIt-Anchor" href="#16gbrt"></a> 16.GBRT</h3>
+<h3 id="17boosting和bagging的差异"><a class="markdownIt-Anchor" href="#17boosting和bagging的差异"></a> 17.boosting和bagging的差异</h3>
+<h3 id="18随机森林如何选择feature"><a class="markdownIt-Anchor" href="#18随机森林如何选择feature"></a> 18.随机森林如何选择feature</h3>
+<h3 id="19卷积的实现方式"><a class="markdownIt-Anchor" href="#19卷积的实现方式"></a> 19.卷积的实现方式</h3>
+<h3 id="20卷积的种类"><a class="markdownIt-Anchor" href="#20卷积的种类"></a> 20.卷积的种类</h3>
+
       
     </div>
     <footer class="article-footer">
-      <a data-url="chenhongbing.github.io/2019/06/15/深度学习面试/" data-id="cjwxalx2a003nv9jh0wbrkw1c" class="article-share-link">Share</a>
+      <a data-url="chenhongbing.github.io/2019/06/15/深度学习面试1/" data-id="cjwxgxoe8003o5hjht4apl1ch" class="article-share-link">Share</a>
       
       
     </footer>
@@ -104,6 +127,15 @@
   
     
 <nav id="article-nav">
+  
+    <a href="/2019/06/15/深度学习面试2/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          深度学习面试2
+        
+      </div>
+    </a>
   
   
     <a href="/2019/06/15/FlyAI项目之手部图像性别分类和生物识别/" id="article-nav-older" class="article-nav-link-wrap">
@@ -168,23 +200,23 @@
       <ul>
         
           <li>
-            <a href="/2019/06/15/深度学习面试/">深度学习面试</a>
+            <a href="/2019/06/15/深度学习面试4/">深度学习面试4</a>
+          </li>
+        
+          <li>
+            <a href="/2019/06/15/深度学习面试3/">深度学习面试3</a>
+          </li>
+        
+          <li>
+            <a href="/2019/06/15/深度学习面试2/">深度学习面试2</a>
+          </li>
+        
+          <li>
+            <a href="/2019/06/15/深度学习面试1/">深度学习面试</a>
           </li>
         
           <li>
             <a href="/2019/06/15/FlyAI项目之手部图像性别分类和生物识别/">手部图像性别分类和生物识别</a>
-          </li>
-        
-          <li>
-            <a href="/2019/06/15/FlyAI项目之农作物病虫害检测/">农作物病虫害检测</a>
-          </li>
-        
-          <li>
-            <a href="/2019/06/15/FlyAI项目之人脸关键点检测/">人脸关键点检测(五点)</a>
-          </li>
-        
-          <li>
-            <a href="/2019/06/15/FlyAI项目之植物幼苗分类/">植物幼苗分类</a>
           </li>
         
       </ul>
