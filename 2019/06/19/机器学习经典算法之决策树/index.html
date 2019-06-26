@@ -7,17 +7,17 @@
   
   <title>机器学习经典算法之决策树 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="###　决策树  决策树构建基本概念 信息、信息熵、条件熵、信息增益、信息增益率、基尼值、基尼系数、CART回归树。 决策树构建 ID3—&amp;gt;C4.5—&amp;gt;CART 决策树剪枝 预剪枝、后剪枝 决策树之连续值处理 决策树之缺失值处理   决策树构建 关于决策树构建中信息、信息熵、条件熵、信息增益、信息增益率、基尼值、基尼系数的概念可参考链接决策树学习笔记。此外，可结合统计学习方法中的例子进">
+  <meta name="description" content="决策树  决策树构建基本概念 信息、信息熵、条件熵、信息增益、信息增益率、基尼值、基尼系数、CART回归树。 决策树构建 ID3—&amp;gt;C4.5—&amp;gt;CART 决策树剪枝 预剪枝、后剪枝 决策树之连续值处理 决策树之缺失值处理   决策树构建 关于决策树构建中信息、信息熵、条件熵、信息增益、信息增益率、基尼值、基尼系数的概念可参考链接决策树学习笔记。此外，可结合统计学习方法中的例子进行理解">
 <meta property="og:type" content="article">
 <meta property="og:title" content="机器学习经典算法之决策树">
 <meta property="og:url" content="chenhongbing.github.io/2019/06/19/机器学习经典算法之决策树/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="###　决策树  决策树构建基本概念 信息、信息熵、条件熵、信息增益、信息增益率、基尼值、基尼系数、CART回归树。 决策树构建 ID3—&amp;gt;C4.5—&amp;gt;CART 决策树剪枝 预剪枝、后剪枝 决策树之连续值处理 决策树之缺失值处理   决策树构建 关于决策树构建中信息、信息熵、条件熵、信息增益、信息增益率、基尼值、基尼系数的概念可参考链接决策树学习笔记。此外，可结合统计学习方法中的例子进">
+<meta property="og:description" content="决策树  决策树构建基本概念 信息、信息熵、条件熵、信息增益、信息增益率、基尼值、基尼系数、CART回归树。 决策树构建 ID3—&amp;gt;C4.5—&amp;gt;CART 决策树剪枝 预剪枝、后剪枝 决策树之连续值处理 决策树之缺失值处理   决策树构建 关于决策树构建中信息、信息熵、条件熵、信息增益、信息增益率、基尼值、基尼系数的概念可参考链接决策树学习笔记。此外，可结合统计学习方法中的例子进行理解">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-06-26T16:16:04.006Z">
+<meta property="og:updated_time" content="2019-06-26T16:20:17.654Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="机器学习经典算法之决策树">
-<meta name="twitter:description" content="###　决策树  决策树构建基本概念 信息、信息熵、条件熵、信息增益、信息增益率、基尼值、基尼系数、CART回归树。 决策树构建 ID3—&amp;gt;C4.5—&amp;gt;CART 决策树剪枝 预剪枝、后剪枝 决策树之连续值处理 决策树之缺失值处理   决策树构建 关于决策树构建中信息、信息熵、条件熵、信息增益、信息增益率、基尼值、基尼系数的概念可参考链接决策树学习笔记。此外，可结合统计学习方法中的例子进">
+<meta name="twitter:description" content="决策树  决策树构建基本概念 信息、信息熵、条件熵、信息增益、信息增益率、基尼值、基尼系数、CART回归树。 决策树构建 ID3—&amp;gt;C4.5—&amp;gt;CART 决策树剪枝 预剪枝、后剪枝 决策树之连续值处理 决策树之缺失值处理   决策树构建 关于决策树构建中信息、信息熵、条件熵、信息增益、信息增益率、基尼值、基尼系数的概念可参考链接决策树学习笔记。此外，可结合统计学习方法中的例子进行理解">
   
     <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -95,7 +95,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>###　决策树</p>
+        <h3 id="决策树"><a class="markdownIt-Anchor" href="#决策树"></a> 决策树</h3>
 <ul>
 <li>决策树构建基本概念<br>
 信息、信息熵、条件熵、信息增益、信息增益率、基尼值、基尼系数、CART回归树。</li>
@@ -163,7 +163,7 @@ CART与GBDT异同点<br>
 (2)用原始数据与二叉树做差，获得残差<br>
 (3)对该残差同CART的方法生成子树，然后相加这两颗树，得到相应的函数<br>
 (4)求原始数据与生成树的平方损失误差，如果达到结束条件，则该树为最后生成的树，否则迭代(2)-(3)-(4)步骤</p>
-<p>CART回归:对于CART回归树生成部分，可参考链接(CART回归树原理及示例)[<a href="https://blog.csdn.net/aaa_aaa1sdf/article/details/81588382" target="_blank" rel="noopener">https://blog.csdn.net/aaa_aaa1sdf/article/details/81588382</a>]。<br>
+<p>CART回归:对于CART回归树生成部分，可参考链接,<a href="https://blog.csdn.net/aaa_aaa1sdf/article/details/81588382" target="_blank" rel="noopener">CART回归树原理及示例</a>。<br>
 　　CART回归假设决策树是二叉树，内部结点特征的取值只有&quot;是&quot;和&quot;否&quot;，左分支是取值为&quot;是&quot;的分支，右分支则是取值为否的分支。决策树等价于递归地二分每个特征。<br>
 决策树的生成就是递归地构建二叉决策树的过程，回归树的构建采用平方误差最小化准则.<br>
 　　CART回归:(1)选择最优切分变量j与切分点s，求解.<br>
@@ -193,7 +193,7 @@ CART与GBDT异同点<br>
       
     </div>
     <footer class="article-footer">
-      <a data-url="chenhongbing.github.io/2019/06/19/机器学习经典算法之决策树/" data-id="cjxdfyr1e002smqjh3lxqrn92" class="article-share-link">Share</a>
+      <a data-url="chenhongbing.github.io/2019/06/19/机器学习经典算法之决策树/" data-id="cjxdg3h4x0032ryjhfuniwv5h" class="article-share-link">Share</a>
       
       
     </footer>
