@@ -100,7 +100,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="chenhongbing.github.io/2019/06/27/机器学习经典算法之提升方法/" data-id="cjxejfqcw0034evjhiqd1w6i3" class="article-share-link">Share</a>
+      <a data-url="chenhongbing.github.io/2019/06/27/机器学习经典算法之提升方法/" data-id="cjxejuyi8003453jhcgd52b3b" class="article-share-link">Share</a>
       
       
     </footer>
@@ -142,7 +142,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="chenhongbing.github.io/2019/06/27/机器学习经典算法之逻辑斯蒂回归/" data-id="cjxejfqcy0035evjhn7l9jfzw" class="article-share-link">Share</a>
+      <a data-url="chenhongbing.github.io/2019/06/27/机器学习经典算法之逻辑斯蒂回归/" data-id="cjxejuyia003553jh9rtqpy1l" class="article-share-link">Share</a>
       
       
     </footer>
@@ -242,29 +242,25 @@ ID3:<br>
 (4)如果Ag的信息增益比小于阀值e，则停止运算，将D中实例数最多的类Ck作为该节点的类标记;<br>
 (5)否则，对Ag的每一个可能值ai，依Ag=ai将D分割为若干非空子集Di，如果子集Di中所有样本均属于同一类，则将该节点置为叶子节点；否则继续(6)<br>
 (6)对结点i，以Di为训练集，以A-{Ai}为特征集，递归调用步(1)~步(5)，得到子树Ti.</p>
-<p>CART分类:见统计学习方法<br>
-CART与GBDT异同点<br>
-　　CART:树的根节点分成2支后，再分别在这2支上做分支，以此递推，最终生成一颗完整的决策树；后续再剪枝。<br>
-　　GBDT:获得一颗二叉树后，利用残差，再在完整的数据集上生成一颗二叉树，最终将多颗二叉树累加组成一个最终的函数。<br>
+<p>CART分类树的构造见统计学习方法，CART与GBDT异同点如下。<br>
+　　CART分类树:树的根节点分成2支后，再分别在这2支上做分支，以此递推，最终生成一颗完整的决策树；后续再剪枝。<br>
+　　GBDT:获得一颗二叉树后，利用残差，再在完整的数据集上生成一颗二叉树，不断迭代，最终将多颗二叉树累加组合成一个最终的函数。<br>
 　　(1)用CART的方法获得一颗二叉树<br>
 (2)用原始数据与二叉树做差，获得残差<br>
 (3)对该残差同CART的方法生成子树，然后相加这两颗树，得到相应的函数<br>
-(4)求原始数据与生成树的平方损失误差，如果达到结束条件，则该树为最后生成的树，否则迭代(2)-(3)-(4)步骤</p>
+(4)求原始数据与生成树的平方损失误差，如果达到结束条件，则该树为最后生成的树，否则迭代(2)、(3)、(4)步骤</p>
 <p>CART回归:对于CART回归树生成部分，可参考链接,<a href="https://blog.csdn.net/aaa_aaa1sdf/article/details/81588382" target="_blank" rel="noopener">CART回归树原理及示例</a>。<br>
 　　CART回归假设决策树是二叉树，内部结点特征的取值只有&quot;是&quot;和&quot;否&quot;，左分支是取值为&quot;是&quot;的分支，右分支则是取值为否的分支。决策树等价于递归地二分每个特征。<br>
-决策树的生成就是递归地构建二叉决策树的过程，回归树的构建采用平方误差最小化准则.<br>
+决策树的生成就是递归地构建二叉决策树的过程，回归树的构建采用平方误差最小化准则。<br>
 　　CART回归:<br>
-(1)选择最优切分变量j与切分点s，求解.<br>
-根据训练数据取值范围，枚举训练数据可能的数据切分点。对各切分点，求出相应的R1、R2，C1、C2；最后通过均方误差求得m(s).<br>
-(2)用选定的(j,s)对划分区域并决定相应的输出值.<br>
-　　   比较上述求得的m(s)大小结果，取最小值，根据划分区间R1、R2求得C1、C2，然后构建回归树T1(x).<br>
-(3)继续对两个子区域调用步骤1，直至满足停止条件.<br>
-　 (4)将输入空间划分为M个区域R1,R2,…,Rm生成决策树.</p>
+(1)选择最优切分变量j与切分点s，求解；根据训练数据取值范围，枚举训练数据可能的数据切分点。对各切分点，求出相应的R1、R2，C1、C2；最后通过均方误差求得m(s)。<br>
+(2)用选定的(j,s)对划分区域并决定相应的输出值；比较上述求得的m(s)大小结果，取最小值，根据划分区间R1、R2求得C1、C2，然后构建回归树T1(x)。<br>
+(3)继续对两个子区域调用步骤1，直至满足停止条件。<br>
+　 (4)将输入空间划分为M个区域R1,R2,…,Rm生成决策树。</p>
 </li>
 </ul>
 <h3 id="决策树剪枝"><a class="markdownIt-Anchor" href="#决策树剪枝"></a> 决策树剪枝</h3>
-<pre><code>决策树的剪枝通常有两种方法，预剪枝和后剪枝。预剪枝，即在生成决策树的过程中停止树的生长。而后剪枝，是在已生成的过拟合决策树上进行剪枝，得到简化版的剪枝决策树。原理部分，可参考链接，[决策树剪枝](https://blog.csdn.net/u012328159/article/details/79285214)
-</code></pre>
+<p>决策树的剪枝通常有两种方法，预剪枝和后剪枝。预剪枝，即在生成决策树的过程中停止树的生长。而后剪枝，是在已生成的过拟合决策树上进行剪枝，得到简化版的剪枝决策树。原理部分，可参考链接，<a href="https://blog.csdn.net/u012328159/article/details/79285214" target="_blank" rel="noopener">决策树剪枝</a></p>
 <ul>
 <li>预剪枝<br>
 　预剪枝的核心思想是在树中结点进行扩展之前，先计算当前的划分是否能带来模型泛化能力的提升，如果不能，则不再继续生长子树。此时可能存在不同类别的样本同时存于结点中，按照多数投票的原则判断该节点所属类别。预剪枝对于何时停止决策树的生长有以下几种方法。<br>
@@ -275,16 +271,14 @@ CART与GBDT异同点<br>
 <li>后剪枝</li>
 </ul>
 <h3 id="连续值处理"><a class="markdownIt-Anchor" href="#连续值处理"></a> 连续值处理</h3>
-<pre><code>关于连续数据处理，可参考链接，[连续值处理](https://blog.csdn.net/u012328159/article/details/79396893)
-</code></pre>
+<p>关于连续数据处理，可参考链接，<a href="https://blog.csdn.net/u012328159/article/details/79396893" target="_blank" rel="noopener">连续值处理</a></p>
 <h3 id="缺失值处理"><a class="markdownIt-Anchor" href="#缺失值处理"></a> 缺失值处理</h3>
-<pre><code>关于缺失数据处理，参考链接，[缺失数据处理](https://blog.csdn.net/u012328159/article/details/79413610)
-</code></pre>
+<p>关于缺失数据处理，参考链接，<a href="https://blog.csdn.net/u012328159/article/details/79413610" target="_blank" rel="noopener">缺失数据处理</a></p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="chenhongbing.github.io/2019/06/19/机器学习经典算法之决策树/" data-id="cjxejfqcv0031evjhyhhnspw0" class="article-share-link">Share</a>
+      <a data-url="chenhongbing.github.io/2019/06/19/机器学习经典算法之决策树/" data-id="cjxejuyi6003153jhl0kbjc86" class="article-share-link">Share</a>
       
       
     </footer>
@@ -326,7 +320,7 @@ CART与GBDT异同点<br>
       
     </div>
     <footer class="article-footer">
-      <a data-url="chenhongbing.github.io/2019/06/15/深度学习轻量级模型之MobileNet-v2/" data-id="cjxejfqdq004aevjhzq38q5ms" class="article-share-link">Share</a>
+      <a data-url="chenhongbing.github.io/2019/06/15/深度学习轻量级模型之MobileNet-v2/" data-id="cjxejuyiw004a53jhguplsrf9" class="article-share-link">Share</a>
       
       
     </footer>
@@ -368,7 +362,7 @@ CART与GBDT异同点<br>
       
     </div>
     <footer class="article-footer">
-      <a data-url="chenhongbing.github.io/2019/06/15/深度学习轻量级模型之Xception/" data-id="cjxejfqdx004mevjh5e3rjt7f" class="article-share-link">Share</a>
+      <a data-url="chenhongbing.github.io/2019/06/15/深度学习轻量级模型之Xception/" data-id="cjxejuyj1004m53jh2s9mf6vq" class="article-share-link">Share</a>
       
       
     </footer>
@@ -410,7 +404,7 @@ CART与GBDT异同点<br>
       
     </div>
     <footer class="article-footer">
-      <a data-url="chenhongbing.github.io/2019/06/15/深度学习轻量级模型之SqueezeNet/" data-id="cjxejfqdv004jevjh3mw5gwft" class="article-share-link">Share</a>
+      <a data-url="chenhongbing.github.io/2019/06/15/深度学习轻量级模型之SqueezeNet/" data-id="cjxejuyj0004j53jhleiy630m" class="article-share-link">Share</a>
       
       
     </footer>
@@ -452,7 +446,7 @@ CART与GBDT异同点<br>
       
     </div>
     <footer class="article-footer">
-      <a data-url="chenhongbing.github.io/2019/06/15/深度学习轻量级模型之ShuffleNet-v2/" data-id="cjxejfqdt004gevjhonneboxj" class="article-share-link">Share</a>
+      <a data-url="chenhongbing.github.io/2019/06/15/深度学习轻量级模型之ShuffleNet-v2/" data-id="cjxejuyiy004g53jhfvbantr6" class="article-share-link">Share</a>
       
       
     </footer>
@@ -494,7 +488,7 @@ CART与GBDT异同点<br>
       
     </div>
     <footer class="article-footer">
-      <a data-url="chenhongbing.github.io/2019/06/15/深度学习轻量级模型之ShuffleNet-v1/" data-id="cjxejfqds004eevjhm5aljdk2" class="article-share-link">Share</a>
+      <a data-url="chenhongbing.github.io/2019/06/15/深度学习轻量级模型之ShuffleNet-v1/" data-id="cjxejuyix004e53jhcu8sdvv9" class="article-share-link">Share</a>
       
       
     </footer>
@@ -536,7 +530,7 @@ CART与GBDT异同点<br>
       
     </div>
     <footer class="article-footer">
-      <a data-url="chenhongbing.github.io/2019/06/15/深度学习轻量级模型之MobileNet-v1/" data-id="cjxejfqdp0049evjh6jm0jxoh" class="article-share-link">Share</a>
+      <a data-url="chenhongbing.github.io/2019/06/15/深度学习轻量级模型之MobileNet-v1/" data-id="cjxejuyiv004953jhgp1d81s9" class="article-share-link">Share</a>
       
       
     </footer>
@@ -578,7 +572,7 @@ CART与GBDT异同点<br>
       
     </div>
     <footer class="article-footer">
-      <a data-url="chenhongbing.github.io/2019/06/15/深度学习目标检测之SSD/" data-id="cjxejfqdg003vevjh4ljdk0f6" class="article-share-link">Share</a>
+      <a data-url="chenhongbing.github.io/2019/06/15/深度学习目标检测之SSD/" data-id="cjxejuyip003v53jhjuthyaki" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/one-stage/">one-stage</a></li></ul>
