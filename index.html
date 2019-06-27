@@ -100,7 +100,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="chenhongbing.github.io/2019/06/27/机器学习经典算法之提升方法/" data-id="cjxee9ei00035a7jhd86grd8b" class="article-share-link">Share</a>
+      <a data-url="chenhongbing.github.io/2019/06/27/机器学习经典算法之提升方法/" data-id="cjxeefgj00034cdjh2xhsry5e" class="article-share-link">Share</a>
       
       
     </footer>
@@ -142,7 +142,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="chenhongbing.github.io/2019/06/27/机器学习经典算法之逻辑斯蒂回归/" data-id="cjxee9ei10036a7jhi6dbz5o1" class="article-share-link">Share</a>
+      <a data-url="chenhongbing.github.io/2019/06/27/机器学习经典算法之逻辑斯蒂回归/" data-id="cjxeefgj20035cdjhpd0lhqkk" class="article-share-link">Share</a>
       
       
     </footer>
@@ -205,21 +205,21 @@ ID3—&gt;C4.5—&gt;CART</li>
 </li>
 <li>
 <p>条件熵<br>
-　在满足某个条件下的熵,比如数据集中有若干变量,计算某个变量的条件熵,为该变量的概率*该变量子集的信息熵。</p>
+在满足某个条件下的熵,比如数据集中有若干变量,计算某个变量的条件熵,为该变量的概率*该变量子集的信息熵。</p>
 </li>
 <li>
 <p>信息增益<br>
-　特征选择的一个重要指标。信息增益=信息熵-条件熵。</p>
+特征选择的一个重要指标。信息增益=信息熵-条件熵。</p>
 </li>
 <li>
 <p>基尼值<br>
-　基尼值代表了从数据集合D中随机选择两个样本，其类别不一致的概率。基尼值越小，数据集D纯度越高。<br>
-　当数据集的纯度越高，每次抽到不同类别标记的概率越小。例如，在一个袋子里装100个乒乓球，其中有99个白球，１个黄球，那么当我们随机抽取两个球的时候，很大概率是抽到两个白球。</p>
+基尼值代表了从数据集合D中随机选择两个样本，其类别不一致的概率。基尼值越小，数据集D纯度越高。<br>
+当数据集的纯度越高，每次抽到不同类别标记的概率越小。例如，在一个袋子里装100个乒乓球，其中有99个白球，１个黄球，那么当我们随机抽取两个球的时候，很大概率是抽到两个白球。</p>
 </li>
 <li>
 <p>基尼系数<br>
 　基尼系数是针对属性定义的，其反映的是，使用属性a进行划分后，所有分支中(使用基尼值度量的)纯度的加权和。<br>
-　　CART分类树根据基尼指数划分属性，选择基尼指数最小的属性作为最优划分属性。</p>
+CART分类树根据基尼指数划分属性，选择基尼指数最小的属性作为最优划分属性。</p>
 </li>
 <li>
 <p>特征选择<br>
@@ -227,7 +227,7 @@ ID3—&gt;C4.5—&gt;CART</li>
 </li>
 <li>
 <p>算法思想及改进路线<br>
-　　ID3—&gt;C4.5—&gt;CART<br>
+ID3—&gt;C4.5—&gt;CART<br>
 ID3:<br>
 (1)如果D中所有实例属于同一类Ck，则T为单节点树，并将类Ck作为该节点的类标记，返回T;<br>
 (2)如果特征集A=空集，则T为单节点树，并将D中实例数最大的类Ck作为该节点的类标记，返回T;<br>
@@ -263,7 +263,8 @@ CART与GBDT异同点<br>
 </li>
 </ul>
 <h3 id="决策树剪枝"><a class="markdownIt-Anchor" href="#决策树剪枝"></a> 决策树剪枝</h3>
-<p>决策树的剪枝通常有两种方法，预剪枝和后剪枝。预剪枝，即在生成决策树的过程中停止树的生长。而后剪枝，是在已生成的过拟合决策树上进行剪枝，得到简化版的剪枝决策树。原理部分，可参考链接，<a href="https://blog.csdn.net/u012328159/article/details/79285214" target="_blank" rel="noopener">决策树剪枝</a></p>
+<pre><code>决策树的剪枝通常有两种方法，预剪枝和后剪枝。预剪枝，即在生成决策树的过程中停止树的生长。而后剪枝，是在已生成的过拟合决策树上进行剪枝，得到简化版的剪枝决策树。原理部分，可参考链接，[决策树剪枝](https://blog.csdn.net/u012328159/article/details/79285214)
+</code></pre>
 <ul>
 <li>预剪枝<br>
 　预剪枝的核心思想是在树中结点进行扩展之前，先计算当前的划分是否能带来模型泛化能力的提升，如果不能，则不再继续生长子树。此时可能存在不同类别的样本同时存于结点中，按照多数投票的原则判断该节点所属类别。预剪枝对于何时停止决策树的生长有以下几种方法。<br>
@@ -274,14 +275,16 @@ CART与GBDT异同点<br>
 <li>后剪枝</li>
 </ul>
 <h3 id="连续值处理"><a class="markdownIt-Anchor" href="#连续值处理"></a> 连续值处理</h3>
-<p>关于连续数据处理，可参考链接，<a href="https://blog.csdn.net/u012328159/article/details/79396893" target="_blank" rel="noopener">连续值处理</a></p>
+<pre><code>关于连续数据处理，可参考链接，[连续值处理](https://blog.csdn.net/u012328159/article/details/79396893)
+</code></pre>
 <h3 id="缺失值处理"><a class="markdownIt-Anchor" href="#缺失值处理"></a> 缺失值处理</h3>
-<p>关于缺失数据处理，参考链接，<a href="https://blog.csdn.net/u012328159/article/details/79413610" target="_blank" rel="noopener">缺失数据处理</a></p>
+<pre><code>关于缺失数据处理，参考链接，[缺失数据处理](https://blog.csdn.net/u012328159/article/details/79413610)
+</code></pre>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="chenhongbing.github.io/2019/06/19/机器学习经典算法之决策树/" data-id="cjxee9ehx0032a7jh32wrpsvi" class="article-share-link">Share</a>
+      <a data-url="chenhongbing.github.io/2019/06/19/机器学习经典算法之决策树/" data-id="cjxeefgiy0031cdjhf5a67rp1" class="article-share-link">Share</a>
       
       
     </footer>
@@ -323,7 +326,7 @@ CART与GBDT异同点<br>
       
     </div>
     <footer class="article-footer">
-      <a data-url="chenhongbing.github.io/2019/06/15/深度学习轻量级模型之MobileNet-v2/" data-id="cjxee9eip004ba7jhwfrfbky6" class="article-share-link">Share</a>
+      <a data-url="chenhongbing.github.io/2019/06/15/深度学习轻量级模型之MobileNet-v2/" data-id="cjxeefgjv004acdjhhc3m9cn8" class="article-share-link">Share</a>
       
       
     </footer>
@@ -365,7 +368,7 @@ CART与GBDT异同点<br>
       
     </div>
     <footer class="article-footer">
-      <a data-url="chenhongbing.github.io/2019/06/15/深度学习轻量级模型之Xception/" data-id="cjxee9eiv004na7jhnpe6904y" class="article-share-link">Share</a>
+      <a data-url="chenhongbing.github.io/2019/06/15/深度学习轻量级模型之Xception/" data-id="cjxeefgk1004mcdjhn39n34ar" class="article-share-link">Share</a>
       
       
     </footer>
@@ -407,7 +410,7 @@ CART与GBDT异同点<br>
       
     </div>
     <footer class="article-footer">
-      <a data-url="chenhongbing.github.io/2019/06/15/深度学习轻量级模型之SqueezeNet/" data-id="cjxee9eiu004ka7jhqvb4yoor" class="article-share-link">Share</a>
+      <a data-url="chenhongbing.github.io/2019/06/15/深度学习轻量级模型之SqueezeNet/" data-id="cjxeefgjz004jcdjh7e3mpzdi" class="article-share-link">Share</a>
       
       
     </footer>
@@ -449,7 +452,7 @@ CART与GBDT异同点<br>
       
     </div>
     <footer class="article-footer">
-      <a data-url="chenhongbing.github.io/2019/06/15/深度学习轻量级模型之ShuffleNet-v2/" data-id="cjxee9eis004ha7jheenbfjap" class="article-share-link">Share</a>
+      <a data-url="chenhongbing.github.io/2019/06/15/深度学习轻量级模型之ShuffleNet-v2/" data-id="cjxeefgjy004gcdjhqhi6vnrf" class="article-share-link">Share</a>
       
       
     </footer>
@@ -491,7 +494,7 @@ CART与GBDT异同点<br>
       
     </div>
     <footer class="article-footer">
-      <a data-url="chenhongbing.github.io/2019/06/15/深度学习轻量级模型之ShuffleNet-v1/" data-id="cjxee9eir004fa7jhxc3alsbo" class="article-share-link">Share</a>
+      <a data-url="chenhongbing.github.io/2019/06/15/深度学习轻量级模型之ShuffleNet-v1/" data-id="cjxeefgjw004ecdjhe40rkmbd" class="article-share-link">Share</a>
       
       
     </footer>
@@ -533,7 +536,7 @@ CART与GBDT异同点<br>
       
     </div>
     <footer class="article-footer">
-      <a data-url="chenhongbing.github.io/2019/06/15/深度学习轻量级模型之MobileNet-v1/" data-id="cjxee9eio004aa7jhfr6kx6q1" class="article-share-link">Share</a>
+      <a data-url="chenhongbing.github.io/2019/06/15/深度学习轻量级模型之MobileNet-v1/" data-id="cjxeefgju0049cdjhd7bx077i" class="article-share-link">Share</a>
       
       
     </footer>
@@ -575,7 +578,7 @@ CART与GBDT异同点<br>
       
     </div>
     <footer class="article-footer">
-      <a data-url="chenhongbing.github.io/2019/06/15/深度学习目标检测之SSD/" data-id="cjxee9eih003wa7jhsrl8mmbo" class="article-share-link">Share</a>
+      <a data-url="chenhongbing.github.io/2019/06/15/深度学习目标检测之SSD/" data-id="cjxeefgjl003vcdjhz4mc5ual" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/one-stage/">one-stage</a></li></ul>
