@@ -7,17 +7,17 @@
   
   <title>机器学习经典算法之提升方法 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="集成学习 集成学习根据各个弱分类器之间有无依赖关系，分为Boosting和Bagging两大流派： 　　　Boosting流派，各分类器之间有依赖关系，串行关系，比如Adaboost、GBDT(Gradient Boosting Decision Tree)、Xgboost。 Bagging流派，各分类器之间没有依赖关系，并行关系，比如随机森林(Random Forest)。  Boosting">
+  <meta name="description" content="集成学习 集成学习根据各个弱分类器之间有无依赖关系，分为Boosting和Bagging两大流派： 1.Boosting流派，各分类器之间有依赖关系，串行关系，例如Adaboost、GBDT(Gradient Boosting Decision Tree)、Xgboost。 2.Bagging流派，各分类器之间没有依赖关系，并行关系，例如随机森林(Random Forest)。  Boostin">
 <meta property="og:type" content="article">
 <meta property="og:title" content="机器学习经典算法之提升方法">
 <meta property="og:url" content="chenhongbing.github.io/2019/06/27/机器学习经典算法之提升方法/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="集成学习 集成学习根据各个弱分类器之间有无依赖关系，分为Boosting和Bagging两大流派： 　　　Boosting流派，各分类器之间有依赖关系，串行关系，比如Adaboost、GBDT(Gradient Boosting Decision Tree)、Xgboost。 Bagging流派，各分类器之间没有依赖关系，并行关系，比如随机森林(Random Forest)。  Boosting">
+<meta property="og:description" content="集成学习 集成学习根据各个弱分类器之间有无依赖关系，分为Boosting和Bagging两大流派： 1.Boosting流派，各分类器之间有依赖关系，串行关系，例如Adaboost、GBDT(Gradient Boosting Decision Tree)、Xgboost。 2.Bagging流派，各分类器之间没有依赖关系，并行关系，例如随机森林(Random Forest)。  Boostin">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-07-03T09:03:29.053Z">
+<meta property="og:updated_time" content="2019-07-04T18:04:27.896Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="机器学习经典算法之提升方法">
-<meta name="twitter:description" content="集成学习 集成学习根据各个弱分类器之间有无依赖关系，分为Boosting和Bagging两大流派： 　　　Boosting流派，各分类器之间有依赖关系，串行关系，比如Adaboost、GBDT(Gradient Boosting Decision Tree)、Xgboost。 Bagging流派，各分类器之间没有依赖关系，并行关系，比如随机森林(Random Forest)。  Boosting">
+<meta name="twitter:description" content="集成学习 集成学习根据各个弱分类器之间有无依赖关系，分为Boosting和Bagging两大流派： 1.Boosting流派，各分类器之间有依赖关系，串行关系，例如Adaboost、GBDT(Gradient Boosting Decision Tree)、Xgboost。 2.Bagging流派，各分类器之间没有依赖关系，并行关系，例如随机森林(Random Forest)。  Boostin">
   
     <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -97,68 +97,97 @@
       
         <h3 id="集成学习"><a class="markdownIt-Anchor" href="#集成学习"></a> 集成学习</h3>
 <p>集成学习根据各个弱分类器之间有无依赖关系，分为Boosting和Bagging两大流派：<br>
-　　　Boosting流派，各分类器之间有依赖关系，串行关系，比如Adaboost、GBDT(Gradient Boosting Decision Tree)、Xgboost。<br>
-Bagging流派，各分类器之间没有依赖关系，并行关系，比如随机森林(Random Forest)。</p>
+1.Boosting流派，各分类器之间有依赖关系，串行关系，例如Adaboost、GBDT(Gradient Boosting Decision Tree)、Xgboost。<br>
+2.Bagging流派，各分类器之间没有依赖关系，并行关系，例如随机森林(Random Forest)。</p>
 <h3 id="boosting流派之adaboost"><a class="markdownIt-Anchor" href="#boosting流派之adaboost"></a> Boosting流派之Adaboost</h3>
 <ul>
-<li>
-<p>提升方法的基本思路<br>
-在概率近似正确(Probably Approximately Correct,PAC)学习的框架中，一个概念(类)，如果存在一个多项式的学习算法能够学习它，并且正确率很高，那么就称这个概念是强可学习的；一个概念(类)，如果存在一个多项式的学习算法能够学习它，学习的正确率仅比随机猜测略好，那么就称这个概念是弱可学习的。大多数的提升方法都是改变训练数据的概率分布(训练数据的权值分布)，针对不同的训练数据分布调用弱学习算法学习一系列弱分类器。<br>
-　 1.在每一轮中如何改变训练数据的权值或概率分布?<br>
-　　Adaboost的做法是，提高前一轮弱分类器错误分类样本的权值，降低正确分类样本的权值。如此，没有得到正确分类的数据，由于其权值的加大而受到后一轮弱分类器的更大关注。　<br>
-　　2.如何将弱分类器组合成一个强分类器?<br>
-　　Adaboost最终是将多个弱分类器进行组合，形成一个强分类器。弱分类器的组合，Adaboost采取加权多数表决。即加大分类误差率小的弱分类器权值，使其在表决中起较大作用，减少分类误差率大的弱分类器权值，使其在表决中起较小的作用。<br>
-Adaboost算法流程如下:<br>
-1.初始化样本权值<br>
-2.迭代m=1,2,…,M;根据权值分布为Di的训练数据，通过训练得到一个阀值，使得训练数据在该阀值下分类误差率最低。总结，即权值分布Di条件下，分类误差率最小的阀值<br>
-3.根据分类误差率，求得分类器权重系数　阿尔法<br>
-4.更新训练数据集的权值分布<br>
-5.构建基本的分类器线性组合</p>
-<p>在学习的过程中，一直遇到一个难点，就是更新权重后，如何产生新的分类器，最后看了参考文献2，才明白，原来分类器的更新是一个一个试出来的，比较在不同分类点上分类误差率的大小，即某个分类器的误差率等于该分类器的被错分类样本的权值之和。另外就是何时停止训练，有两种情况是，一种是迭代次数达到指定次数，另外一种是强分类器的分类误差率小于某一指定阀值。<br>
-　参考文献:(1)<a href="https://zhuanlan.zhihu.com/p/27126737" target="_blank" rel="noopener">手把手教你AdaBoost</a><br>
+<li>提升方法的基本思路<br>
+在概率近似正确(Probably Approximately Correct,PAC)学习的框架中，一个概念(类)，如果存在一个多项式的学习算法能够学习它，并且正确率很高，那么就称这个概念是强可学习的；一个概念(类)，如果存在一个多项式的学习算法能够学习它，学习的正确率仅比随机猜测略好，那么就称这个概念是弱可学习的。大多数提升方法通过改变训练数据的概率分布(训练数据的权值分布)，针对不同的训练分布调用弱学习算法学习一系列弱分类器。</li>
+</ul>
+<p>1.每轮中如何改变训练数据的权值分布？<br>
+　　Adaboost每一轮会训练出来一个弱分类器，该弱分类器会分错一些样本，也会分对一些样本。Adaboost算法在新一轮分类中，会降低正确分类样本的权值，提高前一轮弱分类器错误分类样本的权值。这样，没有正确分类的数据，在新一轮分类中会得到更大的关注。<br>
+2.每一轮的弱分类器如何组合成最终的强分类器？<br>
+　　Adaboost会训练出多个弱分类器，最终会将其组合成一个强分类器。组合规则，采用分类误差率小的弱分类器采用大权值，即起比较大的作用。分类误差率大的弱分类器采用小权值，即起比较小的作用。</p>
+<ul>
+<li>Adaboost分类算法流程<br>
+1.初始化样本权值分布，数据权值为(1/N,1/N,…,1/N)<br>
+2.迭代i=1,2,…,M；在权值分布为Di的训练数据，训练一个弱分类器，使得训练数据在该弱分类器下分类误差率最低。弱分类器由x&lt;v或x&gt;v产生<br>
+3.根据2步骤中求得的弱分类器分类误差率，求得分类器权值系数-阿尔法<br>
+4.构建基本的分类器线性组合，更新i+1轮的训练数据集权值分布，观察是否达到Adaboost停止条件<br>
+Adaboost停止条件为，达到规定的迭代次数；或总的分类器误差率达到规定要求。</li>
+</ul>
+<p>在学习过程中，一直对分类器阀值的构建不解。最后，看了参考文献2，才明白，每一轮中，更新数据权重后，分类器的阀值确定是在每一个分类点处试出来，比较在不同分类点处分类误差率的大小(分类器分类误差率的大小等于该分类器中被错误分类的权值之和)。<br>
+参考文献:<br>
+(1)<a href="https://zhuanlan.zhihu.com/p/27126737" target="_blank" rel="noopener">手把手教你AdaBoost</a><br>
 (2)<a href="https://blog.csdn.net/mousever/article/details/52038198" target="_blank" rel="noopener">adaboost原理（包含权重详细解释)</a></p>
+<ul>
+<li>Adaboost分类算法原理<br>
+　　AdaBoost算法是模型为加法模型、损失函数为指数函数、学习算法为前向分步算法算法的二类分类学习方法。<br>
+1.前向分步算法<br>
+本次前向分步算法主要关注加法模型。<br>
+输入:训练数据集T、损失函数L、基函数集{b(x;y)}<br>
+输出:加法模型f(x)<br>
+(1)初始化f0(x)<br>
+(2)对m=1,2,…,M<br>
+a.极小化损失函数L(y,fm-1(x)+p<em>b(x;y))<br>
+b.更新fm(x)=fm-1(x)+p</em>b(x;y)<br>
+(3)得到最终加法模型<br>
+参考:统计学习方法</li>
+</ul>
+<p>2.前向分步算法与AdaBoost<br>
+AdaBoost算法是前向分步加法算法的特例，模型由基本分类器组成加法模型，损失函数为指数损失函数，L(y,f(x))=exp[-yf(x)]。<br>
+参考链接，<a href="https://mp.weixin.qq.com/s/O0wb8QnyalYJbEHXYfiXkw" target="_blank" rel="noopener">AdaBoost损失函数最小化</a>。</p>
+<ul>
+<li>
+<p>AdaBoost算法的训练误差分析<br>
+AdaBoost在学习过程中不断减少训练误差，直到各个弱分类器组合成最终分类器，那么这个最终分类器的误差率是多少?<br>
+参考链接，<a href="https://mp.weixin.qq.com/s/Q4az1uFIEmjonKfu_eEmAQ" target="_blank" rel="noopener">AdaBoost算法的训练误差分析</a>。</p>
 </li>
 <li>
 <p>AdaBoost回归算法流程<br>
 1.计算弱分类器的回归误差率<br>
+a.计算训练集上的最大误差<br>
+b.计算每个样本的相对误差<br>
+c.计算回归误差率<br>
 2.弱分类器权值系数阿尔法的计算<br>
 3.下一轮样本的权值更新<br>
 4.结合策略，构建最终学习器为<br>
-　<br>
-参考文献:(1)<a href="https://mp.weixin.qq.com/s/Q4az1uFIEmjonKfu_eEmAQ" target="_blank" rel="noopener">AdaBoost回归算法流程</a></p>
-</li>
-<li>
-<p>AdaBoost算法的训练误差分析<br>
-AdaBoost在学习过程中不断减少训练误差，直到各个弱分类器组合成最终分类器，那么这个最终分类器的误差率是多少?<br>
-推导过程，参考<a href="https://blog.csdn.net/mousever/article/details/52038198" target="_blank" rel="noopener">adaboost原理(包含权重详细解释)</a>中第2部分。</p>
-</li>
-<li>
-<p>AdaBoost算法原理分析<br>
-AdaBoost算法是模型为加法模型、损失函数为指数函数、学习算法为前向分步算法时的二类分类学习方法。<br>
-1.前向分步算法<br>
-　　输入:训练数据集T;损失函数L;基函数集{b(x;y)}<br>
-输出:加法模型f(x)<br>
-　　　　(1)极小化损失函数<br>
-(2)更新<br>
-(3)得到加法模型<br>
-参考:统计学习方法<br>
-2.前向分步算法与AdaBoost<br>
-前向分步算法的损失函数是指数损失函数，L(y,f(x))=exp[-yf(x)]<br>
-假设经过m-1轮迭代前向分步算法已经得到fm-1(x).</p>
-</li>
-<li>
-<p>提升树</p>
+参考文献:<a href="https://mp.weixin.qq.com/s/Q4az1uFIEmjonKfu_eEmAQ" target="_blank" rel="noopener">AdaBoost回归算法流程</a></p>
 </li>
 </ul>
-<h3 id="boosting流派之gbdt"><a class="markdownIt-Anchor" href="#boosting流派之gbdt"></a> Boosting流派之GBDT</h3>
-<p><a href="https://www.cnblogs.com/pinard/p/6140514.html" target="_blank" rel="noopener">梯度提升树(GBDT)原理小结</a></p>
+<h3 id="提升树"><a class="markdownIt-Anchor" href="#提升树"></a> 提升树</h3>
+<p>提升树是以分类树或回归树为基本分类器的提升方法。</p>
+<ul>
+<li>提升树模型<br>
+提升树模型可以表示决策树的加法模型:<p class="katex-block"><span class="katex-display"><span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>f</mi><mi>M</mi></msub><mo stretchy="false">(</mo><mi>x</mi><mo stretchy="false">)</mo><mo>=</mo><munderover><mo>∑</mo><mn>1</mn><mi>M</mi></munderover><mi>T</mi><mo stretchy="false">(</mo><mi>x</mi><mo separator="true">;</mo><mi>β</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">f_{M}(x)=\sum_1^MT(x;\beta)
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.10764em;">f</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.32833099999999993em;"><span style="top:-2.5500000000000003em;margin-left:-0.10764em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight" style="margin-right:0.10903em;">M</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mopen">(</span><span class="mord mathdefault">x</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:3.0954490000000003em;vertical-align:-1.267113em;"></span><span class="mop op-limits"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.8283360000000002em;"><span style="top:-1.882887em;margin-left:0em;"><span class="pstrut" style="height:3.05em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span><span style="top:-3.050005em;"><span class="pstrut" style="height:3.05em;"></span><span><span class="mop op-symbol large-op">∑</span></span></span><span style="top:-4.3000050000000005em;margin-left:0em;"><span class="pstrut" style="height:3.05em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight" style="margin-right:0.10903em;">M</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:1.267113em;"><span></span></span></span></span></span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault" style="margin-right:0.13889em;">T</span><span class="mopen">(</span><span class="mord mathdefault">x</span><span class="mpunct">;</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault" style="margin-right:0.05278em;">β</span><span class="mclose">)</span></span></span></span></span></p>
+</li>
+</ul>
+<p>其中，<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>T</mi><mo stretchy="false">(</mo><mi>x</mi><mo separator="true">;</mo><mi>β</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">T(x;\beta)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.13889em;">T</span><span class="mopen">(</span><span class="mord mathdefault">x</span><span class="mpunct">;</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault" style="margin-right:0.05278em;">β</span><span class="mclose">)</span></span></span></span>表示决策树，<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>β</mi></mrow><annotation encoding="application/x-tex">\beta</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="mord mathdefault" style="margin-right:0.05278em;">β</span></span></span></span>表示决策树的参数，M表示树的个数。</p>
+<ul>
+<li>提升树算法<br>
+对于回归问题，可以采用平方误差损失函数；对于分类问题，可以采用指数损失函数。以回归问题为例。<br>
+输入:训练数据集T;<br>
+输出:提升树<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>f</mi><mi>M</mi></msub><mo stretchy="false">(</mo><mi>x</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">f_{M}(x)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.10764em;">f</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.32833099999999993em;"><span style="top:-2.5500000000000003em;margin-left:-0.10764em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight" style="margin-right:0.10903em;">M</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mopen">(</span><span class="mord mathdefault">x</span><span class="mclose">)</span></span></span></span><br>
+1.初始化<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>f</mi><mn>0</mn></msub><mo stretchy="false">(</mo><mi>x</mi><mo stretchy="false">)</mo><mo>=</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">f_{0}(x)=0</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.10764em;">f</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:-0.10764em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">0</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mopen">(</span><span class="mord mathdefault">x</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">0</span></span></span></span><br>
+2.对m=1,2,…,M<br>
+a.计算残差<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>r</mi><mrow><mi>m</mi><mi>i</mi></mrow></msub><mo>=</mo><msub><mi>y</mi><mi>i</mi></msub><mo>−</mo><msub><mi>f</mi><mrow><mi>m</mi><mo>−</mo><mn>1</mn></mrow></msub><mo stretchy="false">(</mo><msub><mi>x</mi><mi>i</mi></msub><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">r_{mi}=y_{i}-f_{m-1}(x_{i})</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.58056em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.02778em;">r</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31166399999999994em;"><span style="top:-2.5500000000000003em;margin-left:-0.02778em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">m</span><span class="mord mathdefault mtight">i</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.7777700000000001em;vertical-align:-0.19444em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.03588em;">y</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31166399999999994em;"><span style="top:-2.5500000000000003em;margin-left:-0.03588em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">i</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.10764em;">f</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.301108em;"><span style="top:-2.5500000000000003em;margin-left:-0.10764em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">m</span><span class="mbin mtight">−</span><span class="mord mtight">1</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.208331em;"><span></span></span></span></span></span></span><span class="mopen">(</span><span class="mord"><span class="mord mathdefault">x</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31166399999999994em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">i</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mclose">)</span></span></span></span><br>
+b.拟合残差<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>r</mi><mrow><mi>m</mi><mi>i</mi></mrow></msub></mrow><annotation encoding="application/x-tex">r_{mi}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.58056em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.02778em;">r</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31166399999999994em;"><span style="top:-2.5500000000000003em;margin-left:-0.02778em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">m</span><span class="mord mathdefault mtight">i</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>学习一个回归树，得到<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>T</mi><mo stretchy="false">(</mo><mi>x</mi><mo separator="true">;</mo><mi>β</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">T(x;\beta)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.13889em;">T</span><span class="mopen">(</span><span class="mord mathdefault">x</span><span class="mpunct">;</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault" style="margin-right:0.05278em;">β</span><span class="mclose">)</span></span></span></span><br>
+c.更新<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>f</mi><mi>m</mi></msub><mo stretchy="false">(</mo><mi>x</mi><mo stretchy="false">)</mo><mo>=</mo><msub><mi>f</mi><mrow><mi>m</mi><mo>−</mo><mn>1</mn></mrow></msub><mo stretchy="false">(</mo><mi>x</mi><mo stretchy="false">)</mo><mo>+</mo><mi>T</mi><mo stretchy="false">(</mo><mi>x</mi><mo separator="true">;</mo><mi>β</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">f_{m}(x)=f_{m-1}(x)+T(x;\beta)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.10764em;">f</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.151392em;"><span style="top:-2.5500000000000003em;margin-left:-0.10764em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">m</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mopen">(</span><span class="mord mathdefault">x</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.10764em;">f</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.301108em;"><span style="top:-2.5500000000000003em;margin-left:-0.10764em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">m</span><span class="mbin mtight">−</span><span class="mord mtight">1</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.208331em;"><span></span></span></span></span></span></span><span class="mopen">(</span><span class="mord mathdefault">x</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.13889em;">T</span><span class="mopen">(</span><span class="mord mathdefault">x</span><span class="mpunct">;</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault" style="margin-right:0.05278em;">β</span><span class="mclose">)</span></span></span></span><br>
+3.得到回归问题提升树<p class="katex-block"><span class="katex-display"><span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>f</mi><mi>m</mi></msub><mo stretchy="false">(</mo><mi>x</mi><mo stretchy="false">)</mo><mo>=</mo><munderover><mo>∑</mo><mn>1</mn><mi>M</mi></munderover><mi>T</mi><mo stretchy="false">(</mo><mi>x</mi><mo separator="true">;</mo><mi>β</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">f_{m}(x)=\sum_1^MT(x;\beta)
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.10764em;">f</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.151392em;"><span style="top:-2.5500000000000003em;margin-left:-0.10764em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">m</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mopen">(</span><span class="mord mathdefault">x</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:3.0954490000000003em;vertical-align:-1.267113em;"></span><span class="mop op-limits"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.8283360000000002em;"><span style="top:-1.882887em;margin-left:0em;"><span class="pstrut" style="height:3.05em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span><span style="top:-3.050005em;"><span class="pstrut" style="height:3.05em;"></span><span><span class="mop op-symbol large-op">∑</span></span></span><span style="top:-4.3000050000000005em;margin-left:0em;"><span class="pstrut" style="height:3.05em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight" style="margin-right:0.10903em;">M</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:1.267113em;"><span></span></span></span></span></span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault" style="margin-right:0.13889em;">T</span><span class="mopen">(</span><span class="mord mathdefault">x</span><span class="mpunct">;</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault" style="margin-right:0.05278em;">β</span><span class="mclose">)</span></span></span></span></span></p>
+</li>
+</ul>
+<p>参考文献:统计学习方法<br>
+与CART回归树不同之处:提升树以残差作为后续计算的标准；CART回归树以原始数据作为后续计算的标准。</p>
+<p>###　Boosting流派之GBDT</p>
 <h3 id="boosting流派之xgboost"><a class="markdownIt-Anchor" href="#boosting流派之xgboost"></a> Boosting流派之XGboost</h3>
 <h3 id="bagging流派之random-forest"><a class="markdownIt-Anchor" href="#bagging流派之random-forest"></a> Bagging流派之Random Forest</h3>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="chenhongbing.github.io/2019/06/27/机器学习经典算法之提升方法/" data-id="cjxo5hydm0031q6jh7gyqyp83" class="article-share-link">Share</a>
+      <a data-url="chenhongbing.github.io/2019/06/27/机器学习经典算法之提升方法/" data-id="cjxozcuu300356ojhlgzuxx3c" class="article-share-link">Share</a>
       
       
     </footer>
