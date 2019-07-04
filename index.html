@@ -70,6 +70,71 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-深度学习面试之Python" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/06/29/深度学习面试之Python/" class="article-date">
+  <time datetime="2019-06-29T01:30:31.000Z" itemprop="datePublished">2019-06-29</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/深度学习面试总结/">深度学习面试总结</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/06/29/深度学习面试之Python/">深度学习面试之Python</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="python面试题"><a class="markdownIt-Anchor" href="#python面试题"></a> Python面试题</h3>
+<p><a href="https://mp.weixin.qq.com/s/PFiAsLqhHe1y1UNDfPqTBw" target="_blank" rel="noopener">Python面试题</a>.</p>
+<ul>
+<li>疑难点解析<br>
+　　1.GIL<br>
+2.fun(*args,**kwargs)<br>
+*args是用来发送一个非键值对的可变数量的参数列表给一个函数.<strong>kwargs允许你将不定长度的键值对，作为参数传递给一个函数.如果想要在函数里处理带名字的参数，应该使用</strong>kwargs.<br>
+3.python2-range(100)-列表；python3-range(100)-迭代器range(1,100)<br>
+4.__new__和__init__的区别<br>
+5.</li>
+</ul>
+<h3 id="python-装饰器"><a class="markdownIt-Anchor" href="#python-装饰器"></a> Python 装饰器</h3>
+<p>例如：为一个函数添加计时功能，此时，只需要把要装饰的函数丢给装饰器即可，它会自动给你添加完功能并返回给你。</p>
+<ul>
+<li>闭包函数<br>
+　内嵌函数(函数内部创建一个函数)，仅能被外部函数的作用域调用，在外部函数之外的作用域会报错。<br>
+　闭包函数(内嵌函数里引用外部函数里的变量(非全局变量))，所引用的外部变量称为自由变量。闭包可以将其自己的代码和作用域以及外部函数的作用结合在一起。</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">def count():</span><br><span class="line">    a=1</span><br><span class="line">    b=1</span><br><span class="line">    def sum():          <span class="comment">#闭包函数</span></span><br><span class="line">        c=1</span><br><span class="line">        <span class="built_in">return</span> a+c      <span class="comment">#a-外部变量</span></span><br><span class="line">    <span class="built_in">return</span> sum</span><br></pre></td></tr></table></figure>
+<ul>
+<li>Python装饰器<br>
+Python装饰器本质上是一个函数，可以让其他函数在不需要任何代码变动的前提下增加额外的功能，装饰器的返回值也是一个函数对象。装饰器函数的外部函数传入所需要装饰的函数名字，返回经过修饰后函数的名字；内层函数(闭包)负责修饰被装饰函数。</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="chenhongbing.github.io/2019/06/29/深度学习面试之Python/" data-id="cjxo5hyex0050q6jhiui7c23i" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+
+  
     <article id="post-机器学习经典算法之提升方法" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2019/06/27/机器学习经典算法之提升方法/" class="article-date">
@@ -96,11 +161,70 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        
+        <h3 id="集成学习"><a class="markdownIt-Anchor" href="#集成学习"></a> 集成学习</h3>
+<p>集成学习根据各个弱分类器之间有无依赖关系，分为Boosting和Bagging两大流派：<br>
+　　　Boosting流派，各分类器之间有依赖关系，串行关系，比如Adaboost、GBDT(Gradient Boosting Decision Tree)、Xgboost。<br>
+Bagging流派，各分类器之间没有依赖关系，并行关系，比如随机森林(Random Forest)。</p>
+<h3 id="boosting流派之adaboost"><a class="markdownIt-Anchor" href="#boosting流派之adaboost"></a> Boosting流派之Adaboost</h3>
+<ul>
+<li>
+<p>提升方法的基本思路<br>
+在概率近似正确(Probably Approximately Correct,PAC)学习的框架中，一个概念(类)，如果存在一个多项式的学习算法能够学习它，并且正确率很高，那么就称这个概念是强可学习的；一个概念(类)，如果存在一个多项式的学习算法能够学习它，学习的正确率仅比随机猜测略好，那么就称这个概念是弱可学习的。大多数的提升方法都是改变训练数据的概率分布(训练数据的权值分布)，针对不同的训练数据分布调用弱学习算法学习一系列弱分类器。<br>
+　 1.在每一轮中如何改变训练数据的权值或概率分布?<br>
+　　Adaboost的做法是，提高前一轮弱分类器错误分类样本的权值，降低正确分类样本的权值。如此，没有得到正确分类的数据，由于其权值的加大而受到后一轮弱分类器的更大关注。　<br>
+　　2.如何将弱分类器组合成一个强分类器?<br>
+　　Adaboost最终是将多个弱分类器进行组合，形成一个强分类器。弱分类器的组合，Adaboost采取加权多数表决。即加大分类误差率小的弱分类器权值，使其在表决中起较大作用，减少分类误差率大的弱分类器权值，使其在表决中起较小的作用。<br>
+Adaboost算法流程如下:<br>
+1.初始化样本权值<br>
+2.迭代m=1,2,…,M;根据权值分布为Di的训练数据，通过训练得到一个阀值，使得训练数据在该阀值下分类误差率最低。总结，即权值分布Di条件下，分类误差率最小的阀值<br>
+3.根据分类误差率，求得分类器权重系数　阿尔法<br>
+4.更新训练数据集的权值分布<br>
+5.构建基本的分类器线性组合</p>
+<p>在学习的过程中，一直遇到一个难点，就是更新权重后，如何产生新的分类器，最后看了参考文献2，才明白，原来分类器的更新是一个一个试出来的，比较在不同分类点上分类误差率的大小，即某个分类器的误差率等于该分类器的被错分类样本的权值之和。另外就是何时停止训练，有两种情况是，一种是迭代次数达到指定次数，另外一种是强分类器的分类误差率小于某一指定阀值。<br>
+　参考文献:(1)<a href="https://zhuanlan.zhihu.com/p/27126737" target="_blank" rel="noopener">手把手教你AdaBoost</a><br>
+(2)<a href="https://blog.csdn.net/mousever/article/details/52038198" target="_blank" rel="noopener">adaboost原理（包含权重详细解释)</a></p>
+</li>
+<li>
+<p>AdaBoost回归算法流程<br>
+1.计算弱分类器的回归误差率<br>
+2.弱分类器权值系数阿尔法的计算<br>
+3.下一轮样本的权值更新<br>
+4.结合策略，构建最终学习器为<br>
+　<br>
+参考文献:(1)<a href="https://mp.weixin.qq.com/s/Q4az1uFIEmjonKfu_eEmAQ" target="_blank" rel="noopener">AdaBoost回归算法流程</a></p>
+</li>
+<li>
+<p>AdaBoost算法的训练误差分析<br>
+AdaBoost在学习过程中不断减少训练误差，直到各个弱分类器组合成最终分类器，那么这个最终分类器的误差率是多少?<br>
+推导过程，参考<a href="https://blog.csdn.net/mousever/article/details/52038198" target="_blank" rel="noopener">adaboost原理(包含权重详细解释)</a>中第2部分。</p>
+</li>
+<li>
+<p>AdaBoost算法原理分析<br>
+AdaBoost算法是模型为加法模型、损失函数为指数函数、学习算法为前向分步算法时的二类分类学习方法。<br>
+1.前向分步算法<br>
+　　输入:训练数据集T;损失函数L;基函数集{b(x;y)}<br>
+输出:加法模型f(x)<br>
+　　　　(1)极小化损失函数<br>
+(2)更新<br>
+(3)得到加法模型<br>
+参考:统计学习方法<br>
+2.前向分步算法与AdaBoost<br>
+前向分步算法的损失函数是指数损失函数，L(y,f(x))=exp[-yf(x)]<br>
+假设经过m-1轮迭代前向分步算法已经得到fm-1(x).</p>
+</li>
+<li>
+<p>提升树</p>
+</li>
+</ul>
+<h3 id="boosting流派之gbdt"><a class="markdownIt-Anchor" href="#boosting流派之gbdt"></a> Boosting流派之GBDT</h3>
+<p><a href="https://www.cnblogs.com/pinard/p/6140514.html" target="_blank" rel="noopener">梯度提升树(GBDT)原理小结</a></p>
+<h3 id="boosting流派之xgboost"><a class="markdownIt-Anchor" href="#boosting流派之xgboost"></a> Boosting流派之XGboost</h3>
+<h3 id="bagging流派之random-forest"><a class="markdownIt-Anchor" href="#bagging流派之random-forest"></a> Bagging流派之Random Forest</h3>
+
       
     </div>
     <footer class="article-footer">
-      <a data-url="chenhongbing.github.io/2019/06/27/机器学习经典算法之提升方法/" data-id="cjxelatib00353tjhdahroc2v" class="article-share-link">Share</a>
+      <a data-url="chenhongbing.github.io/2019/06/27/机器学习经典算法之提升方法/" data-id="cjxo5hydm0031q6jh7gyqyp83" class="article-share-link">Share</a>
       
       
     </footer>
@@ -142,7 +266,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="chenhongbing.github.io/2019/06/27/机器学习经典算法之逻辑斯蒂回归/" data-id="cjxelatid00363tjhc4traqjs" class="article-share-link">Share</a>
+      <a data-url="chenhongbing.github.io/2019/06/27/机器学习经典算法之逻辑斯蒂回归/" data-id="cjxo5hyel004bq6jhqaq7z1op" class="article-share-link">Share</a>
       
       
     </footer>
@@ -212,6 +336,10 @@ ID3—&gt;C4.5—&gt;CART</li>
 特征选择的一个重要指标。信息增益=信息熵-条件熵。</p>
 </li>
 <li>
+<p>信息增益比<br>
+信息增益准则对可取值较多的属性有所偏好，为了减少这种偏好可能带来的影响，使用增益率代替信息增益准则选择划分属性。增益率(Gain_ratio(D,a))=信息增益Gain(D,a)/属性固有值(IV(a)).</p>
+</li>
+<li>
 <p>基尼值<br>
 基尼值代表了从数据集合D中随机选择两个样本，其类别不一致的概率。基尼值越小，数据集D纯度越高。<br>
 当数据集的纯度越高，每次抽到不同类别标记的概率越小。例如，在一个袋子里装100个乒乓球，其中有99个白球，１个黄球，那么当我们随机抽取两个球的时候，很大概率是抽到两个白球。</p>
@@ -223,7 +351,7 @@ CART分类树根据基尼指数划分属性，选择基尼指数最小的属性�
 </li>
 <li>
 <p>特征选择<br>
-ID3：信息增益；C4.5：信息增益比；CART分类：基尼指数；CART回归：平方误差最小化.</p>
+ID3：信息增益；C4.5：信息增益比；CART分类：基尼系数；CART回归：平方误差最小化.</p>
 </li>
 <li>
 <p>算法思想及改进路线<br>
@@ -238,48 +366,82 @@ ID3:<br>
 <p>C4.5:<br>
 (1)如果D中所有实例属于同一类Ck，则T为单节点树，并将类Ck作为该节点的类标记，返回T;<br>
 (2)如果特征集A=空集，则T为单节点树，并将D中实例数最大的类Ck作为该节点的类标记，返回T;<br>
-(3)否则，求出数据集D中各特征A的信息增益比，选择信息增益比最多的特征Ag;<br>
+(3)否则，求出数据集D中各特征A的信息增益比，选择信息增益比最大的特征Ag;<br>
 (4)如果Ag的信息增益比小于阀值e，则停止运算，将D中实例数最多的类Ck作为该节点的类标记;<br>
 (5)否则，对Ag的每一个可能值ai，依Ag=ai将D分割为若干非空子集Di，如果子集Di中所有样本均属于同一类，则将该节点置为叶子节点；否则继续(6)<br>
 (6)对结点i，以Di为训练集，以A-{Ai}为特征集，递归调用步(1)~步(5)，得到子树Ti.</p>
-<p>CART分类树的构造过程见统计学习方法。<br>
-　　<br>
-　　CART回归树与GBDT异同点如下。<br>
-　　CART回归树:树的根节点分成2支后，再分别在这2支上做分支，以此递推，最终生成一颗完整的决策树；后续再剪枝。原理可参考链接，<a href="https://blog.csdn.net/aaa_aaa1sdf/article/details/81588382" target="_blank" rel="noopener">CART回归树原理及示例</a>。<br>
-CART回归假设决策树是二叉树，内部结点特征的取值只有&quot;是&quot;和&quot;否&quot;，左分支是取值为&quot;是&quot;的分支，右分支则是取值为否的分支。决策树等价于递归地二分每个特征。决策树的生成就是递归地构建二叉决策树的过程，回归树的构建采用平方误差最小化准则。<br>
-生成步骤如下:<br>
+<p>CART分类树:<br>
+(1)对于训练数据集D，计算数据集中每一个特征(A、B、C…)的基尼指数。以特征A为例，A有属性a、b、c；根据属性a，将数据集D分割成D1(是)和D2(否)两部分；然后根据基尼指数定义公式计算A=a时的基尼指数。<br>
+　　(2)遍历计算所有可能的特征(A、B、C…)及每个特征对应的属性的基尼指数。选择基尼指数最小的特征和属性作为最优切分点。根据最优特征与最优切分点，将现结点分割成两个子结点，将训练数据集依特征分配到两个子结点中取。<br>
+　　(3)对两个子结点递归调用(1)、(2),(其中特征包含上述已经计算过基尼指数的特征，需去除已经计算过的属性)，直至满足停止条件(结点中样本个数小于预定阀值、样本集的基尼指数小于预定阀值(样本基本属于同一类)、没有更多特征)。<br>
+(4)生成CART分类决策树。</p>
+<p>CART回归树:<br>
+CART回归树为二叉树，内部结点特征的取值为&quot;是&quot;和&quot;否&quot;，左分支是取值为&quot;是&quot;的分支，右分支是取值为否的分支。决策树递归地二分每个属性的特征。决策树的构建基于平方误差最小化准则。生成步骤如下:<br>
 (1)选择最优切分变量j与切分点s，求解；根据训练数据取值范围，枚举训练数据可能的数据切分点。对各切分点，求出相应的R1、R2，C1、C2；最后通过均方误差求得m(s)。<br>
 (2)用选定的(j,s)对划分区域并决定相应的输出值；比较上述求得的m(s)大小结果，取最小值，根据划分区间R1、R2求得C1、C2，然后构建回归树T1(x)。<br>
 (3)继续对两个子区域调用步骤1，直至满足停止条件。<br>
-(4)将输入空间划分为M个区域R1,R2,…,Rm生成决策树。</p>
+(4)将输入空间划分为M个区域R1,R2,…,Rm生成决策树。<br>
+　树的根节点分成2支后，再分别在这2支上做分支，以此递推，最终生成一颗完整的决策树；后续再剪枝。原理与实例参考链接，<a href="https://blog.csdn.net/aaa_aaa1sdf/article/details/81588382" target="_blank" rel="noopener">CART回归树原理及示例</a>。</p>
 </li>
-</ul>
-<p>GBDT:获得一颗二叉树后，利用残差，再在完整的数据集上生成一颗二叉树，不断迭代，最终将多颗二叉树累加组合成一个最终的函数。<br>
-GBDT树生成步骤如下:<br>
-　　(1)用CART的方法获得一颗二叉树<br>
+<li>
+<p>GBDT<br>
+　　GBDT思想，获得一颗二叉树后，利用残差，再在完整的数据集上生成一颗二叉树，不断迭代，最终将多颗二叉树累加组合成一个最终的函数。<br>
+GBDT的生成步骤如下:<br>
+　　(1)借用CART回归树的方法生成一颗二叉树<br>
 (2)用原始数据与二叉树做差，获得残差<br>
 (3)对该残差同CART的方法生成子树，然后相加这两颗树，得到相应的函数<br>
 (4)求原始数据与生成树的平方损失误差，如果达到结束条件，则该树为最后生成的树，否则迭代(2)、(3)、(4)步骤</p>
+</li>
+</ul>
 <h3 id="决策树剪枝"><a class="markdownIt-Anchor" href="#决策树剪枝"></a> 决策树剪枝</h3>
-<p>决策树的剪枝通常有两种方法，预剪枝和后剪枝。预剪枝，即在生成决策树的过程中停止树的生长。而后剪枝，是在已生成的过拟合决策树上进行剪枝，得到简化版的剪枝决策树。原理部分，可参考链接，<a href="https://blog.csdn.net/u012328159/article/details/79285214" target="_blank" rel="noopener">决策树剪枝</a>。</p>
+<p>决策树算法为了尽可能正确的分类训练样本，不停对结点进行划分，最后会形成这棵树的分支过多，导致过拟合现象。为了避免这种现象的发生，会对树进行剪枝操作。详细内容可参考链接，<a href="https://blog.csdn.net/u012328159/article/details/79285214" target="_blank" rel="noopener">决策树剪枝</a>。决策树的剪枝通常有两种方法，预剪枝和后剪枝。</p>
 <ul>
-<li>预剪枝<br>
-　预剪枝的核心思想是在树中结点进行扩展之前，先计算当前的划分是否能带来模型泛化能力的提升，如果不能，则不再继续生长子树。此时可能存在不同类别的样本同时存于结点中，按照多数投票的原则判断该节点所属类别。预剪枝对于何时停止决策树的生长有以下几种方法。<br>
+<li>
+<p>预剪枝<br>
+　预剪枝，在构造决策树的过程中，先对每个结点在划分前进行估计，如果当前结点的划分不能带来决策树模型泛化性能的提升，则不对当前结点进行划分并且将当前结点标记为叶节点。此时可能存在不同类别的样本同时存于结点中，按照多数投票的原则判断该节点所属类别。预剪枝对于何时停止决策树的生长有以下几种方法。<br>
 (1)当树到达一定深度的时候，停止树的生长。<br>
 (2)当到达当前结点的样本数量小于某个阀值的时候，停止树的生长。<br>
 (3)计算每次分裂对测试集的准确度提升，当小于某个阀值的时候，不再继续扩展。<br>
-　预剪枝具有思想直接、算法简单、效率高等特点，适合解决大规模问题。但如何准确地估计何时停止树的生长(即上述方法中的深度或阀值)，</li>
-<li>后剪枝</li>
+　不足之处：预剪枝使得决策树的很多分支都没有展开，降低了过拟合的风险，显著减少了决策树的训练时间开销和测试时间开销；但是，预剪枝虽然当前不能提升泛化性能，但是基于该划分的后续划分却有可能导致性能的提升，因此预剪枝会加大欠拟合的风险。</p>
+</li>
+<li>
+<p>后剪枝<br>
+　后剪枝，先构造完整颗决策树，然后自底向上的对非叶节点进行考察，若该结点对应的子树换成叶节点能够带来泛化性能的提升，则把该子树替换为叶结点。<br>
+　　(1)对于未剪枝的决策树中的每一个内部节点按照自上而下、自左向右的顺序进行编号<br>
+　　(2)从最大编号至最小编号方向进行评估，如果将该编号的子树替换为叶节点(子树中最多的类)，在验证集上会带来泛化能力的提升，则替换子树为叶节点<br>
+　 (3)按照(2)步骤遍历所有的节点<br>
+　不足之处:后剪枝决策树相比于预剪枝决策树保留了更多的分支，欠拟合风险小，泛化性能优于预剪枝决策树。其训练时间比未剪枝决策树和预剪枝决策树要大很多。</p>
+</li>
 </ul>
 <h3 id="连续值处理"><a class="markdownIt-Anchor" href="#连续值处理"></a> 连续值处理</h3>
-<p>关于连续数据处理，可参考链接，<a href="https://blog.csdn.net/u012328159/article/details/79396893" target="_blank" rel="noopener">连续值处理</a></p>
+<p>机器学习任务中会遇到连续属性，关于连续数据处理参考链接，<a href="https://blog.csdn.net/u012328159/article/details/79396893" target="_blank" rel="noopener">连续值处理</a>。<br>
+　　(1)给定训练集D和连续属性a。将属性a在D上出现的n个不同取值，按照从小到大的顺序进行排序。<br>
+(2)考察n-1个元素的候选划分点集合，划分点的取值为(ai+ai-1)/2。<br>
+(3)计算连续属性在每个划分点处的信息增益，选取划分点处信息增益最大的作为与其它属性进行比较。<br>
+(4)将(3)中最大的信息增益作为划分点，并重复(1)-(3)步骤，直至满足停止划分条件。<br>
+划分停止条件同决策树停止条件。</p>
 <h3 id="缺失值处理"><a class="markdownIt-Anchor" href="#缺失值处理"></a> 缺失值处理</h3>
-<p>关于缺失数据处理，参考链接，<a href="https://blog.csdn.net/u012328159/article/details/79413610" target="_blank" rel="noopener">缺失数据处理</a></p>
+<p>现实生活中的数据集样本，通常在某些属性上是缺失的。如果属性值缺失的样本数量比较少，可以直接简单粗暴的把不完备的样本删除掉；但是，如果有大量的样本都有属性值的缺失，假如删除了大量的样本，会让生成的机器学习模型损失大量有用信息，训练出来的模型性能会受到影响。关于缺失数据处理，参考链接，<a href="https://blog.csdn.net/u012328159/article/details/79413610" target="_blank" rel="noopener">缺失数据处理</a><br>
+(1)计算信息增益时，面对属性值缺失的样本如何处理?<br>
+　如果属性值缺失的样本数量比较少，直接简单粗暴的把不完备的样本删除掉；但是如果有大量样本都有属性值的缺失，此时，如果删除，会导致机器学习模型损失大量有用的信息，训练出来的模型性能会受到影响。下面介绍大量样本都有属性(a、b、c…)缺失的情况，计算方法。<br>
+a.对于属性a，取出样本集D中属性没有缺失的样本子集D1<br>
+　　b.计算属性a样本子集D1的信息增益Ent<br>
+　　c.计算属性a中没有缺失值的样本子集数目D1占总样本集D中数目的比例p，最终属性a的信息增益为p<em>Ent<br>
+d.对样本集D中的每一属性(b、c…)，按照a、b、c的步骤计算其信息增益<br>
+　　e.比较所有属性的信息增益值，确定信息增益值最大的为划分属性点<br>
+　　(2)如何将缺失属性的样本的结点，划分到子结点中去？<br>
+缺失属性样本会被同时划分进所有分支里去，在每个分支里权值的大小有所不同。权值大小为未缺失样本划进该分支的样本数量除以未缺失总样本数量。<br>
+(3)后续决策树的递归是如何进行的？<br>
+　其计算步骤同(1)，不过对于概率的计算，注意缺失样本的权值，以缺失样本的权重进行计算。需注意的一点是对于缺失样本的权重，往下传递，该层缺失样本的权值</em>上层缺失样本的权值。<br>
+　　(4)对于测试集中的样本含有缺失值该怎么处理？<br>
+　　a.如果有专门处理缺失值的分支，就走这个分支<br>
+b.同时探查所有的分支，并组合他们的结果来得到类别对应的概率<br>
+　　参考链接，<a href="https://blog.csdn.net/leaf_zizi/article/details/83503167" target="_blank" rel="noopener">决策树测试集样本缺失处理</a>。</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="chenhongbing.github.io/2019/06/19/机器学习经典算法之决策树/" data-id="cjxelati800323tjhhu5adgt0" class="article-share-link">Share</a>
+      <a data-url="chenhongbing.github.io/2019/06/19/机器学习经典算法之决策树/" data-id="cjxo5hydk002wq6jhhqnenuax" class="article-share-link">Share</a>
       
       
     </footer>
@@ -321,7 +483,7 @@ GBDT树生成步骤如下:<br>
       
     </div>
     <footer class="article-footer">
-      <a data-url="chenhongbing.github.io/2019/06/15/深度学习轻量级模型之MobileNet-v2/" data-id="cjxelatj1004b3tjhrcjeygvg" class="article-share-link">Share</a>
+      <a data-url="chenhongbing.github.io/2019/06/15/深度学习轻量级模型之MobileNet-v2/" data-id="cjxo5hyep004lq6jhgl8ozn8n" class="article-share-link">Share</a>
       
       
     </footer>
@@ -363,7 +525,7 @@ GBDT树生成步骤如下:<br>
       
     </div>
     <footer class="article-footer">
-      <a data-url="chenhongbing.github.io/2019/06/15/深度学习轻量级模型之Xception/" data-id="cjxelatj7004n3tjhhn28kn4l" class="article-share-link">Share</a>
+      <a data-url="chenhongbing.github.io/2019/06/15/深度学习轻量级模型之Xception/" data-id="cjxo5hyeo004iq6jh396n6je5" class="article-share-link">Share</a>
       
       
     </footer>
@@ -405,7 +567,7 @@ GBDT树生成步骤如下:<br>
       
     </div>
     <footer class="article-footer">
-      <a data-url="chenhongbing.github.io/2019/06/15/深度学习轻量级模型之SqueezeNet/" data-id="cjxelatj5004k3tjhnl0booyt" class="article-share-link">Share</a>
+      <a data-url="chenhongbing.github.io/2019/06/15/深度学习轻量级模型之SqueezeNet/" data-id="cjxo5hyf10055q6jh4uuhm6ka" class="article-share-link">Share</a>
       
       
     </footer>
@@ -447,7 +609,7 @@ GBDT树生成步骤如下:<br>
       
     </div>
     <footer class="article-footer">
-      <a data-url="chenhongbing.github.io/2019/06/15/深度学习轻量级模型之ShuffleNet-v2/" data-id="cjxelatj4004h3tjhiuxi2pii" class="article-share-link">Share</a>
+      <a data-url="chenhongbing.github.io/2019/06/15/深度学习轻量级模型之ShuffleNet-v2/" data-id="cjxo5hyej0046q6jhvaf02v7f" class="article-share-link">Share</a>
       
       
     </footer>
@@ -489,7 +651,7 @@ GBDT树生成步骤如下:<br>
       
     </div>
     <footer class="article-footer">
-      <a data-url="chenhongbing.github.io/2019/06/15/深度学习轻量级模型之ShuffleNet-v1/" data-id="cjxelatj3004f3tjh617fgvgj" class="article-share-link">Share</a>
+      <a data-url="chenhongbing.github.io/2019/06/15/深度学习轻量级模型之ShuffleNet-v1/" data-id="cjxo5hyei0045q6jhnpz56tjf" class="article-share-link">Share</a>
       
       
     </footer>
@@ -531,53 +693,9 @@ GBDT树生成步骤如下:<br>
       
     </div>
     <footer class="article-footer">
-      <a data-url="chenhongbing.github.io/2019/06/15/深度学习轻量级模型之MobileNet-v1/" data-id="cjxelatj0004a3tjhy1ii3nfs" class="article-share-link">Share</a>
+      <a data-url="chenhongbing.github.io/2019/06/15/深度学习轻量级模型之MobileNet-v1/" data-id="cjxo5hyer004pq6jhl9clss2w" class="article-share-link">Share</a>
       
       
-    </footer>
-  </div>
-  
-</article>
-
-
-
-
-  
-    <article id="post-深度学习目标检测之SSD" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2019/06/15/深度学习目标检测之SSD/" class="article-date">
-  <time datetime="2019-06-15T12:23:58.450Z" itemprop="datePublished">2019-06-15</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/目标检测/">目标检测</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/06/15/深度学习目标检测之SSD/">SSD</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="chenhongbing.github.io/2019/06/15/深度学习目标检测之SSD/" data-id="cjxelativ003w3tjhtf4019p2" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/one-stage/">one-stage</a></li></ul>
-
     </footer>
   </div>
   
@@ -644,6 +762,10 @@ GBDT树生成步骤如下:<br>
       <ul>
         
           <li>
+            <a href="/2019/06/29/深度学习面试之Python/">深度学习面试之Python</a>
+          </li>
+        
+          <li>
             <a href="/2019/06/27/机器学习经典算法之提升方法/">机器学习经典算法之提升方法</a>
           </li>
         
@@ -657,10 +779,6 @@ GBDT树生成步骤如下:<br>
         
           <li>
             <a href="/2019/06/15/深度学习轻量级模型之MobileNet-v2/">MobileNet v2</a>
-          </li>
-        
-          <li>
-            <a href="/2019/06/15/深度学习轻量级模型之Xception/">Xception</a>
           </li>
         
       </ul>

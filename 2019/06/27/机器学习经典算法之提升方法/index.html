@@ -7,14 +7,17 @@
   
   <title>机器学习经典算法之提升方法 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="article">
+  <meta name="description" content="集成学习 集成学习根据各个弱分类器之间有无依赖关系，分为Boosting和Bagging两大流派： 　　　Boosting流派，各分类器之间有依赖关系，串行关系，比如Adaboost、GBDT(Gradient Boosting Decision Tree)、Xgboost。 Bagging流派，各分类器之间没有依赖关系，并行关系，比如随机森林(Random Forest)。  Boosting">
+<meta property="og:type" content="article">
 <meta property="og:title" content="机器学习经典算法之提升方法">
 <meta property="og:url" content="chenhongbing.github.io/2019/06/27/机器学习经典算法之提升方法/index.html">
 <meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="集成学习 集成学习根据各个弱分类器之间有无依赖关系，分为Boosting和Bagging两大流派： 　　　Boosting流派，各分类器之间有依赖关系，串行关系，比如Adaboost、GBDT(Gradient Boosting Decision Tree)、Xgboost。 Bagging流派，各分类器之间没有依赖关系，并行关系，比如随机森林(Random Forest)。  Boosting">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-06-26T16:29:15.866Z">
+<meta property="og:updated_time" content="2019-07-03T09:03:29.053Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="机器学习经典算法之提升方法">
+<meta name="twitter:description" content="集成学习 集成学习根据各个弱分类器之间有无依赖关系，分为Boosting和Bagging两大流派： 　　　Boosting流派，各分类器之间有依赖关系，串行关系，比如Adaboost、GBDT(Gradient Boosting Decision Tree)、Xgboost。 Bagging流派，各分类器之间没有依赖关系，并行关系，比如随机森林(Random Forest)。  Boosting">
   
     <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -92,11 +95,70 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        
+        <h3 id="集成学习"><a class="markdownIt-Anchor" href="#集成学习"></a> 集成学习</h3>
+<p>集成学习根据各个弱分类器之间有无依赖关系，分为Boosting和Bagging两大流派：<br>
+　　　Boosting流派，各分类器之间有依赖关系，串行关系，比如Adaboost、GBDT(Gradient Boosting Decision Tree)、Xgboost。<br>
+Bagging流派，各分类器之间没有依赖关系，并行关系，比如随机森林(Random Forest)。</p>
+<h3 id="boosting流派之adaboost"><a class="markdownIt-Anchor" href="#boosting流派之adaboost"></a> Boosting流派之Adaboost</h3>
+<ul>
+<li>
+<p>提升方法的基本思路<br>
+在概率近似正确(Probably Approximately Correct,PAC)学习的框架中，一个概念(类)，如果存在一个多项式的学习算法能够学习它，并且正确率很高，那么就称这个概念是强可学习的；一个概念(类)，如果存在一个多项式的学习算法能够学习它，学习的正确率仅比随机猜测略好，那么就称这个概念是弱可学习的。大多数的提升方法都是改变训练数据的概率分布(训练数据的权值分布)，针对不同的训练数据分布调用弱学习算法学习一系列弱分类器。<br>
+　 1.在每一轮中如何改变训练数据的权值或概率分布?<br>
+　　Adaboost的做法是，提高前一轮弱分类器错误分类样本的权值，降低正确分类样本的权值。如此，没有得到正确分类的数据，由于其权值的加大而受到后一轮弱分类器的更大关注。　<br>
+　　2.如何将弱分类器组合成一个强分类器?<br>
+　　Adaboost最终是将多个弱分类器进行组合，形成一个强分类器。弱分类器的组合，Adaboost采取加权多数表决。即加大分类误差率小的弱分类器权值，使其在表决中起较大作用，减少分类误差率大的弱分类器权值，使其在表决中起较小的作用。<br>
+Adaboost算法流程如下:<br>
+1.初始化样本权值<br>
+2.迭代m=1,2,…,M;根据权值分布为Di的训练数据，通过训练得到一个阀值，使得训练数据在该阀值下分类误差率最低。总结，即权值分布Di条件下，分类误差率最小的阀值<br>
+3.根据分类误差率，求得分类器权重系数　阿尔法<br>
+4.更新训练数据集的权值分布<br>
+5.构建基本的分类器线性组合</p>
+<p>在学习的过程中，一直遇到一个难点，就是更新权重后，如何产生新的分类器，最后看了参考文献2，才明白，原来分类器的更新是一个一个试出来的，比较在不同分类点上分类误差率的大小，即某个分类器的误差率等于该分类器的被错分类样本的权值之和。另外就是何时停止训练，有两种情况是，一种是迭代次数达到指定次数，另外一种是强分类器的分类误差率小于某一指定阀值。<br>
+　参考文献:(1)<a href="https://zhuanlan.zhihu.com/p/27126737" target="_blank" rel="noopener">手把手教你AdaBoost</a><br>
+(2)<a href="https://blog.csdn.net/mousever/article/details/52038198" target="_blank" rel="noopener">adaboost原理（包含权重详细解释)</a></p>
+</li>
+<li>
+<p>AdaBoost回归算法流程<br>
+1.计算弱分类器的回归误差率<br>
+2.弱分类器权值系数阿尔法的计算<br>
+3.下一轮样本的权值更新<br>
+4.结合策略，构建最终学习器为<br>
+　<br>
+参考文献:(1)<a href="https://mp.weixin.qq.com/s/Q4az1uFIEmjonKfu_eEmAQ" target="_blank" rel="noopener">AdaBoost回归算法流程</a></p>
+</li>
+<li>
+<p>AdaBoost算法的训练误差分析<br>
+AdaBoost在学习过程中不断减少训练误差，直到各个弱分类器组合成最终分类器，那么这个最终分类器的误差率是多少?<br>
+推导过程，参考<a href="https://blog.csdn.net/mousever/article/details/52038198" target="_blank" rel="noopener">adaboost原理(包含权重详细解释)</a>中第2部分。</p>
+</li>
+<li>
+<p>AdaBoost算法原理分析<br>
+AdaBoost算法是模型为加法模型、损失函数为指数函数、学习算法为前向分步算法时的二类分类学习方法。<br>
+1.前向分步算法<br>
+　　输入:训练数据集T;损失函数L;基函数集{b(x;y)}<br>
+输出:加法模型f(x)<br>
+　　　　(1)极小化损失函数<br>
+(2)更新<br>
+(3)得到加法模型<br>
+参考:统计学习方法<br>
+2.前向分步算法与AdaBoost<br>
+前向分步算法的损失函数是指数损失函数，L(y,f(x))=exp[-yf(x)]<br>
+假设经过m-1轮迭代前向分步算法已经得到fm-1(x).</p>
+</li>
+<li>
+<p>提升树</p>
+</li>
+</ul>
+<h3 id="boosting流派之gbdt"><a class="markdownIt-Anchor" href="#boosting流派之gbdt"></a> Boosting流派之GBDT</h3>
+<p><a href="https://www.cnblogs.com/pinard/p/6140514.html" target="_blank" rel="noopener">梯度提升树(GBDT)原理小结</a></p>
+<h3 id="boosting流派之xgboost"><a class="markdownIt-Anchor" href="#boosting流派之xgboost"></a> Boosting流派之XGboost</h3>
+<h3 id="bagging流派之random-forest"><a class="markdownIt-Anchor" href="#bagging流派之random-forest"></a> Bagging流派之Random Forest</h3>
+
       
     </div>
     <footer class="article-footer">
-      <a data-url="chenhongbing.github.io/2019/06/27/机器学习经典算法之提升方法/" data-id="cjxelatib00353tjhdahroc2v" class="article-share-link">Share</a>
+      <a data-url="chenhongbing.github.io/2019/06/27/机器学习经典算法之提升方法/" data-id="cjxo5hydm0031q6jh7gyqyp83" class="article-share-link">Share</a>
       
       
     </footer>
@@ -104,6 +166,15 @@
   
     
 <nav id="article-nav">
+  
+    <a href="/2019/06/29/深度学习面试之Python/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          深度学习面试之Python
+        
+      </div>
+    </a>
   
   
     <a href="/2019/06/27/机器学习经典算法之逻辑斯蒂回归/" id="article-nav-older" class="article-nav-link-wrap">
@@ -168,6 +239,10 @@
       <ul>
         
           <li>
+            <a href="/2019/06/29/深度学习面试之Python/">深度学习面试之Python</a>
+          </li>
+        
+          <li>
             <a href="/2019/06/27/机器学习经典算法之提升方法/">机器学习经典算法之提升方法</a>
           </li>
         
@@ -181,10 +256,6 @@
         
           <li>
             <a href="/2019/06/15/深度学习轻量级模型之MobileNet-v2/">MobileNet v2</a>
-          </li>
-        
-          <li>
-            <a href="/2019/06/15/深度学习轻量级模型之Xception/">Xception</a>
           </li>
         
       </ul>
