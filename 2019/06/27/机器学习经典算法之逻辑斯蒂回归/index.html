@@ -7,17 +7,17 @@
   
   <title>机器学习经典算法之逻辑斯蒂回归 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="线性回归与逻辑斯蒂回归的区别 (1)线性回归的输出是数值型，而逻辑斯蒂回归的取值范围是在(0,1)之间，并且逻辑斯蒂回归取值的极大概率要么是0、要么是1，取其它概率值可能性很小，在0.5概率处快速跳跃。 (2)生活中有很多分类的需求，此时线性回归就不能满足要求。那么我们能不能通过稍微改进一下线性回归，使它可以进行分类呢?即通过一个函数将线性方程的值域映射到(0,1)，刚好sigmoid函数满足要">
+  <meta name="description" content="参考链接，逻辑回归.  线性回归与逻辑斯蒂回归的区别 (1)线性回归的输出是数值型，而逻辑斯蒂回归的取值范围是在(0,1)之间，并且逻辑斯蒂回归取值的极大概率要么是0、要么是1，取其它概率值可能性很小，在0.5概率处快速跳跃。 (2)生活中有很多分类的需求，此时线性回归就不能满足要求。那么我们能不能通过稍微改进一下线性回归，使它可以进行分类呢?即通过一个函数将线性方程的值域映射到(0,1)，刚好s">
 <meta property="og:type" content="article">
 <meta property="og:title" content="机器学习经典算法之逻辑斯蒂回归">
 <meta property="og:url" content="chenhongbing.github.io/2019/06/27/机器学习经典算法之逻辑斯蒂回归/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="线性回归与逻辑斯蒂回归的区别 (1)线性回归的输出是数值型，而逻辑斯蒂回归的取值范围是在(0,1)之间，并且逻辑斯蒂回归取值的极大概率要么是0、要么是1，取其它概率值可能性很小，在0.5概率处快速跳跃。 (2)生活中有很多分类的需求，此时线性回归就不能满足要求。那么我们能不能通过稍微改进一下线性回归，使它可以进行分类呢?即通过一个函数将线性方程的值域映射到(0,1)，刚好sigmoid函数满足要">
+<meta property="og:description" content="参考链接，逻辑回归.  线性回归与逻辑斯蒂回归的区别 (1)线性回归的输出是数值型，而逻辑斯蒂回归的取值范围是在(0,1)之间，并且逻辑斯蒂回归取值的极大概率要么是0、要么是1，取其它概率值可能性很小，在0.5概率处快速跳跃。 (2)生活中有很多分类的需求，此时线性回归就不能满足要求。那么我们能不能通过稍微改进一下线性回归，使它可以进行分类呢?即通过一个函数将线性方程的值域映射到(0,1)，刚好s">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-07-13T12:27:06.718Z">
+<meta property="og:updated_time" content="2019-07-13T12:31:25.602Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="机器学习经典算法之逻辑斯蒂回归">
-<meta name="twitter:description" content="线性回归与逻辑斯蒂回归的区别 (1)线性回归的输出是数值型，而逻辑斯蒂回归的取值范围是在(0,1)之间，并且逻辑斯蒂回归取值的极大概率要么是0、要么是1，取其它概率值可能性很小，在0.5概率处快速跳跃。 (2)生活中有很多分类的需求，此时线性回归就不能满足要求。那么我们能不能通过稍微改进一下线性回归，使它可以进行分类呢?即通过一个函数将线性方程的值域映射到(0,1)，刚好sigmoid函数满足要">
+<meta name="twitter:description" content="参考链接，逻辑回归.  线性回归与逻辑斯蒂回归的区别 (1)线性回归的输出是数值型，而逻辑斯蒂回归的取值范围是在(0,1)之间，并且逻辑斯蒂回归取值的极大概率要么是0、要么是1，取其它概率值可能性很小，在0.5概率处快速跳跃。 (2)生活中有很多分类的需求，此时线性回归就不能满足要求。那么我们能不能通过稍微改进一下线性回归，使它可以进行分类呢?即通过一个函数将线性方程的值域映射到(0,1)，刚好s">
   
     <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -95,7 +95,8 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="线性回归与逻辑斯蒂回归的区别"><a class="markdownIt-Anchor" href="#线性回归与逻辑斯蒂回归的区别"></a> 线性回归与逻辑斯蒂回归的区别</h3>
+        <p>参考链接，<a href="https://wasedamagina.github.io/2017/11/22/Logistic-Regression/" target="_blank" rel="noopener">逻辑回归</a>.</p>
+<h3 id="线性回归与逻辑斯蒂回归的区别"><a class="markdownIt-Anchor" href="#线性回归与逻辑斯蒂回归的区别"></a> 线性回归与逻辑斯蒂回归的区别</h3>
 <p>(1)线性回归的输出是数值型，而逻辑斯蒂回归的取值范围是在(0,1)之间，并且逻辑斯蒂回归取值的极大概率要么是0、要么是1，取其它概率值可能性很小，在0.5概率处快速跳跃。<br>
 (2)生活中有很多分类的需求，此时线性回归就不能满足要求。那么我们能不能通过稍微改进一下线性回归，使它可以进行分类呢?即通过一个函数将线性方程的值域映射到(0,1)，刚好sigmoid函数满足要求，映射之后的函数称为逻辑斯蒂回归函数。</p>
 <h3 id="逻辑斯蒂函数"><a class="markdownIt-Anchor" href="#逻辑斯蒂函数"></a> 逻辑斯蒂函数</h3>
@@ -153,7 +154,7 @@ Sigmoid函数，表达式如下:</p>
       
     </div>
     <footer class="article-footer">
-      <a data-url="chenhongbing.github.io/2019/06/27/机器学习经典算法之逻辑斯蒂回归/" data-id="cjy1iap3o003dxijhgje8n915" class="article-share-link">Share</a>
+      <a data-url="chenhongbing.github.io/2019/06/27/机器学习经典算法之逻辑斯蒂回归/" data-id="cjy1if8a2003ddmjh0l5ulstd" class="article-share-link">Share</a>
       
       
     </footer>
