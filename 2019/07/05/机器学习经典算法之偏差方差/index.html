@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  
+
+  
+  <title>机器学习经典算法之偏差方差 | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="1.为什么会有偏差和方差 对训练算法除了通过实验估计其泛化性能之外，人们往往还希望了解它为什么具有这样的性能。&amp;quot;偏差-方差分解&amp;quot;就是从偏差和方差的角度来解释学习算法泛化性能的一种重要工具。 在机器学习中，我们用训练数据集去训练一个模型，通常做法是定义一个误差函数，通过将这个误差最小化的过程，来提高模型的性能。然而我们学习一个模型的目的是为了解决训练数据集这个领域中的一般化问题">
+<meta property="og:type" content="article">
+<meta property="og:title" content="机器学习经典算法之偏差方差">
+<meta property="og:url" content="chenhongbing.github.io/2019/07/05/机器学习经典算法之偏差方差/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="1.为什么会有偏差和方差 对训练算法除了通过实验估计其泛化性能之外，人们往往还希望了解它为什么具有这样的性能。&amp;quot;偏差-方差分解&amp;quot;就是从偏差和方差的角度来解释学习算法泛化性能的一种重要工具。 在机器学习中，我们用训练数据集去训练一个模型，通常做法是定义一个误差函数，通过将这个误差最小化的过程，来提高模型的性能。然而我们学习一个模型的目的是为了解决训练数据集这个领域中的一般化问题">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-07-05T05:13:20.878Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="机器学习经典算法之偏差方差">
+<meta name="twitter:description" content="1.为什么会有偏差和方差 对训练算法除了通过实验估计其泛化性能之外，人们往往还希望了解它为什么具有这样的性能。&amp;quot;偏差-方差分解&amp;quot;就是从偏差和方差的角度来解释学习算法泛化性能的一种重要工具。 在机器学习中，我们用训练数据集去训练一个模型，通常做法是定义一个误差函数，通过将这个误差最小化的过程，来提高模型的性能。然而我们学习一个模型的目的是为了解决训练数据集这个领域中的一般化问题">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css" rel="stylesheet" type="text/css">
+</head>
+</html>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">孙子兵法</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="chenhongbing.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-机器学习经典算法之偏差方差" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/07/05/机器学习经典算法之偏差方差/" class="article-date">
+  <time datetime="2019-07-05T04:29:21.000Z" itemprop="datePublished">2019-07-05</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/机器学习/">机器学习</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      机器学习经典算法之偏差方差
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="1为什么会有偏差和方差"><a class="markdownIt-Anchor" href="#1为什么会有偏差和方差"></a> 1.为什么会有偏差和方差</h3>
+<p>对训练算法除了通过实验估计其泛化性能之外，人们往往还希望了解它为什么具有这样的性能。&quot;偏差-方差分解&quot;就是从偏差和方差的角度来解释学习算法泛化性能的一种重要工具。<br>
+在机器学习中，我们用训练数据集去训练一个模型，通常做法是定义一个误差函数，通过将这个误差最小化的过程，来提高模型的性能。然而我们学习一个模型的目的是为了解决训练数据集这个领域中的一般化问题，单纯地将训练数据集的损失最小化，并不能保证在解决更一般的问题时模型仍然是最优，甚至不能保证模型是可用的。这个训练数据集的损失与一般化的数据集的损失之间的差异就叫做泛化误差(generalization error)。<br>
+　  泛化误差可以分解为偏差(Bias)、方差(Variance)和噪声(Noise)。</p>
+<h3 id="2偏差-方差-噪声是什么"><a class="markdownIt-Anchor" href="#2偏差-方差-噪声是什么"></a> 2.偏差、方差、噪声是什么？</h3>
+<ul>
+<li>
+<p>简述偏差、方差、噪声<br>
+偏差(Bias)是用所有可能的训练数据集训练出的所有模型的输出平均值与真实模型的输出值之间的差异。<br>
+　方差(Variance)是不同的训练数据集训练出的模型输出值之间的差异。<br>
+　噪声的存在是学习算法所无法解决的问题，数据的质量决定了学习的上限。假设在数据已经给定的情况下，此时上限已定，我们要做的就是尽可能的接近这个上限。<br>
+　注意:我们能够用来学习的训练数据集只是全部数据中的一个子集。想象一下，我们现在收集几组不同的数据，因为每一组数据的不同，我们学习到模型的最小损失值也会有所不同，它们与&quot;真实模型&quot;的最小损失也是不一样的。</p>
+</li>
+<li>
+<p>数学公式定义偏差、方差、噪声</p>
+</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="chenhongbing.github.io/2019/07/05/机器学习经典算法之偏差方差/" data-id="cjy1hw4ja003g3qjhsgvhg7ja" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2019/07/09/深度学习面试之BP/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          深度学习面试之BP
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2019/06/29/深度学习面试之Python/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">深度学习面试之Python</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/FlyAI/">FlyAI</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Hexo-环境搭建/">Hexo 环境搭建</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/hello-world/">hello-world</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/机器学习/">机器学习</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/深度学习面试总结/">深度学习面试总结</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/目标分类/">目标分类</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/目标检测/">目标检测</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/轻量级模型/">轻量级模型</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/deep-learing/">deep learing</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/node-js/">node.js</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/one-stage/">one-stage</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/two-stage/">two-stage</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/图像分类/">图像分类</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/目标检测/">目标检测</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/deep-learing/" style="font-size: 10px;">deep learing</a> <a href="/tags/node-js/" style="font-size: 12.5px;">node.js</a> <a href="/tags/one-stage/" style="font-size: 15px;">one-stage</a> <a href="/tags/two-stage/" style="font-size: 17.5px;">two-stage</a> <a href="/tags/图像分类/" style="font-size: 20px;">图像分类</a> <a href="/tags/目标检测/" style="font-size: 12.5px;">目标检测</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/07/">July 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/06/">June 2019</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2019/07/11/机器学习经典算法之线性回归/">机器学习经典算法之线性回归</a>
+          </li>
+        
+          <li>
+            <a href="/2019/07/09/深度学习面试之BP/">深度学习面试之BP</a>
+          </li>
+        
+          <li>
+            <a href="/2019/07/05/机器学习经典算法之偏差方差/">机器学习经典算法之偏差方差</a>
+          </li>
+        
+          <li>
+            <a href="/2019/06/29/深度学习面试之Python/">深度学习面试之Python</a>
+          </li>
+        
+          <li>
+            <a href="/2019/06/27/机器学习经典算法之提升方法/">机器学习经典算法之提升方法</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+    
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2019 Hexo<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?8249878f4836242732b5440d03f198f6";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+
+  </div>
+</body>
+</html>

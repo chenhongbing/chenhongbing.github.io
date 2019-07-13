@@ -14,7 +14,7 @@
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="集成学习 集成学习根据各个弱分类器之间有无依赖关系，分为Boosting和Bagging两大流派： 1.Boosting流派，各分类器之间有依赖关系，串行关系，例如Adaboost、GBDT(Gradient Boosting Decision Tree)、Xgboost。 2.Bagging流派，各分类器之间没有依赖关系，并行关系，例如随机森林(Random Forest)。  Boostin">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-07-04T18:04:27.896Z">
+<meta property="og:updated_time" content="2019-07-08T11:20:08.447Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="机器学习经典算法之提升方法">
 <meta name="twitter:description" content="集成学习 集成学习根据各个弱分类器之间有无依赖关系，分为Boosting和Bagging两大流派： 1.Boosting流派，各分类器之间有依赖关系，串行关系，例如Adaboost、GBDT(Gradient Boosting Decision Tree)、Xgboost。 2.Bagging流派，各分类器之间没有依赖关系，并行关系，例如随机森林(Random Forest)。  Boostin">
@@ -180,14 +180,16 @@ c.更新<span class="katex"><span class="katex-mathml"><math><semantics><mrow><m
 </ul>
 <p>参考文献:统计学习方法<br>
 与CART回归树不同之处:提升树以残差作为后续计算的标准；CART回归树以原始数据作为后续计算的标准。</p>
-<p>###　Boosting流派之GBDT</p>
+<p>###　Boosting流派之GBDT<br>
+GBDT算法是模型为加法模型，基函数为CART树，损失函数为平方损失函数，学习算法为前向分布算法的回归问题；损失函数为指数函数的则为分类问题；为一般损失函数的一般决策问题。<br>
+　当GBDT的损失函数是平方损失时，即<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>L</mi><mo stretchy="false">(</mo><mi>y</mi><mo separator="true">,</mo><mi>f</mi><mo stretchy="false">(</mo><mi>x</mi><mo stretchy="false">)</mo><mo stretchy="false">)</mo><mo>=</mo><mfrac><mn>1</mn><mn>2</mn></mfrac><mo stretchy="false">(</mo><mi>y</mi><mo>−</mo><mi>f</mi><mo stretchy="false">(</mo><mi>x</mi><mo stretchy="false">)</mo><msup><mo stretchy="false">)</mo><mn>2</mn></msup></mrow><annotation encoding="application/x-tex">L(y,f(x))=\frac{1}{2}(y-f(x))^{2}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault">L</span><span class="mopen">(</span><span class="mord mathdefault" style="margin-right:0.03588em;">y</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault" style="margin-right:0.10764em;">f</span><span class="mopen">(</span><span class="mord mathdefault">x</span><span class="mclose">)</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1.190108em;vertical-align:-0.345em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.845108em;"><span style="top:-2.6550000000000002em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">2</span></span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.394em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">1</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.345em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span><span class="mopen">(</span><span class="mord mathdefault" style="margin-right:0.03588em;">y</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1.064108em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.10764em;">f</span><span class="mopen">(</span><span class="mord mathdefault">x</span><span class="mclose">)</span><span class="mclose"><span class="mclose">)</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141079999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">2</span></span></span></span></span></span></span></span></span></span></span></span>时，则负梯度<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>−</mo><mfrac><mrow><mi mathvariant="normal">∂</mi><mi>L</mi></mrow><mrow><mi mathvariant="normal">∂</mi><mi>f</mi><mo stretchy="false">(</mo><mi>x</mi><mo stretchy="false">)</mo></mrow></mfrac><mo>=</mo><mi>y</mi><mo>−</mo><mi>f</mi><mo stretchy="false">(</mo><mi>x</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">-\frac{\partial L}{\partial f(x)}=y-f(x)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.400108em;vertical-align:-0.52em;"></span><span class="mord">−</span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.8801079999999999em;"><span style="top:-2.655em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight" style="margin-right:0.05556em;">∂</span><span class="mord mathdefault mtight" style="margin-right:0.10764em;">f</span><span class="mopen mtight">(</span><span class="mord mathdefault mtight">x</span><span class="mclose mtight">)</span></span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.394em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight" style="margin-right:0.05556em;">∂</span><span class="mord mathdefault mtight">L</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.52em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.7777700000000001em;vertical-align:-0.19444em;"></span><span class="mord mathdefault" style="margin-right:0.03588em;">y</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.10764em;">f</span><span class="mopen">(</span><span class="mord mathdefault">x</span><span class="mclose">)</span></span></span></span>，而y-f(x)即为我们所说的残差，GBDT的思想就是在每次迭代中拟合残差来学习一个弱学习器。而残差的方向即为我们全局最优的方向。但是当损失函数不为</p>
 <h3 id="boosting流派之xgboost"><a class="markdownIt-Anchor" href="#boosting流派之xgboost"></a> Boosting流派之XGboost</h3>
 <h3 id="bagging流派之random-forest"><a class="markdownIt-Anchor" href="#bagging流派之random-forest"></a> Bagging流派之Random Forest</h3>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="chenhongbing.github.io/2019/06/27/机器学习经典算法之提升方法/" data-id="cjxozcuu300356ojhlgzuxx3c" class="article-share-link">Share</a>
+      <a data-url="chenhongbing.github.io/2019/06/27/机器学习经典算法之提升方法/" data-id="cjy1hw4jh003s3qjh08lhiuf1" class="article-share-link">Share</a>
       
       
     </footer>
@@ -255,7 +257,7 @@ c.更新<span class="katex"><span class="katex-mathml"><math><semantics><mrow><m
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/06/">June 2019</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/07/">July 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/06/">June 2019</a></li></ul>
     </div>
   </div>
 
@@ -268,23 +270,23 @@ c.更新<span class="katex"><span class="katex-mathml"><math><semantics><mrow><m
       <ul>
         
           <li>
+            <a href="/2019/07/11/机器学习经典算法之线性回归/">机器学习经典算法之线性回归</a>
+          </li>
+        
+          <li>
+            <a href="/2019/07/09/深度学习面试之BP/">深度学习面试之BP</a>
+          </li>
+        
+          <li>
+            <a href="/2019/07/05/机器学习经典算法之偏差方差/">机器学习经典算法之偏差方差</a>
+          </li>
+        
+          <li>
             <a href="/2019/06/29/深度学习面试之Python/">深度学习面试之Python</a>
           </li>
         
           <li>
             <a href="/2019/06/27/机器学习经典算法之提升方法/">机器学习经典算法之提升方法</a>
-          </li>
-        
-          <li>
-            <a href="/2019/06/27/机器学习经典算法之逻辑斯蒂回归/">机器学习经典算法之逻辑斯蒂回归</a>
-          </li>
-        
-          <li>
-            <a href="/2019/06/19/机器学习经典算法之决策树/">机器学习经典算法之决策树</a>
-          </li>
-        
-          <li>
-            <a href="/2019/06/15/深度学习轻量级模型之MobileNet-v2/">MobileNet v2</a>
           </li>
         
       </ul>
