@@ -5,19 +5,21 @@
   
 
   
-  <title>机器学习经典算法之正则化 | Hexo</title>
+  <title>机器学习经典算法之正则化的线性回归 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="###　1.什么是正则化  2.正则化怎样帮助我们减缓过拟合  3.深度学习中应用的不同正则化技巧 1)L1和L2正则化 2)Dropout 3)数据增强 4)Early stopping">
+  <meta name="description" content="###　1.L1和L2正则化   1.公式 L1正则化:J(θ)=[yθ(x)]2+[∣θ1∣+∣θ2∣+...]J(\theta)=[y_{\theta}(x)]^{2}+[|\theta_{1}|+|\theta_{2}|+...]J(θ)=[yθ​(x)]2+[∣θ1​∣+∣θ2​∣+...]。 　　L2正则化:J(θ)=[yθ(x)]2+[θ12+θ22+...]J(\theta)=[y_">
 <meta property="og:type" content="article">
-<meta property="og:title" content="机器学习经典算法之正则化">
+<meta property="og:title" content="机器学习经典算法之正则化的线性回归">
 <meta property="og:url" content="chenhongbing.github.io/2019/07/16/机器学习经典算法之正则化/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="###　1.什么是正则化  2.正则化怎样帮助我们减缓过拟合  3.深度学习中应用的不同正则化技巧 1)L1和L2正则化 2)Dropout 3)数据增强 4)Early stopping">
+<meta property="og:description" content="###　1.L1和L2正则化   1.公式 L1正则化:J(θ)=[yθ(x)]2+[∣θ1∣+∣θ2∣+...]J(\theta)=[y_{\theta}(x)]^{2}+[|\theta_{1}|+|\theta_{2}|+...]J(θ)=[yθ​(x)]2+[∣θ1​∣+∣θ2​∣+...]。 　　L2正则化:J(θ)=[yθ(x)]2+[θ12+θ22+...]J(\theta)=[y_">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-07-16T08:12:30.389Z">
+<meta property="og:image" content="/images/L1L2%E6%AD%A3%E5%88%99%E5%8C%96.png">
+<meta property="og:updated_time" content="2019-07-26T11:53:44.291Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="机器学习经典算法之正则化">
-<meta name="twitter:description" content="###　1.什么是正则化  2.正则化怎样帮助我们减缓过拟合  3.深度学习中应用的不同正则化技巧 1)L1和L2正则化 2)Dropout 3)数据增强 4)Early stopping">
+<meta name="twitter:title" content="机器学习经典算法之正则化的线性回归">
+<meta name="twitter:description" content="###　1.L1和L2正则化   1.公式 L1正则化:J(θ)=[yθ(x)]2+[∣θ1∣+∣θ2∣+...]J(\theta)=[y_{\theta}(x)]^{2}+[|\theta_{1}|+|\theta_{2}|+...]J(θ)=[yθ​(x)]2+[∣θ1​∣+∣θ2​∣+...]。 　　L2正则化:J(θ)=[yθ(x)]2+[θ12+θ22+...]J(\theta)=[y_">
+<meta name="twitter:image" content="/images/L1L2%E6%AD%A3%E5%88%99%E5%8C%96.png">
   
     <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -87,7 +89,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      机器学习经典算法之正则化
+      机器学习经典算法之正则化的线性回归
     </h1>
   
 
@@ -95,18 +97,45 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>###　1.什么是正则化</p>
-<h3 id="2正则化怎样帮助我们减缓过拟合"><a class="markdownIt-Anchor" href="#2正则化怎样帮助我们减缓过拟合"></a> 2.正则化怎样帮助我们减缓过拟合</h3>
-<h3 id="3深度学习中应用的不同正则化技巧"><a class="markdownIt-Anchor" href="#3深度学习中应用的不同正则化技巧"></a> 3.深度学习中应用的不同正则化技巧</h3>
-<p>1)L1和L2正则化<br>
-2)Dropout<br>
-3)数据增强<br>
-4)Early stopping</p>
+        <p>###　1.L1和L2正则化</p>
+<ul>
+<li>
+<p>1.公式<br>
+L1正则化:<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>J</mi><mo stretchy="false">(</mo><mi>θ</mi><mo stretchy="false">)</mo><mo>=</mo><mo stretchy="false">[</mo><msub><mi>y</mi><mi>θ</mi></msub><mo stretchy="false">(</mo><mi>x</mi><mo stretchy="false">)</mo><msup><mo stretchy="false">]</mo><mn>2</mn></msup><mo>+</mo><mo stretchy="false">[</mo><mi mathvariant="normal">∣</mi><msub><mi>θ</mi><mn>1</mn></msub><mi mathvariant="normal">∣</mi><mo>+</mo><mi mathvariant="normal">∣</mi><msub><mi>θ</mi><mn>2</mn></msub><mi mathvariant="normal">∣</mi><mo>+</mo><mi mathvariant="normal">.</mi><mi mathvariant="normal">.</mi><mi mathvariant="normal">.</mi><mo stretchy="false">]</mo></mrow><annotation encoding="application/x-tex">J(\theta)=[y_{\theta}(x)]^{2}+[|\theta_{1}|+|\theta_{2}|+...]</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.09618em;">J</span><span class="mopen">(</span><span class="mord mathdefault" style="margin-right:0.02778em;">θ</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1.064108em;vertical-align:-0.25em;"></span><span class="mopen">[</span><span class="mord"><span class="mord mathdefault" style="margin-right:0.03588em;">y</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.33610799999999996em;"><span style="top:-2.5500000000000003em;margin-left:-0.03588em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight" style="margin-right:0.02778em;">θ</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mopen">(</span><span class="mord mathdefault">x</span><span class="mclose">)</span><span class="mclose"><span class="mclose">]</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141079999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">2</span></span></span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">[</span><span class="mord">∣</span><span class="mord"><span class="mord mathdefault" style="margin-right:0.02778em;">θ</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:-0.02778em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">1</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mord">∣</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">∣</span><span class="mord"><span class="mord mathdefault" style="margin-right:0.02778em;">θ</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:-0.02778em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">2</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mord">∣</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">.</span><span class="mord">.</span><span class="mord">.</span><span class="mclose">]</span></span></span></span>。<br>
+　　L2正则化:<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>J</mi><mo stretchy="false">(</mo><mi>θ</mi><mo stretchy="false">)</mo><mo>=</mo><mo stretchy="false">[</mo><msub><mi>y</mi><mi>θ</mi></msub><mo stretchy="false">(</mo><mi>x</mi><mo stretchy="false">)</mo><msup><mo stretchy="false">]</mo><mn>2</mn></msup><mo>+</mo><mo stretchy="false">[</mo><msubsup><mi>θ</mi><mn>1</mn><mn>2</mn></msubsup><mo>+</mo><msubsup><mi>θ</mi><mn>2</mn><mn>2</mn></msubsup><mo>+</mo><mi mathvariant="normal">.</mi><mi mathvariant="normal">.</mi><mi mathvariant="normal">.</mi><mo stretchy="false">]</mo></mrow><annotation encoding="application/x-tex">J(\theta)=[y_{\theta}(x)]^{2}+[\theta_1^2+\theta_2^2+...]</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.09618em;">J</span><span class="mopen">(</span><span class="mord mathdefault" style="margin-right:0.02778em;">θ</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1.064108em;vertical-align:-0.25em;"></span><span class="mopen">[</span><span class="mord"><span class="mord mathdefault" style="margin-right:0.03588em;">y</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.33610799999999996em;"><span style="top:-2.5500000000000003em;margin-left:-0.03588em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight" style="margin-right:0.02778em;">θ</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mopen">(</span><span class="mord mathdefault">x</span><span class="mclose">)</span><span class="mclose"><span class="mclose">]</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141079999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">2</span></span></span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1.064108em;vertical-align:-0.25em;"></span><span class="mopen">[</span><span class="mord"><span class="mord mathdefault" style="margin-right:0.02778em;">θ</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.8141079999999999em;"><span style="top:-2.4518920000000004em;margin-left:-0.02778em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.24810799999999997em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1.0622159999999998em;vertical-align:-0.24810799999999997em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.02778em;">θ</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.8141079999999999em;"><span style="top:-2.4518920000000004em;margin-left:-0.02778em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.24810799999999997em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">.</span><span class="mord">.</span><span class="mord">.</span><span class="mclose">]</span></span></span></span>。<br>
+误差函数<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>J</mi><mo stretchy="false">(</mo><mi>θ</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">J(\theta)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.09618em;">J</span><span class="mopen">(</span><span class="mord mathdefault" style="margin-right:0.02778em;">θ</span><span class="mclose">)</span></span></span></span>的大小不仅取决于模型y(x)和真实数据y之间的误差大小，还取决于模型的参数值。如果是每个参数的绝对值，称之为L1正则化。如果是每个参数的平方，称之为L2正则化。</p>
+</li>
+<li>
+<p>2.正则化图像<br>
+<img src="/images/L1L2%E6%AD%A3%E5%88%99%E5%8C%96.png" alt="L1L2正则化"></p>
+</li>
+<li>
+<p>3.L2正则化</p>
+</li>
+</ul>
+<h3 id="2l1和l2正则化如何减少过拟合"><a class="markdownIt-Anchor" href="#2l1和l2正则化如何减少过拟合"></a> 2.L1和L2正则化如何减少过拟合</h3>
+<h3 id="3lasso回归"><a class="markdownIt-Anchor" href="#3lasso回归"></a> 3.Lasso回归</h3>
+<h3 id="4岭回归"><a class="markdownIt-Anchor" href="#4岭回归"></a> 4.岭回归</h3>
+<h3 id="5deep-learning减少过拟合的技巧"><a class="markdownIt-Anchor" href="#5deep-learning减少过拟合的技巧"></a> 5.deep learning减少过拟合的技巧</h3>
+<ul>
+<li>
+<p>1.L1和L2正则化</p>
+</li>
+<li>
+<p>2.Dropout</p>
+</li>
+<li>
+<p>3.数据增强</p>
+</li>
+<li>
+<p>4.early stopping</p>
+</li>
+</ul>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="chenhongbing.github.io/2019/07/16/机器学习经典算法之正则化/" data-id="cjyjzh98x0034wfjh4glfjndr" class="article-share-link">Share</a>
+      <a data-url="chenhongbing.github.io/2019/07/16/机器学习经典算法之正则化/" data-id="cjyk1srca00312ljhv3gs8kw9" class="article-share-link">Share</a>
       
       
     </footer>
@@ -178,7 +207,7 @@
       <ul>
         
           <li>
-            <a href="/2019/07/16/机器学习经典算法之正则化/">机器学习经典算法之正则化</a>
+            <a href="/2019/07/16/机器学习经典算法之正则化/">机器学习经典算法之正则化的线性回归</a>
           </li>
         
           <li>
