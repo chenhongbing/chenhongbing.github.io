@@ -70,6 +70,55 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-机器学习经典算法之正则化" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/07/16/机器学习经典算法之正则化/" class="article-date">
+  <time datetime="2019-07-16T06:02:03.000Z" itemprop="datePublished">2019-07-16</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/机器学习/">机器学习</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/07/16/机器学习经典算法之正则化/">机器学习经典算法之正则化</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>###　1.什么是正则化</p>
+<h3 id="2正则化怎样帮助我们减缓过拟合"><a class="markdownIt-Anchor" href="#2正则化怎样帮助我们减缓过拟合"></a> 2.正则化怎样帮助我们减缓过拟合</h3>
+<h3 id="3深度学习中应用的不同正则化技巧"><a class="markdownIt-Anchor" href="#3深度学习中应用的不同正则化技巧"></a> 3.深度学习中应用的不同正则化技巧</h3>
+<p>1)L1和L2正则化<br>
+2)Dropout<br>
+3)数据增强<br>
+4)Early stopping</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="chenhongbing.github.io/2019/07/16/机器学习经典算法之正则化/" data-id="cjyjzh98x0034wfjh4glfjndr" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+
+  
     <article id="post-机器学习经典算法之SVM" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2019/07/13/机器学习经典算法之SVM/" class="article-date">
@@ -96,11 +145,23 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        
+        <p>参考链接，<a href="https://zhuanlan.zhihu.com/p/49331510" target="_blank" rel="noopener">看了这篇文章你还不懂SVM你就来打我</a>。</p>
+<h3 id="1概要"><a class="markdownIt-Anchor" href="#1概要"></a> 1.概要</h3>
+<ul>
+<li>
+<p>1.1简介<br>
+说法一:间隔、对偶、核方法；说法二:结构风险最小化；说法三:一张在夏威夷(希尔伯特空间)被爸爸(核方法)教过特别技巧(拉格朗日对偶)的纸(超平面)。<br>
+维基百科定义:支持向量机(support vector machine,SVM)是关于分类与回归问题的监督式学习模型。给定一组训练实例，该训练实例被标记为属于两个类别中的一个或另一个；通过数据训练SVM算法，训练后的SVM算法将新的实例分配给两个类别之一的模型，该分类器模型为非概率二元线性分类器。简单点来说，SVM是一种二分类模型，他的基本模型是定义在特征空间上的间隔最大的线性分类器，SVM的学习策略就是间隔最大化。</p>
+</li>
+<li>
+<p>1.2直观理解</p>
+</li>
+</ul>
+
       
     </div>
     <footer class="article-footer">
-      <a data-url="chenhongbing.github.io/2019/07/13/机器学习经典算法之SVM/" data-id="cjy1if89v0032dmjhd4vebqkg" class="article-share-link">Share</a>
+      <a data-url="chenhongbing.github.io/2019/07/13/机器学习经典算法之SVM/" data-id="cjyjzh98u0031wfjhy3f04k90" class="article-share-link">Share</a>
       
       
     </footer>
@@ -138,22 +199,20 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="线性与回归"><a class="markdownIt-Anchor" href="#线性与回归"></a> 线性与回归</h3>
+        <h3 id="线性与回归概念理解"><a class="markdownIt-Anchor" href="#线性与回归概念理解"></a> 线性与回归概念理解</h3>
 <p>参考链接<a href="https://wasedamagina.github.io/2017/11/13/Linear_Regression/" target="_blank" rel="noopener">线性回归(1)–起源</a>，<a href="https://blog.51cto.com/12133258/2051527" target="_blank" rel="noopener">线性回归</a>。<br>
-线性: 所有的样本点之间的关系可以近似用一条直线来表示。<br>
+线性: 含有一个自变量时，因变量与自变量之间的关系可以用一条直线来表示；含有两个变量时，因变量与自变量之间的关系为平面。<br>
 回归: 以高尔顿研究父代与子代身高关系的数据集为例，当父亲的身高矮于父辈平均身高时，儿子的身高大概率比父亲的身高更高，向着父辈平均身高处靠近；当父亲的身高高于父辈平均身高时，儿子的身高大概率比父亲的身高低，向着父辈的平均身高处靠近；当父亲的身高在父辈平均身高附近时，儿子的身高大概率在父辈平均身高附近。这种现象称之为回归。</p>
 <h3 id="损失代价函数"><a class="markdownIt-Anchor" href="#损失代价函数"></a> 损失(代价)函数</h3>
 <ul>
 <li>
-<p>描述线性回归的损失函数为什么不选择两个值(预测值、真实值)相减、两个值(预测值、真实值)相减的绝对值、两个值(预测值、真实值)相减的三次方、两个值(预测值、真实值)相减的四次方等形式呢?<br>
-　两个值直接相减可能会导致正负抵消，损失不好计算；两个值相减的绝对值函数是不可导的；三次方与四次方计算更加麻烦是更加麻烦。并且似然函数可以转换成最小二乘的形式。因此，在实际应用中，选择预测值与真实值的差平方作为损失函数；要使预测值与真实值十分接近，即使得差平方很小，求得的参数即为预测结果。误差的平方和最小称之为最小二乘法，也叫最小平方法。<br>
-预测结果表示为<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>h</mi><mi>θ</mi></msub><mo stretchy="false">(</mo><mi>x</mi><mo stretchy="false">)</mo><mo>=</mo><msub><mi>θ</mi><mn>0</mn></msub><mo>+</mo><msub><mi>θ</mi><mn>1</mn></msub><msub><mi>x</mi><mn>1</mn></msub><mo>+</mo><msub><mi>θ</mi><mn>2</mn></msub><msub><mi>x</mi><mn>2</mn></msub></mrow><annotation encoding="application/x-tex">h_{\theta}(x)=\theta_{0}+\theta_{1}x_{1}+\theta_{2}x_{2}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord"><span class="mord mathdefault">h</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.33610799999999996em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight" style="margin-right:0.02778em;">θ</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mopen">(</span><span class="mord mathdefault">x</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.84444em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.02778em;">θ</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:-0.02778em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">0</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.84444em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.02778em;">θ</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:-0.02778em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">1</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mord"><span class="mord mathdefault">x</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">1</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.84444em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.02778em;">θ</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:-0.02778em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">2</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mord"><span class="mord mathdefault">x</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">2</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>，其中，<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>θ</mi><mn>0</mn></msub></mrow><annotation encoding="application/x-tex">\theta_{0}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.84444em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.02778em;">θ</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:-0.02778em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">0</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>是与特征无关的常量，由偏置项和误差(随机噪音)组成。</p>
+<p>线性回归的损失函数一般为差平方，为什么不选择两个值(预测值、真实值)直接相减、两个值(预测值、真实值)相减的绝对值、两个值(预测值、真实值)相减的三次方、两个值(预测值、真实值)相减的四次方等形式呢?<br>
+　两个值直接相减可能存在政府差值相互抵消，导致求得的梯度有误；两个值相减的绝对值函数是不可导的；三次方与四次方的计算相比于二次方很麻烦。此外，运用最大似然的思想求最优参数，通过log将高斯分布转换成最小差平方的形式。<br>
+　预测结果表示为<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>h</mi><mi>θ</mi></msub><mo stretchy="false">(</mo><mi>x</mi><mo stretchy="false">)</mo><mo>=</mo><msub><mi>θ</mi><mn>0</mn></msub><mo>+</mo><msub><mi>θ</mi><mn>1</mn></msub><msub><mi>x</mi><mn>1</mn></msub><mo>+</mo><msub><mi>θ</mi><mn>2</mn></msub><msub><mi>x</mi><mn>2</mn></msub></mrow><annotation encoding="application/x-tex">h_{\theta}(x)=\theta_{0}+\theta_{1}x_{1}+\theta_{2}x_{2}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord"><span class="mord mathdefault">h</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.33610799999999996em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight" style="margin-right:0.02778em;">θ</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mopen">(</span><span class="mord mathdefault">x</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.84444em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.02778em;">θ</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:-0.02778em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">0</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.84444em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.02778em;">θ</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:-0.02778em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">1</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mord"><span class="mord mathdefault">x</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">1</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.84444em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.02778em;">θ</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:-0.02778em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">2</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mord"><span class="mord mathdefault">x</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">2</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>，其中，<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>θ</mi><mn>0</mn></msub></mrow><annotation encoding="application/x-tex">\theta_{0}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.84444em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.02778em;">θ</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:-0.02778em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">0</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>是与特征无关的常量，由偏置项和误差(随机噪音)组成。</p>
 </li>
 <li>
-<p>概率密度函数角度之误差<br>
-从概率角度看预测值与真实值，预测值与真实值之间的差距，我们称之为噪音。每个数据的噪音是相互独立，且服从均值为0、方差为<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msup><mi>σ</mi><mn>2</mn></msup></mrow><annotation encoding="application/x-tex">\sigma^{2}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8141079999999999em;vertical-align:0em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.03588em;">σ</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141079999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">2</span></span></span></span></span></span></span></span></span></span></span></span>的高斯分布。噪音的概率密度函数如下:</p>
-</li>
-</ul>
+<p>概率密度函数角度看误差<br>
+　从概率密度函数角度看预测值与真实值，预测值与真实值之间的差距，我们称之为噪音。每个数据的噪音是相互独立的，互相不干扰的；这些噪音都是服从同一个分布。该分布为均值为0、方差为<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msup><mi>σ</mi><mn>2</mn></msup></mrow><annotation encoding="application/x-tex">\sigma^{2}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8141079999999999em;vertical-align:0em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.03588em;">σ</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141079999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">2</span></span></span></span></span></span></span></span></span></span></span></span>的高斯分布。噪音的概率密度函数如下:</p>
 <p class="katex-block"><span class="katex-display"><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>P</mi><mo stretchy="false">(</mo><msup><mi>ϵ</mi><mi>i</mi></msup><mo stretchy="false">)</mo><mo>=</mo><mfrac><mn>1</mn><mrow><msqrt><mrow><mn>2</mn><mi>π</mi></mrow></msqrt><mi>σ</mi></mrow></mfrac><msup><mo><mi>exp</mi><mo>⁡</mo></mo><mrow><mo>−</mo><mo stretchy="false">(</mo><mfrac><mrow><mo stretchy="false">(</mo><mi>ϵ</mi><mo stretchy="false">(</mo><mi>i</mi><mo stretchy="false">)</mo><msup><mo stretchy="false">)</mo><mn>2</mn></msup></mrow><mrow><mn>2</mn><msup><mi>σ</mi><mn>2</mn></msup></mrow></mfrac><mo stretchy="false">)</mo></mrow></msup></mrow><annotation encoding="application/x-tex">P(\epsilon^{i})=\frac{1}{\sqrt{2\pi}\sigma}\exp^{-(\frac{(\epsilon(i))^{2}}{2\sigma^{2}})}
 </annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.1246639999999999em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.13889em;">P</span><span class="mopen">(</span><span class="mord"><span class="mord mathdefault">ϵ</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8746639999999999em;"><span style="top:-3.113em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">i</span></span></span></span></span></span></span></span></span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:2.25909em;vertical-align:-0.93em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.32144em;"><span style="top:-2.2027799999999997em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord sqrt"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.90722em;"><span class="svg-align" style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="mord" style="padding-left:0.833em;"><span class="mord">2</span><span class="mord mathdefault" style="margin-right:0.03588em;">π</span></span></span><span style="top:-2.86722em;"><span class="pstrut" style="height:3em;"></span><span class="hide-tail" style="min-width:0.853em;height:1.08em;"><svg width="400em" height="1.08em" viewbox="0 0 400000 1080" preserveaspectratio="xMinYMin slice"><path d="M95,702c-2.7,0,-7.17,-2.7,-13.5,-8c-5.8,-5.3,-9.5,
 -10,-9.5,-14c0,-2,0.3,-3.3,1,-4c1.3,-2.7,23.83,-20.7,67.5,-54c44.2,-33.3,65.8,
@@ -162,15 +221,20 @@
 -221c5.3,-9.3,12,-14,20,-14H400000v40H845.2724s-225.272,467,-225.272,467
 s-235,486,-235,486c-2.7,4.7,-9,7,-19,7c-6,0,-10,-1,-12,-3s-194,-422,-194,-422
 s-65,47,-65,47z M834 80H400000v40H845z"/></svg></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.13278em;"><span></span></span></span></span></span><span class="mord mathdefault" style="margin-right:0.03588em;">σ</span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.677em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.93em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mop"><span class="mop">exp</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:1.32909em;"><span style="top:-3.4534200000000004em;margin-right:0.05em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">−</span><span class="mopen mtight">(</span><span class="mord mtight"><span class="mopen nulldelimiter sizing reset-size3 size6"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.250957142857143em;"><span style="top:-2.5061857142857145em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size3 size1 mtight"><span class="mord mtight"><span class="mord mtight">2</span><span class="mord mtight"><span class="mord mathdefault mtight" style="margin-right:0.03588em;">σ</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.9384399999999999em;"><span style="top:-2.93844em;margin-right:0.1em;"><span class="pstrut" style="height:2.64444em;"></span><span class="mord mtight"><span class="mord mtight">2</span></span></span></span></span></span></span></span></span></span></span><span style="top:-3.2255000000000003em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line mtight" style="border-bottom-width:0.049em;"></span></span><span style="top:-3.5020714285714285em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size3 size1 mtight"><span class="mord mtight"><span class="mopen mtight">(</span><span class="mord mathdefault mtight">ϵ</span><span class="mopen mtight">(</span><span class="mord mathdefault mtight">i</span><span class="mclose mtight">)</span><span class="mclose mtight"><span class="mclose mtight">)</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:1.04844em;"><span style="top:-3.04844em;margin-right:0.1em;"><span class="pstrut" style="height:2.64444em;"></span><span class="mord mtight"><span class="mord mtight">2</span></span></span></span></span></span></span></span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.49381428571428565em;"><span></span></span></span></span></span><span class="mclose nulldelimiter sizing reset-size3 size6"></span></span><span class="mclose mtight">)</span></span></span></span></span></span></span></span></span></span></span></span></span></p>
-<p>该式是一个数据的噪音服从高斯分布的概率密度函数，表示在误差为<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>ϵ</mi><mo stretchy="false">(</mo><mi>i</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">\epsilon(i)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault">ϵ</span><span class="mopen">(</span><span class="mord mathdefault">i</span><span class="mclose">)</span></span></span></span>条件下，出现的概率。</p>
+</li>
+<li>
+<p>最小二乘法<br>
+最小二乘法(最小平方法)，直接求极值，然后用梯度下降法不断更新坐标点；线性回归的模型假设，其误差函数是一个凸函数，这是可以应用最小二乘法求解的前提。</p>
+</li>
+</ul>
 <h3 id="最极大似然估计"><a class="markdownIt-Anchor" href="#最极大似然估计"></a> 最(极)大似然估计</h3>
 <p>参考链接，<a href="https://wasedamagina.github.io/2017/11/21/Linear-Regression2/" target="_blank" rel="noopener">线性回归(2)——代价函数</a>，<a href="https://www.zhihu.com/question/24124998" target="_blank" rel="noopener">极大似然估计</a>。</p>
 <ul>
 <li>
 <p>基本概念<br>
-概率:以抛硬币为例，已知硬币的参数，去推测抛硬币出现某种情况的大小。<br>
-似然:描述的是结果已知的情况下，该事件在不同条件下发生的可能性。简而言之，即是通过数据，推测参数。<br>
-在求似然的过程中，对参数进行判断，推断出最有可能的参数，称之为最大似然估计。</p>
+概率: 以抛硬币为例，已知硬币的参数，去推测抛硬币出现某种情况的大小。<br>
+似然: 描述的是结果已知的情况下，该事件在不同条件下发生的可能性。简而言之，即是通过数据，推测参数。<br>
+通过似然求参数的过程，推测出最有可能的参数，称之为最大似然估计。</p>
 </li>
 <li>
 <p>噪音高斯分布概率密度函数的转换<br>
@@ -192,31 +256,24 @@ s-65,47,-65,47z M834 80H400000v40H845z"/></svg></span></span></span><span class=
 </ul>
 <h3 id="优化方法"><a class="markdownIt-Anchor" href="#优化方法"></a> 优化方法</h3>
 <ul>
-<li>
-<p>梯度下降法<br>
+<li>梯度下降法<br>
 可参考链接<a href="https://www.jianshu.com/p/c7e642877b0e" target="_blank" rel="noopener">梯度下降法1</a>，<a href="https://wasedamagina.github.io/2017/11/21/Linear-Regression3/" target="_blank" rel="noopener">梯度下降2</a>。<br>
 因为x处的导数值为原函数在点(x,f(x))处切线的斜率，通过求导可以得到函数下降最快的方向，之后不断迭代，即可不断逼近函数的最小值。<br>
-(1)求偏导:对于上面这个例子来说，因为有多个<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>θ</mi></mrow><annotation encoding="application/x-tex">\theta</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.02778em;">θ</span></span></span></span>，我们需要对多个<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>θ</mi></mrow><annotation encoding="application/x-tex">\theta</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.02778em;">θ</span></span></span></span>求偏导，并按照下面的规则更新<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>θ</mi></mrow><annotation encoding="application/x-tex">\theta</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.02778em;">θ</span></span></span></span>值:</p>
-<p class="katex-block"><span class="katex-display"><span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>θ</mi><mrow><mi>j</mi><mo>+</mo><mn>1</mn></mrow></msub><mo>=</mo><msub><mi>θ</mi><mi>j</mi></msub><mo>−</mo><mi>α</mi><mfrac><mrow><mi mathvariant="normal">∂</mi><mi>J</mi><mo stretchy="false">(</mo><mi>θ</mi><mo stretchy="false">)</mo></mrow><mrow><mi mathvariant="normal">∂</mi><msub><mi>θ</mi><mi>j</mi></msub></mrow></mfrac></mrow><annotation encoding="application/x-tex">\theta_{j+1}=\theta_{j}-\alpha\frac{\partial J(\theta)}{\partial \theta_{j}}
+(1)求偏导:对于上面这个例子来说，因为有多个<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>θ</mi></mrow><annotation encoding="application/x-tex">\theta</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.02778em;">θ</span></span></span></span>，我们需要对多个<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>θ</mi></mrow><annotation encoding="application/x-tex">\theta</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.02778em;">θ</span></span></span></span>求偏导，并按照下面的规则更新<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>θ</mi></mrow><annotation encoding="application/x-tex">\theta</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.02778em;">θ</span></span></span></span>值:<p class="katex-block"><span class="katex-display"><span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>θ</mi><mrow><mi>j</mi><mo>+</mo><mn>1</mn></mrow></msub><mo>=</mo><msub><mi>θ</mi><mi>j</mi></msub><mo>−</mo><mi>α</mi><mfrac><mrow><mi mathvariant="normal">∂</mi><mi>J</mi><mo stretchy="false">(</mo><mi>θ</mi><mo stretchy="false">)</mo></mrow><mrow><mi mathvariant="normal">∂</mi><msub><mi>θ</mi><mi>j</mi></msub></mrow></mfrac></mrow><annotation encoding="application/x-tex">\theta_{j+1}=\theta_{j}-\alpha\frac{\partial J(\theta)}{\partial \theta_{j}}
 </annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.980548em;vertical-align:-0.286108em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.02778em;">θ</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.311664em;"><span style="top:-2.5500000000000003em;margin-left:-0.02778em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight" style="margin-right:0.05724em;">j</span><span class="mbin mtight">+</span><span class="mord mtight">1</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.286108em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.980548em;vertical-align:-0.286108em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.02778em;">θ</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.311664em;"><span style="top:-2.5500000000000003em;margin-left:-0.02778em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight" style="margin-right:0.05724em;">j</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.286108em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:2.399108em;vertical-align:-0.972108em;"></span><span class="mord mathdefault" style="margin-right:0.0037em;">α</span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.427em;"><span style="top:-2.314em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord" style="margin-right:0.05556em;">∂</span><span class="mord"><span class="mord mathdefault" style="margin-right:0.02778em;">θ</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.311664em;"><span style="top:-2.5500000000000003em;margin-left:-0.02778em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight" style="margin-right:0.05724em;">j</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.286108em;"><span></span></span></span></span></span></span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.677em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord" style="margin-right:0.05556em;">∂</span><span class="mord mathdefault" style="margin-right:0.09618em;">J</span><span class="mopen">(</span><span class="mord mathdefault" style="margin-right:0.02778em;">θ</span><span class="mclose">)</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.972108em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span></span></span></span></span></p>
-<p>其中，<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>α</mi></mrow><annotation encoding="application/x-tex">\alpha</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.0037em;">α</span></span></span></span>是学习率。<br>
+其中，<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>α</mi></mrow><annotation encoding="application/x-tex">\alpha</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.0037em;">α</span></span></span></span>是学习率。<br>
 (2)更新<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>θ</mi></mrow><annotation encoding="application/x-tex">\theta</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.02778em;">θ</span></span></span></span>值，直到满足停止条件(误差很小或者达到迭代次数)。<br>
-梯度下降法，其得到的是局部最优解，是一步步迭代得到的，而非直接求极值；即可以用于线性模型，也可以用于非线性模型，没有特殊的限制和假设条件。</p>
-</li>
-<li>
-<p>最小二乘法<br>
-最小二乘法(最小平方法)，直接求极值，其得到的是全局最优解，因而步骤简单；线性回归的模型假设，其误差函数是一个凸函数，这是可以应用最小二乘法求解的前提。</p>
-</li>
+梯度下降法，其得到的是局部最优解，是一步步迭代得到的，而非直接求极值；即可以用于线性模型，也可以用于非线性模型，没有特殊的限制和假设条件。</li>
 </ul>
 <h3 id="总结"><a class="markdownIt-Anchor" href="#总结"></a> 总结</h3>
 <p>线性回归的参数求解有两种方案。<br>
-一种是直接构造真实值与预测值之间差平方函数，因为该损失(代价)函数是凸函数，可以直接用最小二乘法求解。<br>
+一种方案是直接构造真实值与预测值之间差平方函数，因为该损失(代价)函数是凸函数，用梯度下降求解梯度，不断更新参数。<br>
 另外一种方案是真实值与预测值之间的误差服从均值为0，方差为<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>θ</mi><mn>2</mn></msub></mrow><annotation encoding="application/x-tex">\theta_{2}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.84444em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.02778em;">θ</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:-0.02778em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">2</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>的高斯分布。根据数据，推测模型的参数，我们称之为似然估计方法。将所有的数据分布概率相乘，使得相乘式子中概率最大的参数，即为我们所求的参数，这种方法我们称之为最大似然估计方法。对于最大似然估计参数的求解，先log，使其变成加法形式，然后再运用梯度下降法逐渐更新参数或者最小二乘法直接求解参数。</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="chenhongbing.github.io/2019/07/11/机器学习经典算法之线性回归/" data-id="cjy1if8a0003admjh0zhstl66" class="article-share-link">Share</a>
+      <a data-url="chenhongbing.github.io/2019/07/11/机器学习经典算法之线性回归/" data-id="cjyjzh98w0032wfjhsqu9kdn7" class="article-share-link">Share</a>
       
       
     </footer>
@@ -265,7 +322,7 @@ BP算法，英文名是Error Back Propagation。译文，误差反向传播算�
       
     </div>
     <footer class="article-footer">
-      <a data-url="chenhongbing.github.io/2019/07/09/深度学习面试之BP/" data-id="cjy1if8bd005fdmjh6664fbyo" class="article-share-link">Share</a>
+      <a data-url="chenhongbing.github.io/2019/07/09/深度学习面试之BP/" data-id="cjyjzh9a60053wfjhucq2n441" class="article-share-link">Share</a>
       
       
     </footer>
@@ -324,7 +381,7 @@ BP算法，英文名是Error Back Propagation。译文，误差反向传播算�
       
     </div>
     <footer class="article-footer">
-      <a data-url="chenhongbing.github.io/2019/07/05/机器学习经典算法之偏差方差/" data-id="cjy1if89x0035dmjhly3v89pa" class="article-share-link">Share</a>
+      <a data-url="chenhongbing.github.io/2019/07/05/机器学习经典算法之偏差方差/" data-id="cjyjzh98o002wwfjhfyta11xw" class="article-share-link">Share</a>
       
       
     </footer>
@@ -389,7 +446,7 @@ Python装饰器本质上是一个函数，可以让其他函数在不需要任�
       
     </div>
     <footer class="article-footer">
-      <a data-url="chenhongbing.github.io/2019/06/29/深度学习面试之Python/" data-id="cjy1if8bf005gdmjhtdth7tyc" class="article-share-link">Share</a>
+      <a data-url="chenhongbing.github.io/2019/06/29/深度学习面试之Python/" data-id="cjyjzh9a80057wfjhwm0jirhr" class="article-share-link">Share</a>
       
       
     </footer>
@@ -521,7 +578,7 @@ GBDT算法是模型为加法模型，基函数为CART树，损失函数为平方
       
     </div>
     <footer class="article-footer">
-      <a data-url="chenhongbing.github.io/2019/06/27/机器学习经典算法之提升方法/" data-id="cjy1if89z0039dmjhfdhaj2tc" class="article-share-link">Share</a>
+      <a data-url="chenhongbing.github.io/2019/06/27/机器学习经典算法之提升方法/" data-id="cjyjzh98t0030wfjh1obsln0h" class="article-share-link">Share</a>
       
       
     </footer>
@@ -562,7 +619,8 @@ GBDT算法是模型为加法模型，基函数为CART树，损失函数为平方
         <p>参考链接，<a href="https://wasedamagina.github.io/2017/11/22/Logistic-Regression/" target="_blank" rel="noopener">逻辑回归</a>.</p>
 <h3 id="线性回归与逻辑斯蒂回归的区别"><a class="markdownIt-Anchor" href="#线性回归与逻辑斯蒂回归的区别"></a> 线性回归与逻辑斯蒂回归的区别</h3>
 <p>(1)线性回归的输出是数值型，而逻辑斯蒂回归的取值范围是在(0,1)之间，并且逻辑斯蒂回归取值的极大概率要么是0、要么是1，取其它概率值可能性很小，在0.5概率处快速跳跃。<br>
-(2)生活中有很多分类的需求，此时线性回归就不能满足要求。那么我们能不能通过稍微改进一下线性回归，使它可以进行分类呢?即通过一个函数将线性方程的值域映射到(0,1)，刚好sigmoid函数满足要求，映射之后的函数称为逻辑斯蒂回归函数。</p>
+(2)生活中有很多分类的需求，此时线性回归就不能满足要求。那么我们能不能通过稍微改进一下线性回归，使它可以进行分类呢?即通过一个函数将线性方程的值域映射到(0,1)，刚好sigmoid函数满足要求，映射之后的函数称为逻辑斯蒂回归函数。<br>
+(3)逻辑斯蒂回归的数据服从伯努利分布。</p>
 <h3 id="逻辑斯蒂函数"><a class="markdownIt-Anchor" href="#逻辑斯蒂函数"></a> 逻辑斯蒂函数</h3>
 <p>Sigmoid函数–&gt;线性回归在Sigmoid函数上进行映射–&gt;逻辑斯蒂函数<br>
 Sigmoid函数，表达式如下:</p>
@@ -613,12 +671,13 @@ Sigmoid函数，表达式如下:</p>
 </li>
 </ul>
 <h3 id="总结"><a class="markdownIt-Anchor" href="#总结"></a> 总结</h3>
-<p>逻辑斯蒂回归可以看做是线性回归的一个拓展，线性回归的取值范围是数值型，不能满足分类的要求。此时，通过Sigmoid函数，可以转换成二分类。差的平方和函数为非凸函数，存在多个极小值点，经比较，选择极大似然估计的方法求解。</p>
+<p>服从伯努利分布的数据，逻辑斯蒂回归可以看做是线性回归的一个拓展，线性回归的取值范围是数值型，不能满足分类的要求。此时，通过Sigmoid函数，可以转换成二分类。差的平方和函数为非凸函数，存在多个极小值点，经比较，选择极大似然估计的方法求解。</p>
+<h3 id="逻辑回归多分类"><a class="markdownIt-Anchor" href="#逻辑回归多分类"></a> 逻辑回归多分类</h3>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="chenhongbing.github.io/2019/06/27/机器学习经典算法之逻辑斯蒂回归/" data-id="cjy1if8a2003ddmjh0l5ulstd" class="article-share-link">Share</a>
+      <a data-url="chenhongbing.github.io/2019/06/27/机器学习经典算法之逻辑斯蒂回归/" data-id="cjyjzh9aa005bwfjhax4e70bl" class="article-share-link">Share</a>
       
       
     </footer>
@@ -794,7 +853,7 @@ b.同时探查所有的分支，并组合他们的结果来得到类别对应的
       
     </div>
     <footer class="article-footer">
-      <a data-url="chenhongbing.github.io/2019/06/19/机器学习经典算法之决策树/" data-id="cjy1if89y0036dmjh34hy1074" class="article-share-link">Share</a>
+      <a data-url="chenhongbing.github.io/2019/06/19/机器学习经典算法之决策树/" data-id="cjyjzh98r002ywfjh6nrkbmxv" class="article-share-link">Share</a>
       
       
     </footer>
@@ -836,49 +895,7 @@ b.同时探查所有的分支，并组合他们的结果来得到类别对应的
       
     </div>
     <footer class="article-footer">
-      <a data-url="chenhongbing.github.io/2019/06/15/深度学习轻量级模型之MobileNet-v2/" data-id="cjy1if8av004mdmjhhd4hopm3" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-
-  
-    <article id="post-深度学习轻量级模型之Xception" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2019/06/15/深度学习轻量级模型之Xception/" class="article-date">
-  <time datetime="2019-06-15T12:28:42.771Z" itemprop="datePublished">2019-06-15</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/轻量级模型/">轻量级模型</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/06/15/深度学习轻量级模型之Xception/">Xception</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="chenhongbing.github.io/2019/06/15/深度学习轻量级模型之Xception/" data-id="cjy1if8b10050dmjh5gmxozeo" class="article-share-link">Share</a>
+      <a data-url="chenhongbing.github.io/2019/06/15/深度学习轻量级模型之MobileNet-v2/" data-id="cjyjzh99o004fwfjhu2d46y7s" class="article-share-link">Share</a>
       
       
     </footer>
@@ -947,6 +964,10 @@ b.同时探查所有的分支，并组合他们的结果来得到类别对应的
       <ul>
         
           <li>
+            <a href="/2019/07/16/机器学习经典算法之正则化/">机器学习经典算法之正则化</a>
+          </li>
+        
+          <li>
             <a href="/2019/07/13/机器学习经典算法之SVM/">机器学习经典算法之SVM</a>
           </li>
         
@@ -960,10 +981,6 @@ b.同时探查所有的分支，并组合他们的结果来得到类别对应的
         
           <li>
             <a href="/2019/07/05/机器学习经典算法之偏差方差/">机器学习经典算法之偏差方差</a>
-          </li>
-        
-          <li>
-            <a href="/2019/06/29/深度学习面试之Python/">深度学习面试之Python</a>
           </li>
         
       </ul>

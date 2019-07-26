@@ -7,14 +7,17 @@
   
   <title>机器学习经典算法之SVM | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="article">
+  <meta name="description" content="参考链接，看了这篇文章你还不懂SVM你就来打我。  1.概要   1.1简介 说法一:间隔、对偶、核方法；说法二:结构风险最小化；说法三:一张在夏威夷(希尔伯特空间)被爸爸(核方法)教过特别技巧(拉格朗日对偶)的纸(超平面)。 维基百科定义:支持向量机(support vector machine,SVM)是关于分类与回归问题的监督式学习模型。给定一组训练实例，该训练实例被标记为属于两个类别中的一">
+<meta property="og:type" content="article">
 <meta property="og:title" content="机器学习经典算法之SVM">
 <meta property="og:url" content="chenhongbing.github.io/2019/07/13/机器学习经典算法之SVM/index.html">
 <meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="参考链接，看了这篇文章你还不懂SVM你就来打我。  1.概要   1.1简介 说法一:间隔、对偶、核方法；说法二:结构风险最小化；说法三:一张在夏威夷(希尔伯特空间)被爸爸(核方法)教过特别技巧(拉格朗日对偶)的纸(超平面)。 维基百科定义:支持向量机(support vector machine,SVM)是关于分类与回归问题的监督式学习模型。给定一组训练实例，该训练实例被标记为属于两个类别中的一">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-07-13T12:28:21.038Z">
+<meta property="og:updated_time" content="2019-07-14T08:52:58.502Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="机器学习经典算法之SVM">
+<meta name="twitter:description" content="参考链接，看了这篇文章你还不懂SVM你就来打我。  1.概要   1.1简介 说法一:间隔、对偶、核方法；说法二:结构风险最小化；说法三:一张在夏威夷(希尔伯特空间)被爸爸(核方法)教过特别技巧(拉格朗日对偶)的纸(超平面)。 维基百科定义:支持向量机(support vector machine,SVM)是关于分类与回归问题的监督式学习模型。给定一组训练实例，该训练实例被标记为属于两个类别中的一">
   
     <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -92,11 +95,23 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        
+        <p>参考链接，<a href="https://zhuanlan.zhihu.com/p/49331510" target="_blank" rel="noopener">看了这篇文章你还不懂SVM你就来打我</a>。</p>
+<h3 id="1概要"><a class="markdownIt-Anchor" href="#1概要"></a> 1.概要</h3>
+<ul>
+<li>
+<p>1.1简介<br>
+说法一:间隔、对偶、核方法；说法二:结构风险最小化；说法三:一张在夏威夷(希尔伯特空间)被爸爸(核方法)教过特别技巧(拉格朗日对偶)的纸(超平面)。<br>
+维基百科定义:支持向量机(support vector machine,SVM)是关于分类与回归问题的监督式学习模型。给定一组训练实例，该训练实例被标记为属于两个类别中的一个或另一个；通过数据训练SVM算法，训练后的SVM算法将新的实例分配给两个类别之一的模型，该分类器模型为非概率二元线性分类器。简单点来说，SVM是一种二分类模型，他的基本模型是定义在特征空间上的间隔最大的线性分类器，SVM的学习策略就是间隔最大化。</p>
+</li>
+<li>
+<p>1.2直观理解</p>
+</li>
+</ul>
+
       
     </div>
     <footer class="article-footer">
-      <a data-url="chenhongbing.github.io/2019/07/13/机器学习经典算法之SVM/" data-id="cjy1if89v0032dmjhd4vebqkg" class="article-share-link">Share</a>
+      <a data-url="chenhongbing.github.io/2019/07/13/机器学习经典算法之SVM/" data-id="cjyjzh98u0031wfjhy3f04k90" class="article-share-link">Share</a>
       
       
     </footer>
@@ -104,6 +119,15 @@
   
     
 <nav id="article-nav">
+  
+    <a href="/2019/07/16/机器学习经典算法之正则化/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          机器学习经典算法之正则化
+        
+      </div>
+    </a>
   
   
     <a href="/2019/07/11/机器学习经典算法之线性回归/" id="article-nav-older" class="article-nav-link-wrap">
@@ -168,6 +192,10 @@
       <ul>
         
           <li>
+            <a href="/2019/07/16/机器学习经典算法之正则化/">机器学习经典算法之正则化</a>
+          </li>
+        
+          <li>
             <a href="/2019/07/13/机器学习经典算法之SVM/">机器学习经典算法之SVM</a>
           </li>
         
@@ -181,10 +209,6 @@
         
           <li>
             <a href="/2019/07/05/机器学习经典算法之偏差方差/">机器学习经典算法之偏差方差</a>
-          </li>
-        
-          <li>
-            <a href="/2019/06/29/深度学习面试之Python/">深度学习面试之Python</a>
           </li>
         
       </ul>
