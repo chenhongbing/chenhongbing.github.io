@@ -70,9 +70,9 @@
       <div class="outer">
         <section id="main">
   
-    <article id="post-机器学习经典算法之正则化" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-机器学习经典算法之正则化的线性回归" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2019/07/16/机器学习经典算法之正则化/" class="article-date">
+    <a href="/2019/07/16/机器学习经典算法之正则化的线性回归/" class="article-date">
   <time datetime="2019-07-16T06:02:03.000Z" itemprop="datePublished">2019-07-16</time>
 </a>
     
@@ -88,7 +88,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2019/07/16/机器学习经典算法之正则化/">机器学习经典算法之正则化的线性回归</a>
+      <a class="article-title" href="/2019/07/16/机器学习经典算法之正则化的线性回归/">机器学习经典算法之正则化的线性回归</a>
     </h1>
   
 
@@ -101,7 +101,7 @@
 <li>
 <p>1.公式<br>
 L1正则化:<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>J</mi><mo stretchy="false">(</mo><mi>θ</mi><mo stretchy="false">)</mo><mo>=</mo><mo stretchy="false">[</mo><msub><mi>y</mi><mi>θ</mi></msub><mo stretchy="false">(</mo><mi>x</mi><mo stretchy="false">)</mo><msup><mo stretchy="false">]</mo><mn>2</mn></msup><mo>+</mo><mo stretchy="false">[</mo><mi mathvariant="normal">∣</mi><msub><mi>θ</mi><mn>1</mn></msub><mi mathvariant="normal">∣</mi><mo>+</mo><mi mathvariant="normal">∣</mi><msub><mi>θ</mi><mn>2</mn></msub><mi mathvariant="normal">∣</mi><mo>+</mo><mi mathvariant="normal">.</mi><mi mathvariant="normal">.</mi><mi mathvariant="normal">.</mi><mo stretchy="false">]</mo></mrow><annotation encoding="application/x-tex">J(\theta)=[y_{\theta}(x)]^{2}+[|\theta_{1}|+|\theta_{2}|+...]</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.09618em;">J</span><span class="mopen">(</span><span class="mord mathdefault" style="margin-right:0.02778em;">θ</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1.064108em;vertical-align:-0.25em;"></span><span class="mopen">[</span><span class="mord"><span class="mord mathdefault" style="margin-right:0.03588em;">y</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.33610799999999996em;"><span style="top:-2.5500000000000003em;margin-left:-0.03588em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight" style="margin-right:0.02778em;">θ</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mopen">(</span><span class="mord mathdefault">x</span><span class="mclose">)</span><span class="mclose"><span class="mclose">]</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141079999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">2</span></span></span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">[</span><span class="mord">∣</span><span class="mord"><span class="mord mathdefault" style="margin-right:0.02778em;">θ</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:-0.02778em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">1</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mord">∣</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">∣</span><span class="mord"><span class="mord mathdefault" style="margin-right:0.02778em;">θ</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:-0.02778em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">2</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mord">∣</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">.</span><span class="mord">.</span><span class="mord">.</span><span class="mclose">]</span></span></span></span>。<br>
-　　L2正则化:<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>J</mi><mo stretchy="false">(</mo><mi>θ</mi><mo stretchy="false">)</mo><mo>=</mo><mo stretchy="false">[</mo><msub><mi>y</mi><mi>θ</mi></msub><mo stretchy="false">(</mo><mi>x</mi><mo stretchy="false">)</mo><msup><mo stretchy="false">]</mo><mn>2</mn></msup><mo>+</mo><mo stretchy="false">[</mo><msubsup><mi>θ</mi><mn>1</mn><mn>2</mn></msubsup><mo>+</mo><msubsup><mi>θ</mi><mn>2</mn><mn>2</mn></msubsup><mo>+</mo><mi mathvariant="normal">.</mi><mi mathvariant="normal">.</mi><mi mathvariant="normal">.</mi><mo stretchy="false">]</mo></mrow><annotation encoding="application/x-tex">J(\theta)=[y_{\theta}(x)]^{2}+[\theta_1^2+\theta_2^2+...]</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.09618em;">J</span><span class="mopen">(</span><span class="mord mathdefault" style="margin-right:0.02778em;">θ</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1.064108em;vertical-align:-0.25em;"></span><span class="mopen">[</span><span class="mord"><span class="mord mathdefault" style="margin-right:0.03588em;">y</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.33610799999999996em;"><span style="top:-2.5500000000000003em;margin-left:-0.03588em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight" style="margin-right:0.02778em;">θ</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mopen">(</span><span class="mord mathdefault">x</span><span class="mclose">)</span><span class="mclose"><span class="mclose">]</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141079999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">2</span></span></span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1.064108em;vertical-align:-0.25em;"></span><span class="mopen">[</span><span class="mord"><span class="mord mathdefault" style="margin-right:0.02778em;">θ</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.8141079999999999em;"><span style="top:-2.4518920000000004em;margin-left:-0.02778em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.24810799999999997em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1.0622159999999998em;vertical-align:-0.24810799999999997em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.02778em;">θ</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.8141079999999999em;"><span style="top:-2.4518920000000004em;margin-left:-0.02778em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.24810799999999997em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">.</span><span class="mord">.</span><span class="mord">.</span><span class="mclose">]</span></span></span></span>。<br>
+L2正则化:<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>J</mi><mo stretchy="false">(</mo><mi>θ</mi><mo stretchy="false">)</mo><mo>=</mo><mo stretchy="false">[</mo><msub><mi>y</mi><mi>θ</mi></msub><mo stretchy="false">(</mo><mi>x</mi><mo stretchy="false">)</mo><msup><mo stretchy="false">]</mo><mn>2</mn></msup><mo>+</mo><mo stretchy="false">[</mo><msubsup><mi>θ</mi><mn>1</mn><mn>2</mn></msubsup><mo>+</mo><msubsup><mi>θ</mi><mn>2</mn><mn>2</mn></msubsup><mo>+</mo><mi mathvariant="normal">.</mi><mi mathvariant="normal">.</mi><mi mathvariant="normal">.</mi><mo stretchy="false">]</mo></mrow><annotation encoding="application/x-tex">J(\theta)=[y_{\theta}(x)]^{2}+[\theta_1^2+\theta_2^2+...]</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.09618em;">J</span><span class="mopen">(</span><span class="mord mathdefault" style="margin-right:0.02778em;">θ</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1.064108em;vertical-align:-0.25em;"></span><span class="mopen">[</span><span class="mord"><span class="mord mathdefault" style="margin-right:0.03588em;">y</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.33610799999999996em;"><span style="top:-2.5500000000000003em;margin-left:-0.03588em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight" style="margin-right:0.02778em;">θ</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mopen">(</span><span class="mord mathdefault">x</span><span class="mclose">)</span><span class="mclose"><span class="mclose">]</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141079999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">2</span></span></span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1.064108em;vertical-align:-0.25em;"></span><span class="mopen">[</span><span class="mord"><span class="mord mathdefault" style="margin-right:0.02778em;">θ</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.8141079999999999em;"><span style="top:-2.4518920000000004em;margin-left:-0.02778em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.24810799999999997em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1.0622159999999998em;vertical-align:-0.24810799999999997em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.02778em;">θ</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.8141079999999999em;"><span style="top:-2.4518920000000004em;margin-left:-0.02778em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.24810799999999997em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">.</span><span class="mord">.</span><span class="mord">.</span><span class="mclose">]</span></span></span></span>。<br>
 误差函数<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>J</mi><mo stretchy="false">(</mo><mi>θ</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">J(\theta)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.09618em;">J</span><span class="mopen">(</span><span class="mord mathdefault" style="margin-right:0.02778em;">θ</span><span class="mclose">)</span></span></span></span>的大小不仅取决于模型y(x)和真实数据y之间的误差大小，还取决于模型的参数值。如果是每个参数的绝对值，称之为L1正则化。如果是每个参数的平方，称之为L2正则化。</p>
 </li>
 <li>
@@ -134,7 +134,7 @@ L1正则化:<span class="katex"><span class="katex-mathml"><math><semantics><mro
       
     </div>
     <footer class="article-footer">
-      <a data-url="chenhongbing.github.io/2019/07/16/机器学习经典算法之正则化/" data-id="cjyk1srca00312ljhv3gs8kw9" class="article-share-link">Share</a>
+      <a data-url="chenhongbing.github.io/2019/07/16/机器学习经典算法之正则化的线性回归/" data-id="cjyk1z35f003a5zjh2ebqp2jk" class="article-share-link">Share</a>
       
       
     </footer>
@@ -188,7 +188,7 @@ L1正则化:<span class="katex"><span class="katex-mathml"><math><semantics><mro
       
     </div>
     <footer class="article-footer">
-      <a data-url="chenhongbing.github.io/2019/07/13/机器学习经典算法之SVM/" data-id="cjyk1srcv003p2ljhhjl25qq0" class="article-share-link">Share</a>
+      <a data-url="chenhongbing.github.io/2019/07/13/机器学习经典算法之SVM/" data-id="cjyk1z35700325zjh9ceco5s8" class="article-share-link">Share</a>
       
       
     </footer>
@@ -300,7 +300,7 @@ s-65,47,-65,47z M834 80H400000v40H845z"/></svg></span></span></span><span class=
       
     </div>
     <footer class="article-footer">
-      <a data-url="chenhongbing.github.io/2019/07/11/机器学习经典算法之线性回归/" data-id="cjyk1srce00352ljhe9g7jppu" class="article-share-link">Share</a>
+      <a data-url="chenhongbing.github.io/2019/07/11/机器学习经典算法之线性回归/" data-id="cjyk1z35i003d5zjh0296oajs" class="article-share-link">Share</a>
       
       
     </footer>
@@ -349,7 +349,7 @@ BP算法，英文名是Error Back Propagation。译文，误差反向传播算�
       
     </div>
     <footer class="article-footer">
-      <a data-url="chenhongbing.github.io/2019/07/09/深度学习面试之BP/" data-id="cjyk1srdt00552ljhx29o0vt9" class="article-share-link">Share</a>
+      <a data-url="chenhongbing.github.io/2019/07/09/深度学习面试之BP/" data-id="cjyk1z36t005o5zjh91gbd4r1" class="article-share-link">Share</a>
       
       
     </footer>
@@ -408,7 +408,7 @@ BP算法，英文名是Error Back Propagation。译文，误差反向传播算�
       
     </div>
     <footer class="article-footer">
-      <a data-url="chenhongbing.github.io/2019/07/05/机器学习经典算法之偏差方差/" data-id="cjyk1src5002u2ljh977ttxyd" class="article-share-link">Share</a>
+      <a data-url="chenhongbing.github.io/2019/07/05/机器学习经典算法之偏差方差/" data-id="cjyk1z35900355zjhvb8hq46s" class="article-share-link">Share</a>
       
       
     </footer>
@@ -473,7 +473,7 @@ Python装饰器本质上是一个函数，可以让其他函数在不需要任�
       
     </div>
     <footer class="article-footer">
-      <a data-url="chenhongbing.github.io/2019/06/29/深度学习面试之Python/" data-id="cjyk1sre9005m2ljhix5sz4co" class="article-share-link">Share</a>
+      <a data-url="chenhongbing.github.io/2019/06/29/深度学习面试之Python/" data-id="cjyk1z36q005j5zjh2xgn3gdc" class="article-share-link">Share</a>
       
       
     </footer>
@@ -605,7 +605,7 @@ GBDT算法是模型为加法模型，基函数为CART树，损失函数为平方
       
     </div>
     <footer class="article-footer">
-      <a data-url="chenhongbing.github.io/2019/06/27/机器学习经典算法之提升方法/" data-id="cjyk1src9002z2ljh1vdxuj76" class="article-share-link">Share</a>
+      <a data-url="chenhongbing.github.io/2019/06/27/机器学习经典算法之提升方法/" data-id="cjyk1z35e00395zjhhqujwxtq" class="article-share-link">Share</a>
       
       
     </footer>
@@ -704,7 +704,7 @@ Sigmoid函数，表达式如下:</p>
       
     </div>
     <footer class="article-footer">
-      <a data-url="chenhongbing.github.io/2019/06/27/机器学习经典算法之逻辑斯蒂回归/" data-id="cjyk1srcg00362ljhw2ezyble" class="article-share-link">Share</a>
+      <a data-url="chenhongbing.github.io/2019/06/27/机器学习经典算法之逻辑斯蒂回归/" data-id="cjyk1z35k003e5zjhlykjayhe" class="article-share-link">Share</a>
       
       
     </footer>
@@ -880,7 +880,7 @@ b.同时探查所有的分支，并组合他们的结果来得到类别对应的
       
     </div>
     <footer class="article-footer">
-      <a data-url="chenhongbing.github.io/2019/06/19/机器学习经典算法之决策树/" data-id="cjyk1src7002x2ljhkswyc9c9" class="article-share-link">Share</a>
+      <a data-url="chenhongbing.github.io/2019/06/19/机器学习经典算法之决策树/" data-id="cjyk1z35c00365zjhd7y9snk9" class="article-share-link">Share</a>
       
       
     </footer>
@@ -922,7 +922,7 @@ b.同时探查所有的分支，并组合他们的结果来得到类别对应的
       
     </div>
     <footer class="article-footer">
-      <a data-url="chenhongbing.github.io/2019/06/15/深度学习轻量级模型之MobileNet-v2/" data-id="cjyk1srdd004e2ljhw0qgw9y7" class="article-share-link">Share</a>
+      <a data-url="chenhongbing.github.io/2019/06/15/深度学习轻量级模型之MobileNet-v2/" data-id="cjyk1z36a004q5zjhas4j7m1u" class="article-share-link">Share</a>
       
       
     </footer>
@@ -991,7 +991,7 @@ b.同时探查所有的分支，并组合他们的结果来得到类别对应的
       <ul>
         
           <li>
-            <a href="/2019/07/16/机器学习经典算法之正则化/">机器学习经典算法之正则化的线性回归</a>
+            <a href="/2019/07/16/机器学习经典算法之正则化的线性回归/">机器学习经典算法之正则化的线性回归</a>
           </li>
         
           <li>
