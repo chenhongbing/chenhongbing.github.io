@@ -17,7 +17,7 @@
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://note.youdao.com/favicon.ico">
 <meta property="og:image" content="/images/demo.JPEG">
-<meta property="og:updated_time" content="2019-06-16T09:59:15.629Z">
+<meta property="og:updated_time" content="2019-07-27T02:16:45.974Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Hexo 环境搭建(2)">
 <meta name="twitter:description" content="9.创建&amp;quot;分类&amp;quot;页面  新建&amp;quot;分类&amp;quot;页面  1$ hexo new page categories 执行完该操作，会在source文件下生成categories文件夹，并且该文件夹下会产生一个index.md文件。  给分类页面添加类型 打开上述index.md，添加type属性。  1234567$ gedit index.md---title: 文章分">
@@ -264,12 +264,12 @@
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- 简单示例 (title, author, url)--&gt;</span><br><span class="line">&#123;% aplayer <span class="string">"想你想你"</span> <span class="string">"白雪"</span> <span class="string">"http://fs.open.kugou.com/f3b2ff334f11bcdf47291299ffb27faf/5d024615/G052/M09/0B/07/dA0DAFZ83-SAbsMEACXUGTUep58541.mp3"</span> %&#125;</span><br></pre></td></tr></table></figure>
 <p>这个链接不管用</p>
 
-        <div id="aplayer-CltEJVoh" class="aplayer aplayer-tag-marker" style="margin-bottom: 20px;">
+        <div id="aplayer-yjZYSbEh" class="aplayer aplayer-tag-marker" style="margin-bottom: 20px;">
             <pre class="aplayer-lrc-content"></pre>
         </div>
         <script>
           var ap = new APlayer({
-            element: document.getElementById("aplayer-CltEJVoh"),
+            element: document.getElementById("aplayer-yjZYSbEh"),
             narrow: false,
             autoplay: false,
             showlrc: false,
@@ -294,20 +294,22 @@
 <ul>
 <li>使用方法<br>
 接着就可以通过 
-    <div id="aplayer-TNlZHIig" class="aplayer aplayer-tag-marker meting-tag-marker" data-id="..." data-server="undefined" data-type="undefined" data-mode="circulation" data-autoplay="false" data-mutex="true" data-listmaxheight="340px" data-preload="auto" data-theme="#ad7a86"></div> 在文章中使用MetingJS播放器了，用法如下:</li>
+    <div id="aplayer-dHWmclSR" class="aplayer aplayer-tag-marker meting-tag-marker" data-id="..." data-server="undefined" data-type="undefined" data-mode="circulation" data-autoplay="false" data-mutex="true" data-listmaxheight="340px" data-preload="auto" data-theme="#ad7a86"></div> 在文章中使用MetingJS播放器了，用法如下:</li>
 </ul>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- 简单示例 (id, server, <span class="built_in">type</span>, [fixed] [mini] [loop] [order] [autoplay] [mutex] [listmaxheight] [preload] [theme])  --&gt;</span><br><span class="line">&#123;% meting <span class="string">"60198"</span> <span class="string">"netease"</span> <span class="string">"playlist"</span> <span class="string">"autoplay"</span> <span class="string">"mutex:false"</span> <span class="string">"listmaxheight:340px"</span> <span class="string">"preload:none"</span> <span class="string">"theme:#ad7a86"</span> %&#125;</span><br></pre></td></tr></table></figure>
 <p>其中，id(歌曲id、播放列表id、相册id)、server(netease、tencent、kugou、xiami、baidu)、type(song、playlist、album、search、artist)是必填项，[]为选填项。</p>
   
-    <div id="aplayer-pYCaYOKN" class="aplayer aplayer-tag-marker meting-tag-marker" data-id="30031035" data-server="netease" data-type="song" data-mode="circulation" data-autoplay="false" data-mutex="true" data-listmaxheight="340px" data-preload="auto" data-theme="#ad7a86"></div>
+    <div id="aplayer-rApfQCwh" class="aplayer aplayer-tag-marker meting-tag-marker" data-id="30031035" data-server="netease" data-type="song" data-mode="circulation" data-autoplay="false" data-mutex="true" data-listmaxheight="340px" data-preload="auto" data-theme="#ad7a86"></div>
 <p>总结:经过实验，因为很多播放器不提供mp3外链，而生成的外链大多时候不管用，会导致播放混乱。所以，APlayer、Meting的音乐尽量选择网易云音乐的链接。</p>
-<h3 id="15评论系统"><a class="markdownIt-Anchor" href="#15评论系统"></a> 15.评论系统</h3>
-<h3 id="16访问人数"><a class="markdownIt-Anchor" href="#16访问人数"></a> 16.访问人数</h3>
+<h3 id="15格式错误"><a class="markdownIt-Anchor" href="#15格式错误"></a> 15.格式错误</h3>
+<p>有时在本地编写的文本已经换行，但是发布在网络上的时候连在一起，并没有换行。这是因为换行没有遵循Markdown语法的格式，Markdown语法的换行是在上一行的末尾空两格，然后按Enter键。</p>
+<h3 id="16评论系统"><a class="markdownIt-Anchor" href="#16评论系统"></a> 16.评论系统</h3>
+<h3 id="17访问人数"><a class="markdownIt-Anchor" href="#17访问人数"></a> 17.访问人数</h3>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="chenhongbing.github.io/2019/06/10/Hexo-环境搭建2/" data-id="cjyk2nxgh002iydjh34q85hp8" class="article-share-link">Share</a>
+      <a data-url="chenhongbing.github.io/2019/06/10/Hexo-环境搭建2/" data-id="cjykwmiwq0027fgjhzcy97pww" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/node-js/">node.js</a></li></ul>
